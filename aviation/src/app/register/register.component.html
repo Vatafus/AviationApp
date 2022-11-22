@@ -1,1 +1,32 @@
-<p>register works!</p>
+<body>
+    <div class="container">
+        <button type="button" class="button1 btn btn-primary btn-block mb-4" routerLink="">Back to Login
+            Page</button>
+        <img src="assets/icons/bckground.png">
+        <h1>FlyBird Register</h1>
+        <form (ngSubmit)="userRegister()">
+            <!--Email Input-->
+
+            <div class="form-outline mb-4">
+                <!--inputul ne spunce ce fel de valoare se doreste de aceea folosim si type-->
+                <input type="email" id="email" class="form-control" placeholder="Email" [(ngModel)]="user.email"
+                    name="email" />
+            </div>
+
+            <!--Password Input-->
+            <!--form-outline mb-4 ne ofera o spatiere frumoasa intre campuri si se face in partea de jos a campului(spatierea)-->
+            <!--form-control formeaza o casuta mai frumoasa-->
+            <div class="form-outline mb-4">
+                <input type="password" id="password1" class="form-control" placeholder="Password"
+                    [(ngModel)]="user.password" name="password" />
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="password" id="password2" class="form-control" placeholder="Re-enter the password"
+                    [(ngModel)]="user.cpassword" name="cpassword" />
+            </div>
+
+            <button type="submit" class="button2 btn btn-primary btn-block mb-4">Register</button>
+        </form>
+    </div>
+</body>
