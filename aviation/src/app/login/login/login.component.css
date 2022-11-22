@@ -1,0 +1,75 @@
+h1 {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 600px;
+}
+
+.form-outline {
+    font-size: x-large;
+}
+
+.form-control {
+    height: 60px;
+    width: 500px;
+    margin-left: 400px;
+}
+
+.form-check-label {
+    font-size: large;
+    margin-top: 4px;
+    margin-left: 5px;
+}
+
+.forgot {
+    font-size: large;
+    margin-top: 5px;
+    margin-left: 100px;
+}
+
+a {
+    color: #19cc82;
+}
+
+.form-check-input {
+    font-size: large;
+    margin-bottom: 20px;
+    margin-left: 290px;
+
+}
+
+#casuta:checked {
+    background-color: #595959;
+}
+
+
+.text-center {
+    font-size: large;
+}
+
+.btn {
+    width: 120px;
+    height: 50px;
+    font-size: large;
+    margin-left: 600px;
+    background-color: #595959;
+    border-color: #595959;
+    color: #19cc82;
+}
+
+.btn:active {
+    background-color: #595959;
+    color: #19cc82;
+
+}
+
+input::placeholder {
+    font-size: large;
+}

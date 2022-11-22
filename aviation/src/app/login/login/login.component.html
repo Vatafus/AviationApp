@@ -1,0 +1,51 @@
+<div class="container">
+    <h1></h1>
+    <div class="image-container">
+        <img src="/assets/FlyBird.png">
+    </div>
+    <form (ngSubmit)="userLogin()">
+        <!--Email Input-->
+        <div class="form-outline mb-4">
+            <!--inputul ne spunce ce fel de valoare se doreste de aceea folosim si type-->
+            <input type="email" [(ngModel)]="user.email" name="email" id="email" class="form-control"
+                placeholder="Email" />
+        </div>
+
+        <!--Password Input-->
+        <!--form-outline mb-4 ne ofera o spatiere frumoasa intre campuri si se face in partea de jos a campului(spatierea)-->
+        <!--form-control formeaza o casuta mai frumoasa-->
+        <div class="form-outline mb-4">
+            <input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control"
+                placeholder="Password" />
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+            <!-- d-flex - flexbox este un modul pentru layout care este folosit pentru a alinia iteme
+            si sa menegeruiasca spatiul dintre ele doar pe o directe coloana sau rand. Si am folosit stilul justify-content-center.
+            -->
+            <div class="col d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" [checked]="false" id="casuta" checked />
+                    <label class="form-check-label" for="remember me"> Remember me </label>
+                </div>
+            </div>
+
+            <div class="col">
+                <!-- Simple link -->
+                <div class="forgot">
+                    <a href="#!">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Submit button -->
+        <button (click)="userLogin" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+        <!-- Register buttons -->
+        <div class="text-center">
+            <p>Not a member? <a routerLink="/register">Register </a></p>
+        </div>
+    </form>
+</div>
