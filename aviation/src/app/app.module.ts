@@ -10,12 +10,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { WelcomeComponent } from './welcome/welcome/welcome.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
