@@ -1,6 +1,6 @@
 h1 {
     text-align: center;
-    margin-top: -50px;
+    margin-top: 100px;
 }
 
 .image-container {
@@ -72,4 +72,179 @@ a {
 
 input::placeholder {
     font-size: large;
+}
+
+
+/*
+Pagina responsive
+*/
+
+
+@media screen and (max-width:390.20px) {
+
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        margin-left: 180px;
+    }
+
+    img {
+        width: 500px;
+    }
+
+    .form-outline {
+        font-size: x-large;
+    }
+
+    .form-control {
+        height: 60px;
+        width: 500px;
+        margin-left: 5px;
+    }
+
+    .form-check-label {
+        font-size: large;
+        margin-top: 0px;
+        margin-left: 50px;
+    }
+
+    .forgot {
+        font-size: large;
+        margin-top: -25.5px;
+        margin-left: 320px;
+        width: 150px;
+
+    }
+
+    a {
+        color: #19cc82;
+    }
+
+    .form-check-input {
+        font-size: large;
+        margin-top: 20px;
+        margin-left: 184.9px;
+        margin-bottom: -19.3px;
+
+
+    }
+
+    #casuta:checked {
+        background-color: #595959;
+    }
+
+
+    .text-center {
+        font-size: large;
+        margin-left: 198px;
+        width: 150px;
+    }
+
+    .btn {
+        width: 120px;
+        height: 50px;
+        font-size: large;
+        margin-left: 210px;
+        background-color: #595959;
+        border-color: #595959;
+        color: #19cc82;
+    }
+
+    .btn:active {
+        background-color: #595959;
+        color: #19cc82;
+
+    }
+
+    input::placeholder {
+        font-size: large;
+    }
+
+
+}
+
+@media screen and (width:1920px) {
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        width: 500px;
+    }
+
+    .form-outline {
+        font-size: x-large;
+    }
+
+    .form-control {
+        height: 60px;
+        width: 500px;
+        margin-left: 400px;
+    }
+
+    .form-check-label {
+        font-size: large;
+        margin-top: 4px;
+        margin-left: 5px;
+    }
+
+    .forgot {
+        font-size: large;
+        margin-top: 5px;
+        margin-left: 100px;
+    }
+
+    a {
+        color: #19cc82;
+    }
+
+    .form-check-input {
+        font-size: large;
+        margin-bottom: 20px;
+        margin-left: 290px;
+
+    }
+
+    #casuta:checked {
+        background-color: #595959;
+    }
+
+
+    .text-center {
+        font-size: large;
+    }
+
+    .btn {
+        width: 120px;
+        height: 50px;
+        font-size: large;
+        margin-left: 600px;
+        background-color: #595959;
+        border-color: #595959;
+        color: #19cc82;
+    }
+
+    .btn:active {
+        background-color: #595959;
+        color: #19cc82;
+
+    }
+
+    input::placeholder {
+        font-size: large;
+    }
+
+
 }
