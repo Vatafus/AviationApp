@@ -80,7 +80,7 @@ Pagina responsive
 */
 
 
-@media screen and (max-width:390.20px) {
+@media screen and (max-width:390px) {
 
     h1 {
         text-align: center;
@@ -168,7 +168,7 @@ Pagina responsive
 
 }
 
-@media screen and (width:1920px) {
+@media screen and (max-width:1920px) {
 
     h1 {
         text-align: center;
