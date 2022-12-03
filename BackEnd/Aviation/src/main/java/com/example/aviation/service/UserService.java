@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -33,4 +35,8 @@ public class UserService {
         Long newUserId = userRepo.save(user).getId();
         return newUserId;
     }
+// -------------Folosit pentru testare Spring Security--------------
+//    public List<User> getUsers(){
+//        return userRepo.findAll();
+//    }
 }

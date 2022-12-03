@@ -1,5 +1,6 @@
 package com.example.aviation.controller;
 
+import com.example.aviation.domain.User;
 import com.example.aviation.dto.CreateDTO;
 import com.example.aviation.dto.UserDTO;
 import com.example.aviation.exception.UserRegistrationException;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -26,4 +28,9 @@ public class UserController {
         Long newUserId = userService.register(user);
         return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
     }
+//------------Folosit doar pentru testare Spring Security --------------
+//    @GetMapping("/users")
+//    public ResponseEntity<List<User>>getUsers(){
+//        return ResponseEntity.ok().body(userService.getUsers());
+//    }
 }
