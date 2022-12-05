@@ -248,3 +248,20 @@ Pagina responsive
 
 
 }
+
+
+svg {
+    height: 20px;
+    padding-left: 20px;
+}
+
+span {
+    font-size: 16px;
+    padding-right: 20px;
+    padding-top: 50px;
+    color: #595959;
+}
+
+.back {
+    text-decoration: none;
+}

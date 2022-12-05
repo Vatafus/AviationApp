@@ -11,13 +11,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { WelcomeComponent } from './welcome/welcome/welcome.component';
 import { RegisterComponent } from './register/register.component';
+import { AircraftComponent } from './aircraft/aircraft.component';
+import { Boeng727Component } from './boeng727/boeng727.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WelcomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AircraftComponent,
+    Boeng727Component
   ],
   imports: [
     BrowserModule,

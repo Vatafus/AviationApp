@@ -38,7 +38,7 @@
 }
 
 .nav-item {
-    padding-top: 40px;
+    padding-top: 36px;
     padding-left: 20px;
 }
 
@@ -86,4 +86,45 @@
 
 .register:hover {
     color: #19cc82;
+}
+
+.nav-link:focus {
+    color: #19cc82;
+}
+
+.dropdown-menu {
+    min-width: 50rem;
+    min-height: 50rem;
+    right: 0px;
+    left: auto;
+    background-color: #595959;
+}
+
+.dropdown-menu ol,
+.drop {
+    display: inline;
+    overflow: hidden;
+}
+
+.drop {
+    font-size: x-large;
+    color: #19cc82;
+    background-color: #595959;
+}
+
+.drop:hover,
+.drop:focus {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.aircraftmodel {
+    list-style-type: none;
+    color: #19cc82;
+    font-size: large;
+    padding-left: 18px;
+}
+
+.aircraftmodel a {
+    text-decoration: none;
 }
