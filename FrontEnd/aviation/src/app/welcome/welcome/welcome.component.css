@@ -134,7 +134,7 @@
 @media screen and (max-width:2048px) {
     .container {
         max-width: 100%;
-        width: 120rem;
+        width: 110rem;
     }
 
     .navbar {
@@ -159,7 +159,7 @@
     }
 
     .navbar-nav {
-        padding-left: 1100px;
+        padding-left: 800px;
         height: 74px;
     }
 
@@ -182,7 +182,7 @@
         position: absolute;
         margin-left: 50px;
         margin-bottom: 70px;
-        padding-left: 1280px;
+        padding-left: 960px;
         height: 30px;
         width: 10px;
 
@@ -227,8 +227,8 @@
     }
 
     .dropdown-menu {
-        min-width: 50rem;
-        min-height: 50rem;
+        min-width: 40rem;
+        min-height: 30rem;
         right: 0px;
         left: auto;
         background-color: #595959;
