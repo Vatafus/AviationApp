@@ -13,6 +13,7 @@ import { WelcomeComponent } from './welcome/welcome/welcome.component';
 import { RegisterComponent } from './register/register.component';
 import { AircraftComponent } from './aircraft/aircraft.component';
 import { Boeng727Component } from './boeng727/boeng727.component';
+import { FlyComponent } from './fly/fly.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Boeng727Component } from './boeng727/boeng727.component';
     WelcomeComponent,
     RegisterComponent,
     AircraftComponent,
-    Boeng727Component
+    Boeng727Component,
+    FlyComponent
   ],
   imports: [
     BrowserModule,
