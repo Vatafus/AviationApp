@@ -128,3 +128,139 @@
 .aircraftmodel a {
     text-decoration: none;
 }
+
+
+
+@media screen and (max-width:2048px) {
+    .container {
+        max-width: 100%;
+        width: 120rem;
+    }
+
+    .navbar {
+        background-color: #595959;
+        height: 130px;
+        font-size: x-large;
+    }
+
+    .logo {
+        padding-top: 28px;
+        width: 170px;
+        position: fixed;
+        padding-left: 0px;
+    }
+
+
+    .navbar-brand {
+        padding-top: 40px;
+        color: #19cc82;
+        padding-left: 120px;
+        font-size: 40px;
+    }
+
+    .navbar-nav {
+        padding-left: 1100px;
+        height: 74px;
+    }
+
+    .nav-link {
+        color: white;
+    }
+
+    .nav-link:hover {
+        color: #19cc82;
+    }
+
+    .nav-item {
+        padding-top: 36px;
+        padding-left: 20px;
+    }
+
+    .navbar1 {
+        list-style-type: none;
+        font-size: large;
+        position: absolute;
+        margin-left: 50px;
+        margin-bottom: 70px;
+        padding-left: 1280px;
+        height: 30px;
+        width: 10px;
+
+    }
+
+    .navbar1 li {
+        display: inline;
+    }
+
+    .nav-itemL {
+        height: 44.35px;
+        padding-right: 30px;
+    }
+
+    .nav-itemR {
+        width: 44.35px;
+        padding-left: 0px;
+    }
+
+    .login {
+        text-decoration: none;
+        color: white;
+    }
+
+
+    .register {
+        text-decoration: none;
+        color: white;
+    }
+
+    .login:hover {
+        color: #19cc82;
+
+    }
+
+    .register:hover {
+        color: #19cc82;
+    }
+
+    .nav-link:focus {
+        color: #19cc82;
+    }
+
+    .dropdown-menu {
+        min-width: 50rem;
+        min-height: 50rem;
+        right: 0px;
+        left: auto;
+        background-color: #595959;
+    }
+
+    .dropdown-menu ol,
+    .drop {
+        display: inline;
+        overflow: hidden;
+    }
+
+    .drop {
+        font-size: x-large;
+        color: #19cc82;
+        background-color: #595959;
+    }
+
+    .drop:hover,
+    .drop:focus {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .aircraftmodel {
+        list-style-type: none;
+        color: #19cc82;
+        font-size: large;
+        padding-left: 18px;
+    }
+
+    .aircraftmodel a {
+        text-decoration: none;
+    }
+
+}

@@ -1,6 +1,5 @@
 h1 {
     text-align: center;
-    margin-top: 100px;
 }
 
 .image-container {
@@ -74,6 +73,22 @@ input::placeholder {
     font-size: large;
 }
 
+svg {
+    height: 20px;
+    padding-left: 20px;
+}
+
+span {
+    font-size: 16px;
+    padding-right: 20px;
+    padding-top: 50px;
+    color: #595959;
+}
+
+.back {
+    text-decoration: none;
+}
+
 
 /*
 Pagina responsive
@@ -84,7 +99,7 @@ Pagina responsive
 
     h1 {
         text-align: center;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 
     .image-container {
@@ -165,6 +180,22 @@ Pagina responsive
         font-size: large;
     }
 
+    svg {
+        height: 20px;
+        padding-left: 20px;
+    }
+
+    span {
+        font-size: 16px;
+        padding-right: 20px;
+        padding-top: 50px;
+        color: #595959;
+    }
+
+    .back {
+        text-decoration: none;
+    }
+
 
 }
 
@@ -172,7 +203,6 @@ Pagina responsive
 
     h1 {
         text-align: center;
-        margin-top: 20px;
     }
 
     .image-container {
@@ -246,22 +276,21 @@ Pagina responsive
         font-size: large;
     }
 
+    svg {
+        height: 20px;
+        padding-left: 20px;
+    }
 
-}
+    span {
+        font-size: 16px;
+        padding-right: 20px;
+        padding-top: 50px;
+        color: #595959;
+    }
+
+    .back {
+        text-decoration: none;
+    }
 
 
-svg {
-    height: 20px;
-    padding-left: 20px;
-}
-
-span {
-    font-size: 16px;
-    padding-right: 20px;
-    padding-top: 50px;
-    color: #595959;
-}
-
-.back {
-    text-decoration: none;
 }
