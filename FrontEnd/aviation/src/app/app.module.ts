@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
-import { WelcomeComponent } from './welcome/welcome/welcome.component';
+import { NavbarComponent } from './welcome/navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { AircraftComponent } from './aircraft/aircraft.component';
 import { Boeng727Component } from './boeng727/boeng727.component';
@@ -19,7 +19,7 @@ import { FlyComponent } from './fly/fly.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    WelcomeComponent,
+    NavbarComponent,
     RegisterComponent,
     AircraftComponent,
     Boeng727Component,

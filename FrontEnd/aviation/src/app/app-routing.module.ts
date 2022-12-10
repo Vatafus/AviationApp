@@ -4,10 +4,10 @@ import { AircraftComponent } from './aircraft/aircraft.component';
 import { Boeng727Component } from './boeng727/boeng727.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { WelcomeComponent } from './welcome/welcome/welcome.component';
+import { NavbarComponent } from './welcome/navbar/navbar.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
+  { path: '', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'aircraft', component: AircraftComponent },
   { path: 'boeng727', component: Boeng727Component },
