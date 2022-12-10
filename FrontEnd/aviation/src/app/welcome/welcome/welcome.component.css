@@ -93,16 +93,15 @@
 }
 
 .dropdown-menu {
-    min-width: 50rem;
-    min-height: 50rem;
+    min-width: 52rem;
+    min-height: 40rem;
     right: 0px;
     left: auto;
     background-color: #595959;
 }
 
-.dropdown-menu ol,
 .drop {
-    display: inline;
+    display: inline-block;
     overflow: hidden;
 }
 
@@ -118,11 +117,18 @@
     cursor: pointer;
 }
 
+.dropdown-menu ul {
+    width: 200px;
+    padding-left: 60px;
+}
+
+
+
 .aircraftmodel {
     list-style-type: none;
     color: #19cc82;
     font-size: large;
-    padding-left: 18px;
+    padding-left: 3px;
 }
 
 .aircraftmodel a {
