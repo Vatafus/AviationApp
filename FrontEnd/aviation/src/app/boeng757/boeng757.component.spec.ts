@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Boeng727Component } from './boeng727.component';
+import { Boeng757Component } from './boeng757.component';
 
-describe('Boeng727Component', () => {
-  let component: Boeng727Component;
-  let fixture: ComponentFixture<Boeng727Component>;
+describe('Boeng757Component', () => {
+  let component: Boeng757Component;
+  let fixture: ComponentFixture<Boeng757Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Boeng727Component ]
+      declarations: [Boeng757Component]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(Boeng727Component);
+    fixture = TestBed.createComponent(Boeng757Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

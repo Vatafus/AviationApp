@@ -12,7 +12,8 @@
 .logo {
     padding-top: 28px;
     width: 170px;
-    position: fixed;
+    position: absolute;
+    ;
     padding-left: 0px;
 }
 

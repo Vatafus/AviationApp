@@ -12,7 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { NavbarComponent } from './welcome/navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { AircraftComponent } from './aircraft/aircraft.component';
-import { Boeng727Component } from './boeng727/boeng727.component';
+import { Boeng757Component } from './boeng757/boeng757.component';
 import { FlyComponent } from './fly/fly.component';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { FlyComponent } from './fly/fly.component';
     NavbarComponent,
     RegisterComponent,
     AircraftComponent,
-    Boeng727Component,
+    Boeng757Component,
     FlyComponent
   ],
   imports: [
