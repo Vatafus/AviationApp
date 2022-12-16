@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: '', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'aircraft', component: AircraftComponent },
-  { path: 'boeng727', component: Boeng757Component },
+  { path: 'boeng757', component: Boeng757Component },
   { path: 'register', component: RegisterComponent }
 
 ];
