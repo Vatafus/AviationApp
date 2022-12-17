@@ -5,12 +5,15 @@ import { Boeng757Component } from './boeng757/boeng757.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './welcome/navbar/navbar.component';
+import { RouteGuardService } from './services/route-guard.service';
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
-  { path: '', component: NavbarComponent },
+  { path: '', component: LoginComponent, canActivate: [RouteGuardService] }, //TO Change with Welcome Component TODO
   { path: 'login', component: LoginComponent },
-  { path: 'aircraft', component: AircraftComponent },
-  { path: 'boeng757', component: Boeng757Component },
+  { path: 'aircraft', component: AircraftComponent, canActivate: [RouteGuardService] },
+  { path: 'boeng757', component: Boeng757Component, canActivate: [RouteGuardService] },
+  { path: 'welcome', component: WelcomepageComponent, canActivate: [RouteGuardService] },
   { path: 'register', component: RegisterComponent }
 
 ];

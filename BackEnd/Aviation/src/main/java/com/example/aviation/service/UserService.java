@@ -1,7 +1,10 @@
 package com.example.aviation.service;
 
 import com.example.aviation.domain.User;
+import com.example.aviation.dto.LoginDTO;
 import com.example.aviation.dto.UserDTO;
+import com.example.aviation.exception.InvalidPasswordException;
+import com.example.aviation.exception.NotLoggedInException;
 import com.example.aviation.exception.UserRegistrationException;
 import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,17 @@ public class UserService {
         userRepo.save(user);
         Long newUserId = userRepo.save(user).getId();
         return newUserId;
+    }
+
+    public User login(LoginDTO user) throws InvalidPasswordException, NotLoggedInException{
+        User u = userRepo.findUserByEmail(user.getEmail());
+        if(u == null){
+            throw new NotLoggedInException("Invalid Email!");
+        }
+        if (!user.getPassword().equals(u.getPassword())){
+            throw new InvalidPasswordException("Invalid Password!");
+        }
+        return u;
     }
 // -------------Folosit pentru testare Spring Security--------------
 //    public List<User> getUsers(){

@@ -18,4 +18,13 @@ export class LoginService {
     sessionStorage.setItem('authenticaterUser', user.email);
     return this.httpclient.post(`${this.baseUrl}`, user);
   }
+
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('authenticaterUser')
+    return !(user === null)
+  }
+
+  logout() {
+    sessionStorage.removeItem('authenticaterUser')
+  }
 }

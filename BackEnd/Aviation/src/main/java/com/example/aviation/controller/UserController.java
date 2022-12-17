@@ -2,8 +2,10 @@ package com.example.aviation.controller;
 
 import com.example.aviation.domain.User;
 import com.example.aviation.dto.CreateDTO;
+import com.example.aviation.dto.LoginDTO;
+import com.example.aviation.dto.ResponseDTO;
 import com.example.aviation.dto.UserDTO;
-import com.example.aviation.exception.UserRegistrationException;
+import com.example.aviation.exception.*;
 import com.example.aviation.service.UserService;
 import com.example.aviation.validation.Validation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,12 @@ public class UserController {
         Validation.validateUserPassword(user.getPassword(), user.getCpassword());
         Long newUserId = userService.register(user);
         return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid LoginDTO user) throws UserException, InvalidPasswordException, NoEmailException, NotLoggedInException {
+        User u = userService.login(user);
+        return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
     }
 //------------Folosit doar pentru testare Spring Security --------------
 //    @GetMapping("/users")
