@@ -74,6 +74,11 @@
     color: white;
 }
 
+.logout {
+    text-decoration: none;
+    color: white;
+}
+
 
 .register {
     text-decoration: none;
@@ -83,6 +88,10 @@
 .login:hover {
     color: #19cc82;
 
+}
+
+.logout:hover {
+    color: #19cc82;
 }
 
 .register:hover {
@@ -221,6 +230,11 @@
         color: white;
     }
 
+    .logout {
+        text-decoration: none;
+        color: white;
+    }
+
 
     .register {
         text-decoration: none;
@@ -230,6 +244,10 @@
     .login:hover {
         color: #19cc82;
 
+    }
+
+    .logout:hover {
+        color: #19cc82;
     }
 
     .register:hover {

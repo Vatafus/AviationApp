@@ -9,7 +9,7 @@ import { RouteGuardService } from './services/route-guard.service';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, canActivate: [RouteGuardService] }, //TO Change with Welcome Component TODO
+  { path: '', component: LoginComponent }, //TO Change with Welcome Component TODO
   { path: 'login', component: LoginComponent },
   { path: 'aircraft', component: AircraftComponent, canActivate: [RouteGuardService] },
   { path: 'boeng757', component: Boeng757Component, canActivate: [RouteGuardService] },
