@@ -20,11 +20,11 @@ export class LoginService {
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem('authenticaterUser')
-    return !(user === null)
+    let user = sessionStorage.getItem('authenticaterUser');
+    return !(user === null);
   }
 
   logout() {
-    sessionStorage.removeItem('authenticaterUser')
+    sessionStorage.removeItem('authenticaterUser');
   }
 }

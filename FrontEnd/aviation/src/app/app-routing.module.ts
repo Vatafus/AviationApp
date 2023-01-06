@@ -4,7 +4,6 @@ import { AircraftComponent } from './aircraft/aircraft.component';
 import { Boeng757Component } from './boeng757/boeng757.component';
 import { LoginComponent } from './login/login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { NavbarComponent } from './welcome/navbar/navbar.component';
 import { RouteGuardService } from './services/route-guard.service';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
@@ -13,7 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'aircraft', component: AircraftComponent, canActivate: [RouteGuardService] },
   { path: 'boeng757', component: Boeng757Component, canActivate: [RouteGuardService] },
-  { path: 'welcome', component: WelcomepageComponent, canActivate: [RouteGuardService] },
+  { path: 'welcome', component: WelcomepageComponent },
   { path: 'register', component: RegisterComponent }
 
 ];

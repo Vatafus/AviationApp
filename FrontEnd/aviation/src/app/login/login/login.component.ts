@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: Router,
     private loginService: LoginService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   userLogin() {
     console.log(this.user)
     this.loginService.loginUser(this.user).subscribe(value => {
-      this.route.navigate(['/welcome'])
+      this.route.navigate(['/boeng757'])
     }, error => alert("Sorry please enter a valid Email")
     );
   }
