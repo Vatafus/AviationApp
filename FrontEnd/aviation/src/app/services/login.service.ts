@@ -13,17 +13,19 @@ export class LoginService {
   invalidLogin = false
   constructor(private httpclient: HttpClient, private router: Router) { }
 
+  //Aici se face apelarea catre backend si se seteaza in momentul in care un user este logat in SessionStorage,
+  //emailul cu care s-a autentificat userul.
   loginUser(user: UserLogin): Observable<Object> {
     console.log(user);
     sessionStorage.setItem('authenticaterUser', user.email);
     return this.httpclient.post(`${this.baseUrl}`, user);
   }
-
+  //Se verifica daca userul este logat.
   isUserLoggedIn() {
     let user = sessionStorage.getItem('authenticaterUser');
     return !(user === null);
   }
-
+  //Are loc logout-ul utilizatorului prin inlaturarea token-ului de autentificare de la logare.
   logout() {
     sessionStorage.removeItem('authenticaterUser');
   }

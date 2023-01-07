@@ -11,6 +11,7 @@ export class RegisterService {
 
   constructor(private httpclient: HttpClient) { }
 
+  //Aici se face apelarea catre backend pentru inregistrarea unui nou utilizator
   registerUser(user: User): Observable<Object> {
     console.log(user);
     return this.httpclient.post(`${this.baseUrl}`, user);
