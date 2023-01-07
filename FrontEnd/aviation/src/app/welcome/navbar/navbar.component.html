@@ -4,7 +4,8 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
             integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
             crossorigin="anonymous"></script>
-        <div *ngIf="loginService.isUserLoggedIn()" class="container">
+        <!--Am folosit instructiunea *ngIf pentru a conditiona aparitia navbarului doar in momentul in care un utilizator este logat -->
+        <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <img class="logo" src="assets/icons/bckground.png">
