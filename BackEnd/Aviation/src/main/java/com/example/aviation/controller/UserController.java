@@ -36,6 +36,11 @@ public class UserController {
         User u = userService.login(user);
         return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
     }
+
+    @GetMapping("/all-users")
+    public List<User> getAllUsers(){
+        return this.userService.getAllUsers();
+    }
 //------------Folosit doar pentru testare Spring Security --------------
 //    @GetMapping("/users")
 //    public ResponseEntity<List<User>>getUsers(){

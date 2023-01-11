@@ -49,6 +49,11 @@ public class UserService {
         }
         return u;
     }
+
+
+    public List<User> getAllUsers(){
+        return userRepo.findAll();
+    }
 // -------------Folosit pentru testare Spring Security--------------
 //    public List<User> getUsers(){
 //        return userRepo.findAll();
