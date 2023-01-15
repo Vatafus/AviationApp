@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,6 +15,7 @@ import { AircraftComponent } from './aircraft/aircraft.component';
 import { Boeng757Component } from './boeng757/boeng757.component';
 import { FlyComponent } from './fly/fly.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
+import { HttpIntercepterService } from './services/http/http-intercepter.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
     BrowserAnimationsModule,
     MatTableModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
