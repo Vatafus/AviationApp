@@ -1,0 +1,9 @@
+.container {
+    position: sticky;
+    bottom: 0px;
+    background-color: #595959;
+    color: whitesmoke;
+    max-width: 100%;
+    width: 140rem;
+    padding-left: 1100px;
+}

@@ -16,6 +16,8 @@ import { Boeng757Component } from './boeng757/boeng757.component';
 import { FlyComponent } from './fly/fly.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { HttpIntercepterService } from './services/http/http-intercepter.service';
+import { FooterComponent } from './footer/footer.component';
+import { FoodComponent } from './food/food.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { HttpIntercepterService } from './services/http/http-intercepter.service
     AircraftComponent,
     Boeng757Component,
     FlyComponent,
-    WelcomepageComponent
+    WelcomepageComponent,
+    FooterComponent,
+    FoodComponent
   ],
   imports: [
     BrowserModule,
