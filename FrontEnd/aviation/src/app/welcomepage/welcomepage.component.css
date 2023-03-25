@@ -22,9 +22,39 @@
     bottom: 150px;
 }
 
+.news {
+    position: absolute;
+    height: 198px;
+    width: 374px;
+    border-radius: 5px 5px 0 0;
+    right: 0px;
+    bottom: 150px;
+
+}
+
+.travel {
+    position: absolute;
+    height: 198px;
+    width: 375px;
+    border-radius: 5px 5px 0 0;
+    right: 0px;
+    bottom: 150px;
+
+}
+
 .card-title {
     position: relative;
     padding-top: 190px;
     font-size: medium;
     font-weight: bold;
+}
+
+
+.link {
+    color: #149f65;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
