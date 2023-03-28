@@ -93,7 +93,7 @@
 
     .card {
         height: 350px;
-        border-style: none;
+        width: 376.5px;
         padding-right: 30px;
     }
 
@@ -112,18 +112,17 @@
         width: 374px;
         border-radius: 5px 5px 0 0;
         right: 0px;
-        bottom: 150px;
+        bottom: 151px;
 
     }
 
     .travel {
         position: absolute;
         height: 198px;
-        width: 375px;
+        width: 376px;
         border-radius: 5px 5px 0 0;
-        right: 0px;
-        bottom: 150px;
-
+        bottom: 151px;
+        left: 0px;
     }
 
     .card-title {

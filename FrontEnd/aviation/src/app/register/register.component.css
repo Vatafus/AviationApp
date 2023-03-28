@@ -41,6 +41,33 @@ img {
 
 }
 
-/* .container {
-    height: auto;
-} */
+@media screen and (max-width:2700px) {
+
+    img {
+        margin-left: -200px;
+        height: 600px;
+        width: 650px;
+        position: absolute;
+        padding-left: 100px;
+        bottom: 200px;
+
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 160px;
+    }
+
+    .button1 {
+        margin-top: -90px;
+        /* position: fixed; */
+        width: 200px;
+        height: 50px;
+        font-size: large;
+        position: absolute;
+        background-color: #595959;
+        border-color: #595959;
+        color: #19cc82;
+        margin-left: 1000px;
+    }
+}
