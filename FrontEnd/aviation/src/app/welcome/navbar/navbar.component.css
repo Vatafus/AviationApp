@@ -153,7 +153,7 @@
 
 
 
-@media screen and (max-width:2048px) {
+@media screen and (max-width:2700px) {
     .container {
         max-width: 100%;
         width: 110rem;
@@ -220,7 +220,7 @@
     }
 
     .nav-itemR {
-        width: 44.35px;
+        width: 40.35px;
         padding-left: 0px;
     }
 
@@ -258,40 +258,53 @@
     }
 
     .dropdown-menu {
-        min-width: 40rem;
+        min-width: 52rem;
         min-height: 30rem;
         right: 0px;
         left: auto;
         background-color: #595959;
     }
 
-    .dropdown-menu ol,
     .drop {
-        display: inline;
+        display: inline-block;
         overflow: hidden;
     }
 
     .drop {
-        font-size: x-large;
+        font-size: large;
         color: #19cc82;
         background-color: #595959;
     }
 
     .drop:hover,
     .drop:focus {
-        text-decoration: underline;
         cursor: pointer;
     }
 
+    .dropdown-menu ul {
+        width: 120px;
+        height: 91px;
+        margin-left: 35px;
+        margin-right: 50px;
+
+    }
+
+
+
     .aircraftmodel {
         list-style-type: none;
-        color: #19cc82;
         font-size: large;
-        padding-left: 18px;
+        width: 100px;
     }
 
     .aircraftmodel a {
         text-decoration: none;
+        width: 10px;
+        color: whitesmoke;
+    }
+
+    .aircraftmodel a:hover {
+        text-decoration: underline;
     }
 
 }
