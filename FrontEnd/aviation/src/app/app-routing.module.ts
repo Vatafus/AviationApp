@@ -8,6 +8,8 @@ import { RouteGuardService } from './services/route-guard.service';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { FlyComponent } from './fly/fly.component';
 import { FoodComponent } from './food/food.component';
+import { NewsComponent } from './news/news.component';
+import { TravelComponent } from './travel/travel.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, //TO Change with Welcome Component TODO
@@ -17,7 +19,9 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomepageComponent },
   { path: 'fly', component: FlyComponent },
   { path: 'food', component: FoodComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'travel', component: TravelComponent }
 
 ];
 

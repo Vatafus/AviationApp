@@ -18,6 +18,8 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { HttpIntercepterService } from './services/http/http-intercepter.service';
 import { FooterComponent } from './footer/footer.component';
 import { FoodComponent } from './food/food.component';
+import { NewsComponent } from './news/news.component';
+import { TravelComponent } from './travel/travel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { FoodComponent } from './food/food.component';
     FlyComponent,
     WelcomepageComponent,
     FooterComponent,
-    FoodComponent
+    FoodComponent,
+    NewsComponent,
+    TravelComponent
   ],
   imports: [
     BrowserModule,
