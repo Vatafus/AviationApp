@@ -10,6 +10,7 @@ import { FlyComponent } from './fly/fly.component';
 import { FoodComponent } from './food/food.component';
 import { NewsComponent } from './news/news.component';
 import { TravelComponent } from './travel/travel.component';
+import { NewsPostComponent } from './news-post/news-post.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, //TO Change with Welcome Component TODO
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'food', component: FoodComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'news', component: NewsComponent },
+  { path: 'news/:id', component: NewsPostComponent },
   { path: 'travel', component: TravelComponent }
 
 ];

@@ -20,6 +20,8 @@ import { FooterComponent } from './footer/footer.component';
 import { FoodComponent } from './food/food.component';
 import { NewsComponent } from './news/news.component';
 import { TravelComponent } from './travel/travel.component';
+import { NewsPostComponent } from './news-post/news-post.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { TravelComponent } from './travel/travel.component';
     FooterComponent,
     FoodComponent,
     NewsComponent,
-    TravelComponent
+    TravelComponent,
+    NewsPostComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { TravelComponent } from './travel/travel.component';
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    MarkdownModule.forRoot()
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true }],
   bootstrap: [AppComponent]

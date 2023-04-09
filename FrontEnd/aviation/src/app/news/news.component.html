@@ -1,2 +1,20 @@
 <app-navbar></app-navbar>
-<p>news works!</p>
+<header>
+    <div class="header-container">
+        <span class="logo-1">The</span>
+        <span class="logo-2">FlyBird</span>
+        <span class="logo-3">Blog</span>
+    </div>
+</header>
+
+<main *ngIf="blogPosts$ | async as blogPosts">
+    <!-- <pre>
+        {{blogPosts | json}}
+    </pre> -->
+    <div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
+        <img [src]="blogPost.fields.img.fields.file.url" alt="">
+        <h2>{{blogPost.fields.title}}</h2>
+        <p class="summary">{{blogPost.fields.summary}}</p>
+        <a routerLink="['news',blogPost.sys.id]">Read More</a>
+    </div>
+</main>
