@@ -15,6 +15,6 @@
         <img [src]="blogPost.fields.img.fields.file.url" alt="">
         <h2>{{blogPost.fields.title}}</h2>
         <p class="summary">{{blogPost.fields.summary}}</p>
-        <a routerLink="['news',blogPost.sys.id]">Read More</a>
+        <a [routerLink]="['/blog',blogPost.sys.id]">Read More</a>
     </div>
 </main>

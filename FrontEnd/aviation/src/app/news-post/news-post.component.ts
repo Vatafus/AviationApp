@@ -17,9 +17,7 @@ export class NewsPostComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
-        const id = params[
-          'id'
-        ];
+        const id = params['id'];
 
         this.blogPost$ = this.contentfulService.getEntryById(id);
       }

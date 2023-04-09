@@ -1,12 +1,14 @@
 <main *ngIf="blogPost$ | async as blogPost">
-    <!-- <pre>{{blogPost}}</pre>> -->
+    <!-- <pre>{{blogPost | json}}</pre>> -->
     <div class="post-container">
         <img [src]="blogPost.fields.img.fields.file.url" alt="">
         <h2>{{blogPost.fields.title}}</h2>
         <p class="content">
-            <markdown ngPreserveWhitespaces>
-                {{blogPost.fields.content}}
+            <markdown>
+                {{blogPost.fields.description.content[0].content[0].value}}
             </markdown>
-        </p>
+            <markdown>
+                {{blogPost.fields.description.content[1].content[0].value}}
+            </markdown>
     </div>
 </main>

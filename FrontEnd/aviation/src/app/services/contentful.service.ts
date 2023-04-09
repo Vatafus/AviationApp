@@ -21,6 +21,6 @@ export class ContentfulService {
 
   getEntryById(id: string) {
     const promise = this.client.getEntry(id);
-    return from(promise)
+    return from(promise);
   }
 }
