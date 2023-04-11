@@ -49,6 +49,14 @@ header div span {
 
 /*---------------------------------------------//---------------------------------------------------------*/
 
+.post-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+    padding: 1.5em 2em;
+}
+
+
 .blog-posts-container {
     max-width: 600px;
     margin: 0 auto;

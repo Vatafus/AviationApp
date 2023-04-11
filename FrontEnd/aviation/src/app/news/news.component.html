@@ -11,10 +11,24 @@
     <!-- <pre>
         {{blogPosts | json}}
     </pre> -->
-    <div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
-        <img [src]="blogPost.fields.img.fields.file.url" alt="">
-        <h2>{{blogPost.fields.title}}</h2>
-        <p class="summary">{{blogPost.fields.summary}}</p>
-        <a [routerLink]="['/blog',blogPost.sys.id]">Read More</a>
+    <div class="post-group">
+        <div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
+            <img [src]="blogPost.fields.img.fields.file.url" alt="">
+            <h2>{{blogPost.fields.title}}</h2>
+            <p class="summary">{{blogPost.fields.summary}}</p>
+            <a [routerLink]="['/blog',blogPost.sys.id]">Read More</a>
+        </div>
+        <!-- <div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
+            <img [src]="blogPost.fields.img.fields.file.url" alt="">
+            <h2>{{blogPost.fields.title}}</h2>
+            <p class="summary">{{blogPost.fields.summary}}</p>
+            <a [routerLink]="['/blog',blogPost.sys.id]">Read More</a>
+        </div>
+        <div class="blog-posts-container" *ngFor="let blogPost of blogPosts.items">
+            <img [src]="blogPost.fields.img.fields.file.url" alt="">
+            <h2>{{blogPost.fields.title}}</h2>
+            <p class="summary">{{blogPost.fields.summary}}</p>
+            <a [routerLink]="['/blog',blogPost.sys.id]">Read More</a>
+        </div> -->
     </div>
 </main>
