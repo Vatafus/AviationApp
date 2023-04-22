@@ -8,6 +8,8 @@ import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FlightsService {
 
@@ -22,5 +24,9 @@ public class FlightsService {
         Flights flights = flightsRepo.findFlightsByleavingfrom(leavingfrom);
         FlightsDTO flightsDTO = new FlightsDTO(flights);
         return flightsDTO;
+    }
+
+    public List<Flights> findeAllFlights(String leavingfrom) {
+        return flightsRepo.findAll();
     }
 }

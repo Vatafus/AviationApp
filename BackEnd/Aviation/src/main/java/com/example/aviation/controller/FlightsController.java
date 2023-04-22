@@ -25,9 +25,9 @@ public class FlightsController {
 
     @Autowired
     FlightsService flightsService;
-    
+
     @GetMapping("/{leavingfrom}")
-    public FlightsDTO getFlights(@PathVariable String leavingfrom) {
-        return flightsService.findeFlight(leavingfrom);
+    public List<Flights> getFlights(@PathVariable String leavingfrom) {
+        return flightsService.findeAllFlights(leavingfrom);
     }
 }
