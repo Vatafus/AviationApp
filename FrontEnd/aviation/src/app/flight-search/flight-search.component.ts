@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { WelcomepageComponent } from '../welcomepage/welcomepage.component';
 import { SearchFlightService } from '../services/search-flight.service';
 import { FlightSearch } from '../class/flight-search';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-welcomepage',
-  templateUrl: './welcomepage.component.html',
-  styleUrls: ['./welcomepage.component.css']
+  selector: 'app-flight-search',
+  templateUrl: './flight-search.component.html',
+  styleUrls: ['./flight-search.component.css']
 })
-export class WelcomepageComponent implements OnInit {
+export class FlightSearchComponent {
+
   flightSearch!: FlightSearch;
   fromName!: string;
   show: boolean = false;
-
   constructor(private router: Router, private service: SearchFlightService) { }
 
   ngOnInit(): void {

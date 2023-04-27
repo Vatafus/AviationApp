@@ -11,6 +11,7 @@ import { FoodComponent } from './food/food.component';
 import { NewsComponent } from './news/news.component';
 import { TravelComponent } from './travel/travel.component';
 import { NewsPostComponent } from './news-post/news-post.component';
+import { FlightSearchComponent } from './flight-search/flight-search.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent }, //TO Change with Welcome Component TODO
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'news', component: NewsComponent },
   { path: 'blog/:id', component: NewsPostComponent },
+  { path: 'search-flight/searchFlight', component: FlightSearchComponent },
   { path: 'travel', component: TravelComponent }
 
 ];

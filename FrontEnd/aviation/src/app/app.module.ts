@@ -22,6 +22,7 @@ import { NewsComponent } from './news/news.component';
 import { TravelComponent } from './travel/travel.component';
 import { NewsPostComponent } from './news-post/news-post.component';
 import { MarkdownModule } from 'ngx-markdown';
+import { FlightSearchComponent } from './flight-search/flight-search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MarkdownModule } from 'ngx-markdown';
     FoodComponent,
     NewsComponent,
     TravelComponent,
-    NewsPostComponent
+    NewsPostComponent,
+    FlightSearchComponent
   ],
   imports: [
     BrowserModule,

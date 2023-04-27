@@ -161,11 +161,15 @@
 
     .search-box {
         background: whitesmoke;
-
         margin-left: 300px;
         width: 1000px;
         height: 200px;
     }
+
+    .btn {
+        margin-top: 20px;
+    }
+
 
     .form-inline {
 
