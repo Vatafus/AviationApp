@@ -4,6 +4,8 @@ import { SearchFlightService } from '../services/search-flight.service';
 import { FlightSearch } from '../class/flight-search';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { error } from 'console';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-flight-search',
@@ -12,21 +14,23 @@ import { Observable } from 'rxjs';
 })
 export class FlightSearchComponent {
 
-  public confirmClicked: boolean = false;
-  public cancelClicked: boolean = false;
-  flightSearch!: Observable<FlightSearch[]>;
-  fromName!: string;
+  flight: FlightSearch[] = [];
+  displayedColumns: string[] = ['Id', 'leavingfrom', 'arrivingat', 'leavingdate'];
+  collapsed = true;
   constructor(private router: Router, private service: SearchFlightService) { }
 
   ngOnInit(): void {
-    this.service.searchFlight(this.fromName).subscribe(
-      (data: Observable<FlightSearch[]>) => this.flightSearch = data
-    );
+    this.searchFlight();
   }
 
-  search() {
-
-    this.router.navigate(['/search-flight/searchFlight']);
-
+  public searchFlight() {
+    this.service.searchFlight().subscribe(
+      (resp: FlightSearch[]) => {
+        console.log(resp);
+        this.flight = resp;
+      }, (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    )
   }
 }
