@@ -24,7 +24,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'news', component: NewsComponent },
   { path: 'blog/:id', component: NewsPostComponent },
-  { path: 'search-flight/searchFlight', component: FlightSearchComponent },
+  { path: 'search', component: FlightSearchComponent },
+  { path: 'search/:keyword', component: FlightSearchComponent },
   { path: 'travel', component: TravelComponent }
 
 ];

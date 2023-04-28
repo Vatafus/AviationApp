@@ -20,13 +20,17 @@ public class FlightsService {
         this.flightsRepo = flightsRepo;
     }
 
-    public FlightsDTO findeFlight(String leavingfrom){
-        Flights flights = flightsRepo.findFlightsByleavingfrom(leavingfrom);
-        FlightsDTO flightsDTO = new FlightsDTO(flights);
-        return flightsDTO;
+//    public FlightsDTO findeFlight(String leavingfrom){
+//        Flights flights = flightsRepo.findFlightsByleavingfrom(leavingfrom);
+//        FlightsDTO flightsDTO = new FlightsDTO(flights);
+//        return flightsDTO;
+//    }
+
+    public List<Flights> findeAllFlights() {
+        return flightsRepo.findAll();
     }
 
-    public List<Flights> findeAllFlights(String leavingfrom) {
-        return flightsRepo.findAll();
+    public List<Flights> findeAllFlightsAfterLeaving(String leavingfrom) {
+        return flightsRepo.findFlightsByleavingfrom(leavingfrom);
     }
 }
