@@ -3,6 +3,7 @@ import { WelcomepageComponent } from '../welcomepage/welcomepage.component';
 import { SearchFlightService } from '../services/search-flight.service';
 import { FlightSearch } from '../class/flight-search';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-flight-search',
@@ -11,20 +12,17 @@ import { Router } from '@angular/router';
 })
 export class FlightSearchComponent {
 
-  flightSearch!: FlightSearch;
+  public confirmClicked: boolean = false;
+  public cancelClicked: boolean = false;
+  flightSearch!: Observable<FlightSearch[]>;
   fromName!: string;
-  show: boolean = false;
   constructor(private router: Router, private service: SearchFlightService) { }
 
   ngOnInit(): void {
-    this.flightSearch = new FlightSearch();
+    this.service.searchFlight(this.fromName).subscribe(
+      (data: Observable<FlightSearch[]>) => this.flightSearch = data
+    );
   }
-
-  searchFlight(fromName: string): any {
-    this.show = true;
-    this.service.searchFlight(fromName).subscribe((flightSearch: FlightSearch) => this.flightSearch = flightSearch);
-  }
-
 
   search() {
 
