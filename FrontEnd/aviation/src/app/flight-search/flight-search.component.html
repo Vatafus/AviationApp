@@ -79,7 +79,7 @@
                         <div id="flight-depart">
                             <div class=" info-box ">
                                 <label for=" ">LEAVING FROM</label>
-                                <select id="dep-from" required [(ngModel)]=" form.leavingfrom" name="leavingfrom"
+                                <select id="dep-from" required [(ngModel)]="form.leavingfrom" name="leavingfrom"
                                     #leavingfrom="ngModel">
                                     <option value="Bucharest">Bucharest</option>
                                     <option value="Cluj">Cluj</option>
@@ -89,7 +89,7 @@
                         </div>
                         <div id="flight-search ">
                             <div>
-                                <button (click)="onSubmit" class="info-box " id="btn1">Search</button>
+                                <button type="submit" class="info-box " id="btn1">Search</button>
                             </div>
                         </div>
                     </form>
@@ -98,16 +98,26 @@
         </div>
     </section>
 
-    <table class="table">
-        <thead *ngFor="let flight of result">
-            <tr *ngFor="let new of flight.flight">
-                <th>Departure Location: {{new.leavingfrom}}</th>
-                <th>Arrival Location: {{new.arrivingat}}</th>
-                <th>Date: {{new.leavingdate}}</th>
+    <!-- <section class="Data"> -->
+    <table class="table" *ngIf="result?.length>0">
+        <thead>
+            <tr>
+                <th>Id: </th>
+                <th>Departure Location: </th>
+                <th>Arrival Location: </th>
+                <th>Date: </th>
             </tr>
         </thead>
+        <tbody>
+            <tr *ngFor=" let flight of result">
+                <td>{{ flight.id }}</td>
+                <td>{{ flight.leavingfrom }}</td>
+                <td>{{ flight.arrivingat }}</td>
+                <td>{{ flight.leavingdate }}</td>
+            </tr>
+        </tbody>
     </table>
-
+    <!-- </section> -->
 
 </body>
 

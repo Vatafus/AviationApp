@@ -20,9 +20,10 @@ export class FlightSearchComponent implements OnInit {
   // collapsed = true;
   // searchMode: boolean = false;
   form: any = {
-    leavingfrom: null,
-    arrivingat: null,
-    leavingdate: null
+    // id: null,
+    leavingfrom: null
+    // arrivingat: null,
+    // leavingdate: null
   }
   result: any;
 
@@ -36,14 +37,13 @@ export class FlightSearchComponent implements OnInit {
 
 
   onSubmit(): void {
-    const { leavingfrom, arrivingat, leavingdate } = this.form;
+    const { leavingfrom } = this.form;
     this.search.GetFlights(leavingfrom).subscribe(data => {
       console.log(data);
       this.result = data;
       // console.log(this.result);
       return this.result;
     })
-
   }
 
   // public getAllFlights() {
