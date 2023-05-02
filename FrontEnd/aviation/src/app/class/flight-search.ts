@@ -1,8 +1,6 @@
 export class FlightSearch {
-    constructor(
-        public leavingfrom: string,
-        public arrivingat: string,
-        public leavingdate: Date) {
-
-    }
+    leavingfrom?: String;
+    arrivingat?: String;
+    leavingdate?: Date;
+    // flight?:Array<{leavingfrom:String ,arrivingat:String,leavingdate:string}>;
 }

@@ -1,10 +1,53 @@
-table {
-    margin-top: 10px;
-    width: 100%;
+.Data {
+    background-color: #CBE4FE;
+    width: 96.3%;
+    height: auto;
+    margin-left: 20px;
+    text-align: center;
 }
 
-.form-header {
+.table {
+    border-radius: 5px;
+    background-color: #5094e1;
+}
 
-    margin-left: 50px;
+.info-box input[type=text],
+input[type=submit],
+select {
+    border: none;
+    outline: none;
+    background: #C1DCF9;
+    width: 100%;
+    padding: 5px;
+    height: 30px;
+    border-radius: 3px;
+}
 
+#flight-info {
+    display: flex;
+    border-bottom: 1px dotted silver;
+}
+
+
+#flight-depart {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dotted silver;
+}
+
+#flight-depart .info-box {
+    position: relative;
+    margin: 5px;
+}
+
+.info-box #leave-date {
+    background: #C1DCF9;
+    margin-top: 7px;
+    width: 658px;
+    text-align: center;
+    border-style: none;
+}
+
+#btn1:hover {
+    background-color: #3b77c0;
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FlightSearch } from '../class/flight-search';
 import { map } from 'rxjs/operators';
@@ -12,15 +12,20 @@ export class SearchFlightService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private baseUrl = 'http://localhost:8080/flights';
+  FlightSearchApi = 'http://localhost:8080/flights/find/';
 
-  public getAllFlights() {
-    return this.httpClient.get<FlightSearch[]>("http://localhost:8080/flights/all-flights")
+  GetFlights(leavingfrom: any): Observable<FlightSearch[]> {
+    return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom)
+
   }
 
-  public getFlightsAfterLeavingLocation(leavingfrom: string) {
-    return this.httpClient.get<FlightSearch[]>("http://localhost:8080/flights/" + leavingfrom);
-  }
+  // public getAllFlights() {
+  //   return this.httpClient.get<FlightSearch[]>("http://localhost:8080/flights/all-flights")
+  // }
+
+  // public getFlightsAfterLeavingLocation(leavingfrom: string) {
+  //   return this.httpClient.get<FlightSearch[]>("http://localhost:8080/flights/" + leavingfrom);
+  // }
 
   // searchFlights(theKeyword: string): Observable<FlightSearch[]> {
   //   const searchFlights = 'http://localhost:8080/flights/${theKeyword}';

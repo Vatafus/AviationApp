@@ -15,29 +15,47 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class FlightSearchComponent implements OnInit {
 
-  FlightDetails: FlightSearch[] = [];
-  displayedColumns: string[] = ['Id', 'leavingfrom', 'arrivingat', 'leavingdate'];
-  collapsed = true;
-  searchMode: boolean = false;
+  // FlightDetails: FlightSearch[] = [];
+  // displayedColumns: string[] = ['Id', 'leavingfrom', 'arrivingat', 'leavingdate'];
+  // collapsed = true;
+  // searchMode: boolean = false;
+  form: any = {
+    leavingfrom: null,
+    arrivingat: null,
+    leavingdate: null
+  }
+  result: any;
 
-  constructor(private router: Router, private service: SearchFlightService, private httpClient: HttpClient,
+  constructor(private router: Router, private search: SearchFlightService, private httpClient: HttpClient,
     private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    this.getAllFlights();
+    // this.getAllFlights();
   }
 
-  public getAllFlights() {
-    this.service.getAllFlights().subscribe(
-      (resp: FlightSearch[]) => {
-        console.log(resp);
-        this.FlightDetails = resp;
-      }, (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
+
+  onSubmit(): void {
+    const { leavingfrom, arrivingat, leavingdate } = this.form;
+    this.search.GetFlights(leavingfrom).subscribe(data => {
+      console.log(data);
+      this.result = data;
+      // console.log(this.result);
+      return this.result;
+    })
+
   }
+
+  // public getAllFlights() {
+  //   this.service.getAllFlights().subscribe(
+  //     (resp: FlightSearch[]) => {
+  //       console.log(resp);
+  //       this.FlightDetails = resp;
+  //     }, (error: HttpErrorResponse) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   // doSearch(value: string) {
   //   console.log('value=${value}');

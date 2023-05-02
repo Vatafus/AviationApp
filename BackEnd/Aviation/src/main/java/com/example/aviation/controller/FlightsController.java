@@ -29,7 +29,7 @@ public class FlightsController {
     FlightsService flightsService;
 
 
-    @GetMapping("/{leavingfrom}")
+    @GetMapping("/find/{leavingfrom}")
     public List<Flights> getFlights(@PathVariable String leavingfrom) {
         return flightsService.findeAllFlightsAfterLeaving(leavingfrom);
     }
