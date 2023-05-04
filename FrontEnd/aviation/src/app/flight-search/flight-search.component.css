@@ -1,14 +1,14 @@
-.Data {
-    background-color: #CBE4FE;
+/* .Data {
+    background-color: #409b75;
     width: 96.3%;
     height: 50%;
     margin-left: 20px;
     text-align: center;
-}
+} */
 
 .table {
     border-radius: 5px;
-    background-color: #5094e1;
+    background-color: #149f65;
 }
 
 .info-box input[type=text],
@@ -16,40 +16,15 @@ input[type=submit],
 select {
     border: none;
     outline: none;
-    background: #C1DCF9;
+    background: #e7e9e9;
     width: 100%;
     padding: 5px;
     height: 30px;
     border-radius: 3px;
 }
 
-#flight-info {
-    display: flex;
-    border-bottom: 1px dotted silver;
-}
-
-
-#flight-depart {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dotted silver;
-}
-
-#flight-depart .info-box {
-    position: relative;
-    margin: 5px;
-}
-
-.info-box #leave-date {
-    background: #C1DCF9;
-    margin-top: 7px;
-    width: 658px;
-    text-align: center;
-    border-style: none;
-}
-
 #btn1:hover {
-    background-color: #3b77c0;
+    background-color: #149f65;
 }
 
 * {
@@ -57,12 +32,12 @@ select {
 }
 
 .flight {
-    padding: 20px;
+    padding: 10px;
 }
 
 .info-box {
-    padding: 10px 0;
-    margin-top: 41px;
+    padding: 5px 0;
+    margin-top: 40px;
     flex: 1;
     border-right: 0px solid transparent;
 }
@@ -71,31 +46,14 @@ select {
     border-right: none;
 }
 
-.info-box:last-child {
-    border-right: none;
-}
-
-.info-box input[type=text],
-input[type=submit],
-select {
-    border: none;
-    outline: none;
-    background: #C1DCF9;
-    width: 100%;
-    padding: 5px;
-    height: 30px;
-    border-radius: 3px;
-}
-
 #flight-info {
     display: flex;
-    border-bottom: 1px dotted silver;
 }
 
 #btn1 {
-    background: #4388DB;
+    background: #149f65;
     color: white;
-    padding: 10px;
+    padding: 7px;
     height: 50px;
     font-size: 1.2em;
     bottom: 9px;
@@ -108,24 +66,31 @@ select {
 
 #flight-depart {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px dotted silver;
+    /* justify-content: space-between; */
 }
 
 
 #flight-depart .info-box {
     position: relative;
-    margin: 5px;
 }
 
 .info-box #leavingdate {
-    background: #C1DCF9;
-    margin-top: 7px;
+    background: #e7e9e9;
+    margin-top: 0px;
     width: 658px;
     text-align: center;
     border-style: none;
+    margin-left: 140px;
+}
+
+.info-box .title-leavingon {
+    margin-left: 145px;
+}
+
+.info-box .title-arrivingat {
+    margin-left: 5px;
 }
 
 tr {
-    color: whitesmoke;
+    color: white;
 }

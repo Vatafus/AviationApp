@@ -61,11 +61,10 @@
 }
 
 .search-box {
-    background: whitesmoke;
-
-    margin-left: 300px;
+    background: white;
+    margin-left: 850px;
     width: 1000px;
-    height: 200px;
+    height: 480px;
 }
 
 .form-inline {
@@ -76,6 +75,13 @@
     padding-top: 60px;
     margin-left: 300px;
 }
+
+
+.row {
+    margin-top: 150px;
+}
+
+
 
 
 @media screen and (max-width:2600px) {
@@ -102,6 +108,7 @@
         /* padding-right: 500px; */
         width: 1450px;
         left: 1200px;
+        margin-top: 350px;
     }
 
     .col-sm-3 {
