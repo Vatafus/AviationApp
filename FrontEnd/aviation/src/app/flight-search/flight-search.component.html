@@ -87,6 +87,15 @@
 
                             </div>
                         </div>
+                        <div class="info-box " id="arrive-box ">
+                            <label for=" ">ARRIVING AT</label>
+                            <select id="dep-to" required [(ngModel)]="form.arrivingat" name="arrivingat" #arrivingat="ngModel">
+                                    <option value="Londra">Londra</option>
+                                    <option value="Paris">Paris</option>
+                                    <option value="Sinaia">Sinaia</option>
+                                    </select>
+
+                        </div>
                         <div id="flight-search ">
                             <div>
                                 <button type="submit" class="info-box " id="btn1">Search</button>

@@ -21,8 +21,8 @@ export class FlightSearchComponent implements OnInit {
   // searchMode: boolean = false;
   form: any = {
     // id: null,
-    leavingfrom: null
-    // arrivingat: null,
+    leavingfrom: null,
+    arrivingat: null,
     // leavingdate: null
   }
   result: any;
@@ -37,7 +37,7 @@ export class FlightSearchComponent implements OnInit {
 
 
   onSubmit(): void {
-    const { leavingfrom } = this.form;
+    const { leavingfrom, arrivingat } = this.form;
     this.search.GetFlights(leavingfrom).subscribe(data => {
       console.log(data);
       this.result = data;
