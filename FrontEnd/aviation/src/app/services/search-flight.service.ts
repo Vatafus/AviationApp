@@ -14,8 +14,8 @@ export class SearchFlightService {
 
   FlightSearchApi = 'http://localhost:8080/flights/find/';
 
-  public GetFlights(leavingfrom: any): Observable<FlightSearch[]> {
-    return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom)
+  public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any): Observable<FlightSearch[]> {
+    return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom + "/" + arrivingat + "/" + leavingdate);
 
   }
 

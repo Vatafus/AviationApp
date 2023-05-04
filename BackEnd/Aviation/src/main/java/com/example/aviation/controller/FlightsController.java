@@ -12,12 +12,14 @@ import com.example.aviation.exception.NotLoggedInException;
 import com.example.aviation.exception.UserException;
 import com.example.aviation.service.FlightsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -29,9 +31,9 @@ public class FlightsController {
     FlightsService flightsService;
 
 
-    @GetMapping("/find/{leavingfrom}")
-    public List<Flights> getFlights(@PathVariable String leavingfrom) {
-        return flightsService.findeAllFlightsAfterLeaving(leavingfrom);
+    @GetMapping("/find/{leavingfrom}/{arrivingat}/{leavingdate}")
+    public List<Flights> getFlights(@PathVariable String leavingfrom, @PathVariable String arrivingat, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date leavingdate) {
+        return flightsService.findeAllFlightsAfterLeaving(leavingfrom, arrivingat, leavingdate);
     }
 
     @GetMapping("/all-flights")

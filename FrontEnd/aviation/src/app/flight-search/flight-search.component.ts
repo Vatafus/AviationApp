@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { error } from 'console';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-flight-search',
@@ -23,9 +24,10 @@ export class FlightSearchComponent implements OnInit {
     // id: null,
     leavingfrom: null,
     arrivingat: null,
-    // leavingdate: null
+    leavingdate: null
   }
   result: any;
+  now: any;
 
   constructor(private router: Router, private search: SearchFlightService, private httpClient: HttpClient,
     private route: ActivatedRoute) { }
@@ -33,12 +35,14 @@ export class FlightSearchComponent implements OnInit {
 
   ngOnInit(): void {
     // this.getAllFlights();
+    const datePipe = new DatePipe('en-Us');
+    this.now = datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
 
 
   onSubmit(): void {
-    const { leavingfrom, arrivingat } = this.form;
-    this.search.GetFlights(leavingfrom).subscribe(data => {
+    const { leavingfrom, arrivingat, leavingdate } = this.form;
+    this.search.GetFlights(leavingfrom, arrivingat, leavingdate).subscribe(data => {
       console.log(data);
       this.result = data;
       // console.log(this.result);

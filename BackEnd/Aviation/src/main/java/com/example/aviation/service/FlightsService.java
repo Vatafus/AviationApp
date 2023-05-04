@@ -8,6 +8,7 @@ import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -30,7 +31,7 @@ public class FlightsService {
         return flightsRepo.findAll();
     }
 
-    public List<Flights> findeAllFlightsAfterLeaving(String leavingfrom) {
-        return flightsRepo.findFlightsByleavingfrom(leavingfrom);
+    public List<Flights> findeAllFlightsAfterLeaving(String leavingfrom, String arrivingat, Date leavingdate) {
+        return flightsRepo.findByLeavingfromAndArrivingatAndLeavingdate(leavingfrom,arrivingat,leavingdate);
     }
 }

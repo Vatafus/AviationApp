@@ -89,12 +89,30 @@
                         </div>
                         <div class="info-box " id="arrive-box ">
                             <label for=" ">ARRIVING AT</label>
-                            <select id="dep-to" required [(ngModel)]="form.arrivingat" name="arrivingat" #arrivingat="ngModel">
-                                    <option value="Londra">Londra</option>
-                                    <option value="Paris">Paris</option>
-                                    <option value="Sinaia">Sinaia</option>
-                                    </select>
+                            <select id="dep-to" required [(ngModel)]="form.arrivingat" name="arrivingat"
+                                #arrivingat="ngModel">
+                                <option value="Londra">Londra</option>
+                                <option value="Paris">Paris</option>
+                                <option value="Sinaia">Sinaia</option>
+                            </select>
 
+                        </div>
+
+
+                        <div id="flight-dates ">
+                            <div class="info-box ">
+                                <label>
+                                    LEAVING ON
+                                </label>
+                                <input type="date" [min]="now" id="leavingdate" class="form-control" required
+                                    [(ngModel)]="form.leavingdate" name="leavingdate" #leavingdate="ngModel" />
+                            </div>
+                            <div *ngIf=" leavingdate.dirty || leavingdate.touched" class="alert">
+
+                                <div *ngIf="leavingdate.errors?.['required']">
+                                    <a style="color: red;font-size: large;">Departure Date-required!</a>
+                                </div>
+                            </div>
                         </div>
                         <div id="flight-search ">
                             <div>

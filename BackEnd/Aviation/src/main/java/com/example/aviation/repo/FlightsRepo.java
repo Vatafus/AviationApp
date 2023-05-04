@@ -7,12 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
 public interface FlightsRepo extends JpaRepository<Flights,Long> {
 
-    public List<Flights> findFlightsByleavingfrom(String leavingfrom);
+    public List<Flights> findByLeavingfromAndArrivingatAndLeavingdate(String leavingfrom, String arrivingat, Date leavingdate);
 
     public List<Flights> findAll();
 
