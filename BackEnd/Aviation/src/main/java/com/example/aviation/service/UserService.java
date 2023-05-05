@@ -8,12 +8,14 @@ import com.example.aviation.exception.NotLoggedInException;
 import com.example.aviation.exception.UserRegistrationException;
 import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class UserService {
 
     private final UserRepo userRepo;
@@ -49,6 +51,34 @@ public class UserService {
         }
         return u;
     }
+
+//Forgot Password
+//    public void updatePasswordToken(String token, String email) {
+//        User user = userRepo.findByEmail(email);
+//        if (user != null) {
+//            user.setPasswordToken(token);
+//            userRepo.save(user);
+//        }
+//        else {
+//            throw new CustomerNotFoundException("Could not find any customer with the email " + email);
+//        }
+//    }
+
+//    public User getByPasswordToken(String token) {
+//        return userRepo.findByPasswordToken(token);
+//    }
+
+//    public void updatePassword(User user, String newPassword) {
+//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//        String encodedPassword = passwordEncoder.encode(newPassword);
+//        user.setPassword(encodedPassword);
+//
+//        user.setPasswordToken(null);
+//        userRepo.save(user);
+//    }
+
+
+
 
 
     public List<User> getAllUsers(){

@@ -94,3 +94,18 @@ select {
 tr {
     color: white;
 }
+
+#btn2 {
+    padding: 5px;
+    display: flex;
+    height: 38px;
+    width: 424px;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #CBE4FE;
+    margin-right: 20px;
+}
+
+#btn2:hover {
+    background-color: #C1DCF9;
+}

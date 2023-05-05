@@ -141,6 +141,10 @@
                 <td>{{ flight.leavingfrom }}</td>
                 <td>{{ flight.arrivingat }}</td>
                 <td>{{ flight.leavingdate }}</td>
+                <th>
+                    <button type="submit" class="bookNow" id="btn2" (click)="onClick(flight.id!,form.leavingdate!)"
+                        *ngIf="loginService.isUserLoggedIn()">Book Now</button>
+                </th>
             </tr>
         </tbody>
     </table>
