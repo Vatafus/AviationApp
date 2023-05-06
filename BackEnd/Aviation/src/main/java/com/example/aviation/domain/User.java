@@ -26,8 +26,7 @@ public class User {
     private String password;
     @Column(name="cpassword")
     private String cpassword;
-//    @Column(name = "password_token")
-//    private String passwordToken;
+
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();

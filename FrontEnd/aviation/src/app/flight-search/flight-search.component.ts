@@ -8,7 +8,6 @@ import { error } from 'console';
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from "@angular/common";
-import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-flight-search',
@@ -31,7 +30,7 @@ export class FlightSearchComponent implements OnInit {
   now: any;
 
   constructor(private router: Router, private search: SearchFlightService, private httpClient: HttpClient,
-    private route: ActivatedRoute, public loginService: LoginService) { }
+    private route: ActivatedRoute) { }
 
 
   ngOnInit(): void {
@@ -49,12 +48,6 @@ export class FlightSearchComponent implements OnInit {
       // console.log(this.result);
       return this.result;
     })
-  }
-
-  onClick(id: number, date: Date): void {
-    { this.router.navigate(["/booking", id, date]) }
-
-
   }
 
   // public getAllFlights() {
