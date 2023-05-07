@@ -13,6 +13,6 @@ import java.util.List;
 @Repository
 public interface BookingRepo extends JpaRepository<Booking,Long> {
 
-    @Query("from Booking where leavingdate = #{#leavingdate}")
-    List<Booking> findByDate(@Param("leavingdate") Date leavingdate);
+    @Query("Select leavingdate from Booking where leavingdate = #{#leavingdate}")
+    List<Booking> findByLeavingdate(Date leavingdate);
 }
