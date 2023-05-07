@@ -6,6 +6,7 @@ import com.example.aviation.exception.UserRegistrationException;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -27,10 +28,17 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
+    @EqualsAndHashCode.Exclude
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Booking booking;
+
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.cpassword = user.getCpassword();
     }
+
+
 }
