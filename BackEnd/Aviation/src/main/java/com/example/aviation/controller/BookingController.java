@@ -25,29 +25,29 @@ public class BookingController {
 
 
 
-    @PostMapping("/BookFlight/{mailId}")
-    public String bookFlight(@RequestBody Booking booking, @PathVariable("mailId") String mailId)
-    {	log.info("Making the booking  with pnr:"+booking.getId());
-
-        booking.setAmount(setAmount(booking));
-        boolean present=bookingRepo.findById(booking.getId()).isPresent();
-        if(present==false) {
-            log.info("Made the booking  with pnr:"+booking.getId());
-            bookingRepo.save(booking);
-            /* return "Booking made with PNR:"+booking.getBooking_id(); */
-
-            return bookingService.sendEmail(booking,mailId);}
-        log.error("Booking Already present");
-        return"Booking Already Made";
-    }
-
-    public double setAmount(Booking booking) {
-        double tot_sum=0;
-        List<Passenger> pas= booking.getPassengers();
-        for (Passenger passenger : pas) {
-            tot_sum+=passenger.getAmount();
-
-        }
-        return tot_sum;
-    }
+//    @PostMapping("/BookFlight/{mailId}")
+//    public String bookFlight(@RequestBody Booking booking, @PathVariable("mailId") String mailId)
+//    {	log.info("Making the booking  with pnr:"+booking.getId());
+//
+//        booking.setAmount(setAmount(booking));
+//        boolean present=bookingRepo.findById(booking.getId()).isPresent();
+//        if(present==false) {
+//            log.info("Made the booking  with pnr:"+booking.getId());
+//            bookingRepo.save(booking);
+//            /* return "Booking made with PNR:"+booking.getBooking_id(); */
+//
+//            return bookingService.sendEmail(booking,mailId);}
+//        log.error("Booking Already present");
+//        return"Booking Already Made";
+//    }
+//
+//    public double setAmount(Booking booking) {
+//        double tot_sum=0;
+//        List<Passenger> pas= booking.getPassengers();
+//        for (Passenger passenger : pas) {
+//            tot_sum+=passenger.getAmount();
+//
+//        }
+//        return tot_sum;
+//    }
 }

@@ -9,19 +9,19 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 @Service
 public class BookingService {
-    @Autowired
-    JavaMailSender javaMailSender;
-
-    public String sendEmail(Booking booking, String mailId) {
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("vtfstiv@gmail.com");
-        message.setTo(mailId);
-        message.setSubject("Booking Email");
-        message.setText("Successfull Booking With id: " + booking.getId() + ",  Passegers: " + booking.getPassengers().size() + ",  Departue Details: " + booking.getLeavingdate());
-
-        javaMailSender.send(message);
-
-        return "Booking Mail was sent successfully";
-    }
+//    @Autowired
+//    JavaMailSender javaMailSender;
+//
+//    public String sendEmail(Booking booking, String mailId) {
+//        SimpleMailMessage message = new SimpleMailMessage();
+//        message.setFrom("vtfstiv@gmail.com");
+//        message.setTo(mailId);
+//        message.setSubject("Booking Email");
+//        message.setText("Successfull Booking With id: " + booking.getId() + ",  Passegers: " + booking.getPassengers().size() + ",  Departue Details: " + booking.getLeavingdate());
+//
+//        javaMailSender.send(message);
+//
+//        return "Booking Mail was sent successfully";
+//    }
 
 }
