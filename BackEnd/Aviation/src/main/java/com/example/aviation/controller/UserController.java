@@ -8,6 +8,7 @@ import com.example.aviation.dto.UserDTO;
 import com.example.aviation.exception.*;
 import com.example.aviation.service.UserService;
 import com.example.aviation.validation.Validation;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,11 @@ public class UserController {
         User u = userService.login(user);
         return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
     }
+
+//    @PostConstruct
+//    public void initRoleAndUser(){
+//        userService.initRoleAndUser();
+//    }
 
     @GetMapping("/all-users")
     public List<User> getAllUsers(){

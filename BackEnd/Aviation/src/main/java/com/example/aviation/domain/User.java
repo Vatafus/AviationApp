@@ -30,21 +30,25 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name="USER_ROLE",
-    joinColumns = {
-            @JoinColumn(name = "USER_ID")
-    },
-            inverseJoinColumns = {
-            @JoinColumn(name = "ROLE_ID")
-            }
-    )
-    private Set<Role> role;
 
-    @EqualsAndHashCode.Exclude
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Booking booking;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(name="USER_ROLE",
+//        joinColumns = {
+//            @JoinColumn(name = "USER_ID")
+//        },
+//            inverseJoinColumns = {
+//            @JoinColumn(name = "ROLE_ID")
+//            }
+//    )
+//    private Set<Role> role;
+
+//    @EqualsAndHashCode.Exclude
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private Booking booking;
 
 
     public Long getId() {
@@ -79,19 +83,26 @@ public class User {
         this.cpassword = cpassword;
     }
 
-    public Set<Role> getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Set<Role> role) {
+    public void setRole(Role role) {
         this.role = role;
     }
+
+    //    public Set<Role> getRole() {
+//        return role;
+//    }
+
+//    public void setRole(Set<Role> role) {
+//        this.role = role;
+//    }
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.cpassword = user.getCpassword();
     }
-
 
 }

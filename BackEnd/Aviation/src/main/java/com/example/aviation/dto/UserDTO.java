@@ -30,4 +30,5 @@ public class UserDTO {
     @NotBlank(message = "Invalid password!")
     @Size(min = PASSWORD_MINIMUM_CHARACTERS, message = "Password must be at least 3 characters!")
     private String cpassword;
+
 }
