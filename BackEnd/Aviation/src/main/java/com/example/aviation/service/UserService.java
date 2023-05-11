@@ -8,6 +8,7 @@ import com.example.aviation.exception.InvalidPasswordException;
 import com.example.aviation.exception.NotLoggedInException;
 import com.example.aviation.exception.UserRegistrationException;
 
+import com.example.aviation.repo.RoleRepo;
 import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,15 @@ public class UserService {
 
     private final UserRepo userRepo;
 
+    private RoleRepo roleRepo;
+
     @Autowired
     public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
+    }
+
+    public User loadUserByEmail(String email){
+        return userRepo.findUserByEmail(email);
     }
 
 
@@ -41,6 +48,12 @@ public class UserService {
         userRepo.save(user);
         Long newUserId = userRepo.save(user).getId();
         return newUserId;
+    }
+
+    public void assingRoleToUser(String email,String roleName){
+        User user = loadUserByEmail(email);
+        Role role = roleRepo.findByName(roleName);
+        user.assignRoleToUser(role);
     }
 
     public User login(LoginDTO user) throws InvalidPasswordException, NotLoggedInException{

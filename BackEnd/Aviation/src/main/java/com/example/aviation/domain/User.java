@@ -3,6 +3,7 @@ package com.example.aviation.domain;
 
 import com.example.aviation.dto.UserDTO;
 import com.example.aviation.exception.UserRegistrationException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +11,9 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -31,9 +34,19 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
-    @Transient
-    private String token;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role",
+    joinColumns = {@JoinColumn(name="id")},
+    inverseJoinColumns = {@JoinColumn(name="role_id")})
+    private Set<Role> roles = new HashSet<>();
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
 
     public Long getId() {
         return id;
@@ -72,6 +85,11 @@ public class User {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.cpassword = user.getCpassword();
+    }
+
+    public void assignRoleToUser(Role role){
+        this.roles.add(role);
+        role.getUsers().add(this);
     }
 
 }
