@@ -22,34 +22,24 @@ import java.util.List;
 @RequestMapping("user")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
-    @Autowired
-    private UserService userService;
 
-    @PostMapping("/register")
-    public ResponseEntity<CreateDTO> register(@RequestBody @Valid UserDTO user) throws UserRegistrationException {
-        Validation.validateUserPassword(user.getPassword(), user.getCpassword());
-        Long newUserId = userService.register(user);
-        return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
+    @GetMapping("/home")
+    public String showUser(){
+        return "application work";
     }
+//    @Autowired
+//    private UserService userService;
 
-    @PostMapping("/login")
-    public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid LoginDTO user) throws UserException, InvalidPasswordException, NoEmailException, NotLoggedInException {
-        User u = userService.login(user);
-        return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
-    }
-
-//    @PostConstruct
-//    public void initRoleAndUser(){
-//        userService.initRoleAndUser();
+//    @PostMapping("/register")
+//    public ResponseEntity<CreateDTO> register(@RequestBody @Valid UserDTO user) throws UserRegistrationException {
+//        Validation.validateUserPassword(user.getPassword(), user.getCpassword());
+//        Long newUserId = userService.register(user);
+//        return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
 //    }
-
-    @GetMapping("/all-users")
-    public List<User> getAllUsers(){
-        return this.userService.getAllUsers();
-    }
-//------------Folosit doar pentru testare Spring Security --------------
-//    @GetMapping("/users")
-//    public ResponseEntity<List<User>>getUsers(){
-//        return ResponseEntity.ok().body(userService.getUsers());
+//
+//    @PostMapping("/login")
+//    public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid LoginDTO user) throws UserException, InvalidPasswordException, NoEmailException, NotLoggedInException {
+//        User u = userService.login(user);
+//        return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
 //    }
 }

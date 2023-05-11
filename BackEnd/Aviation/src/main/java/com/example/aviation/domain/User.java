@@ -10,6 +10,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import java.io.Serializable;
 import java.util.Set;
 
 
@@ -30,25 +31,8 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
-
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinTable(name="USER_ROLE",
-//        joinColumns = {
-//            @JoinColumn(name = "USER_ID")
-//        },
-//            inverseJoinColumns = {
-//            @JoinColumn(name = "ROLE_ID")
-//            }
-//    )
-//    private Set<Role> role;
-
-//    @EqualsAndHashCode.Exclude
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private Booking booking;
+    @Transient
+    private String token;
 
 
     public Long getId() {
@@ -83,21 +67,6 @@ public class User {
         this.cpassword = cpassword;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    //    public Set<Role> getRole() {
-//        return role;
-//    }
-
-//    public void setRole(Set<Role> role) {
-//        this.role = role;
-//    }
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();

@@ -17,7 +17,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Service
 public class UserService {
 
     private final UserRepo userRepo;
@@ -27,37 +26,6 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-//    @Autowired
-//    public RoleRepo roleRepo;
-
-//    public void initRoleAndUser(){
-//        Role adminRole = new Role();
-//        adminRole.setRoleName("Admin");
-//        adminRole.setRoleDescription("Admin user");
-//        roleRepo.save(adminRole);
-//
-//        Role userRole = new Role();
-//        userRole.setRoleName("User");
-//        userRole.setRoleDescription("User user");
-//        roleRepo.save(userRole);
-//
-//        User adminUser = new User();
-//        adminUser.setEmail("admin@flybird.com");
-//        adminUser.setPassword("admin");
-//        adminUser.setCpassword("admin");
-//        Set<Role> adminRoles = new HashSet<>();
-//        adminRoles.add(adminRole);
-//        adminUser.setRole(adminRoles);
-//        userReppo.save(adminUser);
-
-//        User user = new User();
-//        user.setEmail("user@flybird.com");
-//        user.setPassword("12345");
-//        adminUser.setCpassword("12345");
-//        Set<Role> userRoles = new HashSet<>();
-//        userRoles.add(userRole);
-//        userRepo.save(user);
-//    }
 
     public boolean isThereAlreadySuchEmail(String email) {
         User user = userRepo.findUserByEmail(email);
@@ -85,13 +53,4 @@ public class UserService {
         }
         return u;
     }
-
-
-    public List<User> getAllUsers(){
-        return userRepo.findAll();
-    }
-// -------------Folosit pentru testare Spring Security--------------
-//    public List<User> getUsers(){
-//        return userRepo.findAll();
-//    }
 }
