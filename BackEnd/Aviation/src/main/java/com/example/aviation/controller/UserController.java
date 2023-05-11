@@ -27,19 +27,19 @@ public class UserController {
     public String showUser(){
         return "application work";
     }
-//    @Autowired
-//    private UserService userService;
+    @Autowired
+    private UserService userService;
 
-//    @PostMapping("/register")
-//    public ResponseEntity<CreateDTO> register(@RequestBody @Valid UserDTO user) throws UserRegistrationException {
-//        Validation.validateUserPassword(user.getPassword(), user.getCpassword());
-//        Long newUserId = userService.register(user);
-//        return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
-//    }
-//
-//    @PostMapping("/login")
-//    public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid LoginDTO user) throws UserException, InvalidPasswordException, NoEmailException, NotLoggedInException {
-//        User u = userService.login(user);
-//        return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
-//    }
+    @PostMapping("/register")
+    public ResponseEntity<CreateDTO> register(@RequestBody @Valid UserDTO user) throws UserRegistrationException {
+        Validation.validateUserPassword(user.getPassword(), user.getCpassword());
+        Long newUserId = userService.register(user);
+        return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<ResponseDTO> getUser(@RequestBody @Valid LoginDTO user) throws UserException, InvalidPasswordException, NoEmailException, NotLoggedInException {
+        User u = userService.login(user);
+        return new ResponseEntity<ResponseDTO>(new ResponseDTO(HttpStatus.OK.value(), "Log in successful!"), HttpStatus.OK);
+    }
 }
