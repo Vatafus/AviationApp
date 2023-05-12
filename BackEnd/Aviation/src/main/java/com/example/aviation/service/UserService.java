@@ -11,6 +11,7 @@ import com.example.aviation.exception.UserRegistrationException;
 import com.example.aviation.repo.RoleRepo;
 import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,11 +19,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Service
 public class UserService {
 
     private final UserRepo userRepo;
 
     private RoleRepo roleRepo;
+
+    private PasswordEncoder passwordEncoder;
+
+    public UserService(UserRepo userRepo, RoleRepo roleRepo, PasswordEncoder passwordEncoder) {
+        this.userRepo = userRepo;
+        this.roleRepo = roleRepo;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Autowired
     public UserService(UserRepo userRepo) {
@@ -37,6 +47,12 @@ public class UserService {
     public boolean isThereAlreadySuchEmail(String email) {
         User user = userRepo.findUserByEmail(email);
         return (user != null);
+    }
+
+    public User createUser(Long id,String email, String password,String cpassword){
+        String encodedPassword = passwordEncoder.encode(password);
+        String encodedCPassword = passwordEncoder.encode(password);
+        return userRepo.save(new User(id,email,encodedPassword,encodedCPassword));
     }
 
     @Transactional

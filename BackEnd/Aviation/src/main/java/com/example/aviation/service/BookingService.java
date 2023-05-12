@@ -1,14 +1,14 @@
-package com.example.aviation.service;
-
-
-import com.example.aviation.domain.Booking;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.stereotype.Service;
-import org.springframework.mail.javamail.JavaMailSender;
-
-@Service
-public class BookingService {
+//package com.example.aviation.service;
+//
+//
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.mail.SimpleMailMessage;
+//import org.springframework.stereotype.Service;
+//import org.springframework.mail.javamail.JavaMailSender;
+//
+//@Service
+//public class BookingService {
 //    @Autowired
 //    JavaMailSender javaMailSender;
 //
@@ -23,5 +23,5 @@ public class BookingService {
 //
 //        return "Booking Mail was sent successfully";
 //    }
-
-}
+//
+//}

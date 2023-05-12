@@ -24,7 +24,6 @@ import { NewsPostComponent } from './news-post/news-post.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { BookingComponent } from './booking/booking.component';
-import { RoleComponent } from './class/role/role.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,6 @@ import { RoleComponent } from './class/role/role.component';
     NewsPostComponent,
     FlightSearchComponent,
     BookingComponent,
-    RoleComponent
   ],
   imports: [
     BrowserModule,

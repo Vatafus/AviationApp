@@ -1,27 +1,27 @@
-package com.example.aviation.controller;
+//package com.example.aviation.controller;
 
 
-import com.example.aviation.domain.Booking;
-import com.example.aviation.domain.Passenger;
-import com.example.aviation.domain.User;
-import com.example.aviation.repo.BookingRepo;
-import com.example.aviation.service.BookingService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+//import com.example.aviation.domain.Booking;
+//import com.example.aviation.domain.Passenger;
+//import com.example.aviation.domain.User;
+//import com.example.aviation.repo.BookingRepo;
+//import com.example.aviation.service.BookingService;
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/booking")
-@Slf4j
-@CrossOrigin(origins = "*", maxAge = 3600)
-public class BookingController {
-    @Autowired
-    public BookingService bookingService;
-
-    @Autowired
-    public BookingRepo bookingRepo;
+//@RestController
+//@RequestMapping("/booking")
+//@Slf4j
+//@CrossOrigin(origins = "*", maxAge = 3600)
+//public class BookingController {
+//    @Autowired
+//    public BookingService bookingService;
+//
+//    @Autowired
+//    public BookingRepo bookingRepo;
 
 
 
@@ -50,4 +50,4 @@ public class BookingController {
 //        }
 //        return tot_sum;
 //    }
-}
+//}

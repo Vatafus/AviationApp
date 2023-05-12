@@ -81,10 +81,19 @@ public class User {
     }
 
 
+
+
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.cpassword = user.getCpassword();
+    }
+
+    public User(Long id,String email, String password, String cpassword) {
+        this.id=id;
+        this.email = email;
+        this.password = password;
+        this.cpassword= cpassword;
     }
 
     public void assignRoleToUser(Role role){
