@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -26,6 +27,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id", nullable = false,unique = true)
     private Long id;
     @Column(name="email")
     private String email;
@@ -80,7 +82,10 @@ public class User {
         this.cpassword = cpassword;
     }
 
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, password,cpassword);
+    }
 
 
     public User(UserDTO user) throws UserRegistrationException {
@@ -89,16 +94,15 @@ public class User {
         this.cpassword = user.getCpassword();
     }
 
-    public User(Long id,String email, String password, String cpassword) {
-        this.id=id;
-        this.email = email;
-        this.password = password;
-        this.cpassword= cpassword;
-    }
+//    public User(String email, String password, String cpassword) {
+//        this.email = email;
+//        this.password = password;
+//        this.cpassword= cpassword;
+//    }
 
-    public void assignRoleToUser(Role role){
-        this.roles.add(role);
-        role.getUsers().add(this);
-    }
+//    public void assignRoleToUser(Role role){
+//        this.roles.add(role);
+//        role.getUsers().add(this);
+//    }
 
 }

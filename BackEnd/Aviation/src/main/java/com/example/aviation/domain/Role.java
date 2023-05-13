@@ -16,22 +16,14 @@ import java.util.Set;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "role_id")
+    @Column(name = "role_id",nullable = false)
     private Long roleId;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
 
     @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "roleId=" + roleId +
-                ", name='" + name + '\'' +
-                '}';
-    }
 
     public Role(String name) {
         this.name = name;
