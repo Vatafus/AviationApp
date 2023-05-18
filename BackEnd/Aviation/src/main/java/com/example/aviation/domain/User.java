@@ -36,19 +36,16 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_role",
-    joinColumns = {@JoinColumn(name="id")},
-    inverseJoinColumns = {@JoinColumn(name="role_id")})
-    private Set<Role> roles = new HashSet<>();
-
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
+//    private UserRole userRole;
+//
+//
+//    public UserRole getRole() {
+//        return userRole;
+//    }
+//
+//    public void setRole(UserRole role) {
+//        this.userRole = role;
+//    }
 
     public Long getId() {
         return id;
@@ -82,27 +79,15 @@ public class User {
         this.cpassword = cpassword;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, email, password,cpassword);
-    }
+
 
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.cpassword = user.getCpassword();
+//        this.userRole = user.getUserRole();
     }
 
-//    public User(String email, String password, String cpassword) {
-//        this.email = email;
-//        this.password = password;
-//        this.cpassword= cpassword;
-//    }
-
-//    public void assignRoleToUser(Role role){
-//        this.roles.add(role);
-//        role.getUsers().add(this);
-//    }
 
 }

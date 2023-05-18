@@ -1,6 +1,8 @@
 package com.example.aviation.dto;
 
 
+import com.example.aviation.domain.UserRole;
+import com.example.aviation.repo.UserRepo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,5 +32,10 @@ public class UserDTO {
     @NotBlank(message = "Invalid password!")
     @Size(min = PASSWORD_MINIMUM_CHARACTERS, message = "Password must be at least 3 characters!")
     private String cpassword;
+
+//    @NotBlank(message = "Invalid role!")
+//    private UserRole userRole;
+
+
 
 }

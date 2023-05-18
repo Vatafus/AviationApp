@@ -1,6 +1,5 @@
 package com.example.aviation.service;
 
-import com.example.aviation.domain.Role;
 import com.example.aviation.domain.User;
 import com.example.aviation.dto.LoginDTO;
 import com.example.aviation.dto.UserDTO;
@@ -8,7 +7,6 @@ import com.example.aviation.exception.InvalidPasswordException;
 import com.example.aviation.exception.NotLoggedInException;
 
 import com.example.aviation.exception.UserRegistrationException;
-import com.example.aviation.repo.RoleRepo;
 import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,7 +35,7 @@ public class UserService {
 
     private final UserRepo userRepo;
 
-    private RoleRepo roleRepo;
+//    private RoleRepo roleRepo;
 
 //    private PasswordEncoder passwordEncoder;
 
