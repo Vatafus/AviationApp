@@ -1,7 +1,9 @@
 package com.example.aviation.service;
 
 import com.example.aviation.domain.User;
+import com.example.aviation.domain.UserRole;
 import com.example.aviation.dto.LoginDTO;
+import com.example.aviation.dto.RegisterRequest;
 import com.example.aviation.dto.UserDTO;
 import com.example.aviation.exception.InvalidPasswordException;
 import com.example.aviation.exception.NotLoggedInException;
@@ -21,38 +23,13 @@ import java.util.Set;
 public class UserService {
 
 
-//    User loadUserByEmail(String email);
-//
-//    User createUser(String email, String password, String cpassword);
-//
-//    void assignRoleToUser(String email, String roleName);
-//
-//    Long register(UserDTO u) throws UserRegistrationException;
-//
-//
-//    User login(LoginDTO user) throws InvalidPasswordException, NotLoggedInException;
-
-
     private final UserRepo userRepo;
-
-//    private RoleRepo roleRepo;
-
-//    private PasswordEncoder passwordEncoder;
-
-//    public UserService(UserRepo userRepo, RoleRepo roleRepo) {
-//        this.userRepo = userRepo;
-//        this.roleRepo = roleRepo;
-////        this.passwordEncoder = passwordEncoder;
-//    }
 
     @Autowired
     public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
     }
 
-//    public User loadUserByEmail(String email){
-//        return userRepo.findUserByEmail(email);
-//    }
 
 
     public boolean isThereAlreadySuchEmail(String email) {
@@ -60,28 +37,20 @@ public class UserService {
         return (user != null);
     }
 
-//    public User createUser(String email, String password,String cpassword){
-//        return userRepo.save(new User(email,password,cpassword));
-//    }
 
     @Transactional
-    public Long register(UserDTO u) throws UserRegistrationException {
-        if (this.isThereAlreadySuchEmail(u.getEmail())) {
+    public UserDTO register(RegisterRequest registerRequest) throws UserRegistrationException {
+        if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
             throw new UserRegistrationException("Already Such email!");
         }
-//        String encodedPassword = passwordEncoder.encode(u.getPassword());
-//        String encodedCPassword = passwordEncoder.encode(u.getCpassword());
-        User user = new User(u);
+        User user = new User(registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getCpassword(), UserRole.USER);
         userRepo.save(user);
-        Long newUserId = userRepo.save(user).getId();
-        return newUserId;
+        if(user==null){
+            return null;
+        }
+        return user.mapUsertoUserDto();
     }
 
-//    public void assingRoleToUser(String email,String roleName){
-//        User user = loadUserByEmail(email);
-//        Role role = roleRepo.findByName(roleName);
-//        user.assignRoleToUser(role);
-//    }
 
     public User login(LoginDTO user) throws InvalidPasswordException, NotLoggedInException{
         User u = userRepo.findUserByEmail(user.getEmail());

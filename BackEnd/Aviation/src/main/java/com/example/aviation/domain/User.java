@@ -36,16 +36,25 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
-//    private UserRole userRole;
-//
-//
-//    public UserRole getRole() {
-//        return userRole;
-//    }
-//
-//    public void setRole(UserRole role) {
-//        this.userRole = role;
-//    }
+    @Column(name="user_role", length=45)
+    @Enumerated(EnumType.ORDINAL)
+    private UserRole userRole;
+
+
+    public UserRole getRole() {
+        return userRole;
+    }
+
+    public User(String email, String password, String cpassword, UserRole userRole) {
+        this.email = email;
+        this.password = password;
+        this.cpassword = cpassword;
+        this.userRole = userRole;
+    }
+
+    public void setRole(UserRole role) {
+        this.userRole = role;
+    }
 
     public Long getId() {
         return id;
@@ -81,12 +90,15 @@ public class User {
 
 
 
+    public UserDTO mapUsertoUserDto() {
+        return new UserDTO(email, password, cpassword, userRole );
+    }
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.cpassword = user.getCpassword();
-//        this.userRole = user.getUserRole();
+        this.userRole = user.getUserRole();
     }
 
 

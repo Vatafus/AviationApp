@@ -1,10 +1,7 @@
 package com.example.aviation.controller;
 
 import com.example.aviation.domain.User;
-import com.example.aviation.dto.CreateDTO;
-import com.example.aviation.dto.LoginDTO;
-import com.example.aviation.dto.ResponseDTO;
-import com.example.aviation.dto.UserDTO;
+import com.example.aviation.dto.*;
 import com.example.aviation.exception.*;
 import com.example.aviation.service.UserService;
 import com.example.aviation.validation.Validation;
@@ -33,10 +30,10 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<CreateDTO> register(@RequestBody @Valid UserDTO user) throws UserRegistrationException {
-        Validation.validateUserPassword(user.getPassword(), user.getCpassword());
-        Long newUserId = userService.register(user);
-        return new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(), "User registered successfully!", newUserId), HttpStatus.CREATED);
+    public ResponseEntity<?> register(@RequestBody @Valid RegisterRequest registerRequest) throws UserRegistrationException {
+        Validation.validateUserPassword(registerRequest.getPassword(), registerRequest.getCpassword());
+        UserDTO createUser = userService.register(registerRequest);
+        return new ResponseEntity<>(createUser,HttpStatus.OK);
     }
 
     @PostMapping("/login")
