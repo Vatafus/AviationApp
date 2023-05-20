@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.OneToMany;
 import java.io.Serializable;
@@ -96,8 +97,8 @@ public class User {
 
     public User(UserDTO user) throws UserRegistrationException {
         this.email = user.getEmail();
-        this.password = user.getPassword();
-        this.cpassword = user.getCpassword();
+        this.password = new BCryptPasswordEncoder().encode(user.getPassword());
+        this.cpassword = new BCryptPasswordEncoder().encode(user.getCpassword());
         this.userRole = user.getUserRole();
     }
 

@@ -11,6 +11,7 @@ import com.example.aviation.exception.NotLoggedInException;
 import com.example.aviation.exception.UserRegistrationException;
 import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -43,7 +44,7 @@ public class UserService {
         if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
             throw new UserRegistrationException("Already Such email!");
         }
-        User user = new User(registerRequest.getEmail(), registerRequest.getPassword(), registerRequest.getCpassword(), UserRole.USER);
+        User user = new User(registerRequest.getEmail(), new BCryptPasswordEncoder().encode(registerRequest.getPassword()), new BCryptPasswordEncoder().encode(registerRequest.getCpassword()), UserRole.USER);
         userRepo.save(user);
         if(user==null){
             return null;

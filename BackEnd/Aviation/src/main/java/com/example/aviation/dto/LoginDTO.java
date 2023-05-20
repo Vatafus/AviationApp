@@ -9,15 +9,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class LoginDTO {
 
-    private static final int PASSWORD_MINIMUM_CHARACTERS = 3;
-    @Email(message = "Invalid email!")
     private String email;
 
-    @NotBlank(message = "Invalid password!")
-    @Size(min = PASSWORD_MINIMUM_CHARACTERS, message = "Password must be at least 3 characters!")
     private String password;
 }
