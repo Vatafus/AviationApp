@@ -12,18 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-//@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class AviationApplication{
 
-//    @Autowired
-//    private UserRepo userRepo;
 
     public static void main(String[] args) {
         SpringApplication.run(AviationApplication.class, args);
     }
 
-//    @Bean
-//    PasswordEncoder passwordEncoder(){
-//        return new BCryptPasswordEncoder();
-//    }
 }

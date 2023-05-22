@@ -37,70 +37,65 @@ public class User {
     @Column(name="cpassword")
     private String cpassword;
 
-    @Column(name="user_role", length=45)
-    @Enumerated(EnumType.ORDINAL)
+    @Column(name="user_role")
     private UserRole userRole;
 
 
-    public UserRole getRole() {
-        return userRole;
-    }
-
-    public User(String email, String password, String cpassword, UserRole userRole) {
-        this.email = email;
-        this.password = password;
-        this.cpassword = cpassword;
-        this.userRole = userRole;
-    }
-
-    public void setRole(UserRole role) {
-        this.userRole = role;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCpassword() {
-        return cpassword;
-    }
-
-    public void setCpassword(String cpassword) {
-        this.cpassword = cpassword;
-    }
-
-
-
-    public UserDTO mapUsertoUserDto() {
-        return new UserDTO(email, password, cpassword, userRole );
-    }
-
-    public User(UserDTO user) throws UserRegistrationException {
-        this.email = user.getEmail();
-        this.password = new BCryptPasswordEncoder().encode(user.getPassword());
-        this.cpassword = new BCryptPasswordEncoder().encode(user.getCpassword());
-        this.userRole = user.getUserRole();
-    }
+//    public UserRole getRole() {
+//        return userRole;
+//    }
+//
+//    public User(String email, String password, String cpassword, UserRole userRole) {
+//        this.email = email;
+//        this.password = password;
+//        this.cpassword = cpassword;
+//        this.userRole = userRole;
+//    }
+//
+//    public void setRole(UserRole role) {
+//        this.userRole = role;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
+//
+//    public String getEmail() {
+//        return email;
+//    }
+//
+//    public void setEmail(String email) {
+//        this.email = email;
+//    }
+//
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getCpassword() {
+//        return cpassword;
+//    }
+//
+//    public void setCpassword(String cpassword) {
+//        this.cpassword = cpassword;
+//    }
+//
+//
+//
+//    public User(UserDTO user) throws UserRegistrationException {
+//        this.email = user.getEmail();
+//        this.password = user.getPassword();
+//        this.cpassword = user.getCpassword();
+//        this.userRole = user.getUserRole();
+//    }
 
 
 }

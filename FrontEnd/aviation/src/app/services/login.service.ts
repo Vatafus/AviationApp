@@ -4,6 +4,9 @@ import { UserLogin } from '../class/userlogin';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
+const TOKEN = 'I_token';
+const user = 'I_user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,6 +15,11 @@ export class LoginService {
   baseUrl = "http://localhost:8080/user/login"
   invalidLogin = false
   constructor(private httpclient: HttpClient, private router: Router) { }
+
+  public saveToken(token: string): void {
+    window.localStorage.removeItem(TOKEN);
+    window.localStorage.setItem(TOKEN, token);
+  }
 
   //Aici se face apelarea catre backend si se seteaza in momentul in care un user este logat in SessionStorage,
   //emailul cu care s-a autentificat userul.

@@ -24,13 +24,8 @@ import java.util.Set;
 public class UserService {
 
 
-    private final UserRepo userRepo;
-
     @Autowired
-    public UserService(UserRepo userRepo) {
-        this.userRepo = userRepo;
-    }
-
+    private UserRepo userRepo;
 
 
     public boolean isThereAlreadySuchEmail(String email) {
@@ -39,28 +34,45 @@ public class UserService {
     }
 
 
-    @Transactional
-    public UserDTO register(RegisterRequest registerRequest) throws UserRegistrationException {
-        if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
-            throw new UserRegistrationException("Already Such email!");
-        }
-        User user = new User(registerRequest.getEmail(), new BCryptPasswordEncoder().encode(registerRequest.getPassword()), new BCryptPasswordEncoder().encode(registerRequest.getCpassword()), UserRole.USER);
-        userRepo.save(user);
-        if(user==null){
-            return null;
-        }
-        return user.mapUsertoUserDto();
+//    @Transactional
+//    public UserDTO register(RegisterRequest registerRequest) throws UserRegistrationException {
+//        if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
+//            throw new UserRegistrationException("Already Such email!");
+//        }
+//        User user = new User(registerRequest.getEmail(), new BCryptPasswordEncoder().encode(registerRequest.getPassword()), new BCryptPasswordEncoder().encode(registerRequest.getCpassword()), UserRole.USER);
+//        userRepo.save(user);
+//        if(user==null){
+//            return null;
+//        }
+//        return user.mapUsertoUserDto();
+//    }
+
+    public UserDTO createUser(RegisterRequest registerRequest) {
+        User user = new User();
+        user.setEmail(registerRequest.getEmail());
+        user.setUserRole(UserRole.USER);
+        user.setPassword(new BCryptPasswordEncoder().encode(registerRequest.getPassword()));
+        user.setCpassword(new BCryptPasswordEncoder().encode(registerRequest.getCpassword()));
+        User createdUser = userRepo.save(user);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmail(createdUser.getEmail());
+        userDTO.setUserRole(createdUser.getUserRole());
+        return userDTO;
+    }
+
+    public boolean hasUserWithEmail(String email) {
+        return userRepo.findUserByEmail(email) != null;
     }
 
 
-    public User login(LoginDTO user) throws InvalidPasswordException, NotLoggedInException{
-        User u = userRepo.findUserByEmail(user.getEmail());
-        if(u == null){
-            throw new NotLoggedInException("Invalid Email!");
-        }
-        if (!user.getPassword().equals(u.getPassword())){
-            throw new InvalidPasswordException("Invalid Password!");
-        }
-        return u;
-    }
+//    public User login(LoginDTO user) throws InvalidPasswordException, NotLoggedInException{
+//        User u = userRepo.findUserByEmail(user.getEmail());
+//        if(u == null){
+//            throw new NotLoggedInException("Invalid Email!");
+//        }
+//        if (!user.getPassword().equals(u.getPassword())){
+//            throw new InvalidPasswordException("Invalid Password!");
+//        }
+//        return u;
+//    }
 }
