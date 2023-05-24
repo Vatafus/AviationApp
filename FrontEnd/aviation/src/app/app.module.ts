@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login/login.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
@@ -15,7 +15,7 @@ import { AircraftComponent } from './aircraft/aircraft.component';
 import { Boeng757Component } from './boeng757/boeng757.component';
 import { FlyComponent } from './fly/fly.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
-import { HttpIntercepterService } from './services/http/http-intercepter.service';
+// import { HttpIntercepterService } from './services/http/http-intercepter.service';
 import { FooterComponent } from './footer/footer.component';
 import { FoodComponent } from './food/food.component';
 import { NewsComponent } from './news/news.component';
@@ -51,9 +51,10 @@ import { BookingComponent } from './booking/booking.component';
     NgbModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    ReactiveFormsModule
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true }],
+  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

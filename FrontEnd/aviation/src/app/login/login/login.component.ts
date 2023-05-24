@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserLogin } from 'src/app/class/userlogin';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,22 +12,27 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  user: UserLogin = new UserLogin();
+  // user: UserLogin = new UserLogin();
+  validateForm !: FormGroup;
 
   constructor(private route: Router,
     private loginService: LoginService,
     private authService: AuthService,
+    private fb: FormBuilder,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      username: [null, [Validators.required]],
+      password: [null, [Validators.required]],
+    })
   }
 
   userLogin() {
-    console.log(this.user)
-    this.loginService.loginUser(this.user).subscribe(value => {
-      this.route.navigate(['/boeng757'])
-    }, error => alert("Sorry please enter a valid Email")
-    );
+    console.log(this.validateForm.value);
+    this.loginService.login(this.validateForm.value).subscribe((res) => {
+      console.log(res);
+    })
   }
 
 }
