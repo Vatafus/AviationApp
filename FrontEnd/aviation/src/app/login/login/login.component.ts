@@ -29,8 +29,7 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin() {
-    console.log(this.validateForm.value);
-    this.loginService.login(this.validateForm.value).subscribe((res) => {
+    this.loginService.login(this.validateForm.get(['username'])!.value, this.validateForm.get(['password'])!.value).subscribe((res) => {
       console.log(res);
     })
   }

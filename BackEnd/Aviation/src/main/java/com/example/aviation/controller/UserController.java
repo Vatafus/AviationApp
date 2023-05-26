@@ -10,7 +10,8 @@ import com.example.aviation.utility.JwtUtil;
 import com.example.aviation.validation.Validation;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletResponse;
-import net.minidev.json.JSONObject;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -54,6 +55,9 @@ public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    public static final String TOKEN_PREFIX = "Bearer ";
+    public static final String HEADER_STRING = "Authorization";
+
 
 //    @PostMapping("/register")
 //    public ResponseEntity<?> register(@RequestBody @Valid RegisterRequest registerRequest) throws UserRegistrationException {
@@ -84,18 +88,28 @@ public class UserController {
 
 
     @PostMapping("/login")
-    public LoginDTOResponse createAuthenticationToken(@RequestBody LoginDTO loginDTO, HttpServletResponse response) throws BadCredentialsException, DisabledException, UsernameNotFoundException, IOException, ServletException {
+    public void createAuthenticationToken(@RequestBody LoginDTO loginDTO, HttpServletResponse response) throws BadCredentialsException, DisabledException, UsernameNotFoundException, IOException, ServletException, JSONException {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginDTO.getUsername(), loginDTO.getPassword()));
         } catch (BadCredentialsException e) {
             throw new BadCredentialsException("Incorrect username or password.");
         } catch (DisabledException disabledException) {
             response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "User is not activated");
-            return null;
+            return;
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(loginDTO.getUsername());
         User user = userRepo.findUserByEmail(loginDTO.getUsername());
         final String jwt = jwtUtil.generateToken(loginDTO.getUsername());
-        return new LoginDTOResponse(jwt);
+//        return new LoginDTOResponse(jwt);
+
+        response.getWriter().write(new JSONObject()
+                .put("userId", user.getId())
+                .put("role", user.getUserRole())
+                .toString()
+        );
+        response.setHeader("Access-Control-Expose-Headers","Authorization");
+        response.setHeader("Access-Control-Allow-Headers", "Authorization, X-PINGOTHER, Origin, X-Requested-With, Content-Type, Accept, X-Custom-header");
+        response.addHeader(HEADER_STRING, TOKEN_PREFIX + jwt);
+
     }
 }
