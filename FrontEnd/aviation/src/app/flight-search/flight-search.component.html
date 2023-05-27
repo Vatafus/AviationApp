@@ -48,6 +48,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<app-navbar></app-navbar>
 
 <head>
     <meta charset="UTF-8">
@@ -78,7 +79,7 @@
                         <!-- FROM/TO -->
                         <div id="flight-depart">
                             <div class=" info-box ">
-                                <label for=" ">LEAVING FROM</label>
+                                <label for=" ">Leaving from</label>
                                 <select id="dep-from" required [(ngModel)]="form.leavingfrom" name="leavingfrom"
                                     #leavingfrom="ngModel">
                                     <option value="Bucharest">Bucharest</option>
@@ -87,8 +88,8 @@
 
                             </div>
                         </div>
-                        <div class="info-box " id="arrive-box ">
-                            <label class="title-arrivingat">ARRIVING AT</label>
+                        <div class="info-box " id="arrive-box">
+                            <label class="title-arrivingat">Arriving At</label>
                             <select id="dep-to" required [(ngModel)]="form.arrivingat" name="arrivingat"
                                 #arrivingat="ngModel">
                                 <option value="Londra">Londra</option>
@@ -102,7 +103,7 @@
                         <div id="flight-dates">
                             <div class="info-box ">
                                 <label class="title-leavingon">
-                                    LEAVING ON
+                                    Departure Date
                                 </label>
                                 <input type="date" [min]="now" id="leavingdate" class="form-control" required
                                     [(ngModel)]="form.leavingdate" name="leavingdate" #leavingdate="ngModel" />
@@ -110,7 +111,8 @@
                             <div *ngIf=" leavingdate.dirty || leavingdate.touched" class="alert">
 
                                 <div *ngIf="leavingdate.errors?.['required']">
-                                    <a style="color: red;font-size: large;">Departure Date-required!</a>
+                                    <a style="color: red;font-size: large; margin-left: 315px;">Departure
+                                        Date-required!</a>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +145,7 @@
                 <td>{{ flight.leavingdate }}</td>
                 <th>
                     <button type="submit" class="bookNow" id="btn2" (click)="onClick(flight.id!,form.leavingdate!)"
-                        *ngIf="loginService.isUserLoggedIn()">Book Now</button>
+                        *ngIf="storageService.isUserLoggedIn()">Book Now</button>
                 </th>
             </tr>
         </tbody>

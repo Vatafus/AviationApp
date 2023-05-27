@@ -1,6 +1,6 @@
 .carousel {
     text-align: center;
-    padding: 0px 500px;
+    padding: 0px 0px;
     margin: auto;
     left: 50px;
     width: 100%;
@@ -60,25 +60,25 @@
     text-decoration: underline;
 }
 
-.search-box {
+/* .search-box {
     background: white;
     margin-left: 850px;
     width: 1000px;
     height: 480px;
-}
+} */
 
-.form-inline {
+/* .form-inline {
 
     width: 200px;
     height: 80px;
     margin-top: 20px;
     padding-top: 60px;
     margin-left: 300px;
-}
+} */
 
 
 .row {
-    padding-top: 190px;
+    padding-top: 0px;
 }
 
 
@@ -107,7 +107,7 @@
         /* padding-right: 500px; */
         width: 1450px;
         left: 1200px;
-        margin-top: 350px;
+        margin-top: 120px;
     }
 
     .col-sm-3 {

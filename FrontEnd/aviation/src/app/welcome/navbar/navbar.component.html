@@ -18,20 +18,20 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar1">
                             <li class="nav-itemL">
-                                <a *ngIf="!loginService.isUserLoggedIn()" class="login" routerLink="/login">Login</a>
+                                <a *ngIf="!storageService.isUserLoggedIn()" class="login" routerLink="/login">Login</a>
                             </li>
                             <li class="nav-itemL">
-                                <a *ngIf="loginService.isUserLoggedIn()" class="logout" (click)="userLogout()"
+                                <a *ngIf="storageService.isUserLoggedIn()" class="logout" (click)="userLogout()"
                                     routerLink="">Logout</a>
                             </li>
                             <li class="nav-itemR">
-                                <a *ngIf="!loginService.isUserLoggedIn()" class="register"
+                                <a *ngIf="!storageService.isUserLoggedIn()" class="register"
                                     routerLink="/register">Register</a>
                             </li>
                         </ul>
                         <ul class=" navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">BOOK</a>
+                                <a class="nav-link" href="/search">BOOK</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">PLAN</a>

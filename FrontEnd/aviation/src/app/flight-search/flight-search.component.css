@@ -6,10 +6,16 @@
     text-align: center;
 } */
 
+#header {
+    padding-top: 20px;
+    margin-left: 500px;
+}
+
 .table {
     border-radius: 5px;
     background-color: #149f65;
 }
+
 
 .info-box input[type=text],
 input[type=submit],
@@ -59,14 +65,21 @@ select {
     bottom: 9px;
     display: flex;
     justify-content: center;
-    width: 95%;
-    margin-right: 10px;
+    width: 500px;
+    margin-left: 321px;
     border-radius: 5px;
 }
 
 #flight-depart {
     display: flex;
+    width: 500px;
+    margin-left: 321px;
     /* justify-content: space-between; */
+}
+
+#arrive-box {
+    width: 500px;
+    margin-left: 321px;
 }
 
 
@@ -77,14 +90,14 @@ select {
 .info-box #leavingdate {
     background: #e7e9e9;
     margin-top: 0px;
-    width: 658px;
+    width: 500px;
     text-align: center;
     border-style: none;
-    margin-left: 140px;
+    margin-left: 320px;
 }
 
 .info-box .title-leavingon {
-    margin-left: 145px;
+    margin-left: 325px;
 }
 
 .info-box .title-arrivingat {

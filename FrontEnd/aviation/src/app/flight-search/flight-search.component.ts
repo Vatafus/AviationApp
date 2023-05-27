@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from "@angular/common";
 import { LoginService } from 'src/app/services/login.service';
+import { StorageServiceService } from '../services/storage-service.service';
 
 @Component({
   selector: 'app-flight-search',
@@ -31,7 +32,7 @@ export class FlightSearchComponent implements OnInit {
   now: any;
 
   constructor(private router: Router, private search: SearchFlightService, private httpClient: HttpClient,
-    private route: ActivatedRoute, public loginService: LoginService) { }
+    private route: ActivatedRoute, public loginService: LoginService, public storageService: StorageServiceService) { }
 
 
   ngOnInit(): void {

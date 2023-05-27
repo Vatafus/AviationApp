@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { UserLogin } from '../class/userlogin';
 import { Router } from '@angular/router';
 import { Observable, map, tap } from 'rxjs';
@@ -39,6 +39,14 @@ export class LoginService {
     console.log(`User Auth Service: ${message}`)
   }
 
+  createAuthorizationHeader(): HttpHeaders {
+    let authHeaders: HttpHeaders = new HttpHeaders();
+    return authHeaders.set(
+      'Authorization',
+      'Bearer ' + this.storageService.getToken()
+    );
+  }
+
 
   //Aici se face apelarea catre backend si se seteaza in momentul in care un user este logat in SessionStorage,
   //emailul cu care s-a autentificat userul.
@@ -47,13 +55,14 @@ export class LoginService {
   //   sessionStorage.setItem('authenticaterUser', user.email);
   //   return this.httpclient.post(`${this.baseUrl}`, user);
   // }
+
   //Se verifica daca userul este logat.
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('authenticaterUser');
-    return !(user === null);
-  }
+  // isUserLoggedIn() {
+  //   let user = sessionStorage.getItem('authenticaterUser');
+  //   return !(user === null);
+  // }
   //Are loc logout-ul utilizatorului prin inlaturarea token-ului de autentificare de la logare.
-  logout() {
-    sessionStorage.removeItem('authenticaterUser');
-  }
+  // logout() {
+  //   sessionStorage.removeItem('authenticaterUser');
+  // }
 }

@@ -6,6 +6,7 @@ import { LoginService } from 'src/app/services/login.service';
 import { Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { StorageServiceService } from 'src/app/services/storage-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,14 +14,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(public loginService: LoginService, private router: Router) { }
+  constructor(public loginService: LoginService, private router: Router, public storageService: StorageServiceService) { }
   isUserLoggedIn: boolean = false;
   ngOnInit() {
-    this.isUserLoggedIn = this.loginService.isUserLoggedIn();
+    this.isUserLoggedIn = this.storageService.isUserLoggedIn();
   }
 
   userLogout() {
-    this.loginService.logout();
+    this.storageService.signOut();
   }
 
 } 
