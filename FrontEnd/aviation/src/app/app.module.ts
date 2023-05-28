@@ -24,6 +24,10 @@ import { NewsPostComponent } from './news-post/news-post.component';
 import { MarkdownModule } from 'ngx-markdown';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { BookingComponent } from './booking/booking.component';
+import { Airbus330Component } from './airbus330/airbus330.component';
+import { EconomyclassComponent } from './Travel Classes/Economy Class/economyclass/economyclass.component';
+import { BusinessclassComponent } from './Travel Classes/Business Class/businessclass/businessclass.component';
+import { PremiumclassComponent } from './Travel Classes/Premium Economy Class/premiumclass/premiumclass.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { BookingComponent } from './booking/booking.component';
     NewsPostComponent,
     FlightSearchComponent,
     BookingComponent,
+    Airbus330Component,
+    EconomyclassComponent,
+    BusinessclassComponent,
+    PremiumclassComponent
   ],
   imports: [
     BrowserModule,

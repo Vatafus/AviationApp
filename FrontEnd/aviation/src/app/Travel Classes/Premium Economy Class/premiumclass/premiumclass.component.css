@@ -1,0 +1,108 @@
+@media screen and (max-width:2600px) {
+    .title {
+        font-size: xx-large;
+        font-weight: bold;
+        padding-top: 40px;
+    }
+
+    .text {
+        font-size: x-large;
+    }
+
+    .economy {
+        width: 1200px;
+        height: 700px;
+        padding-top: 10px;
+    }
+
+    .mid-text h2 {
+        padding-top: 90px;
+        font-size: 30px;
+    }
+
+    .internet {
+        position: absolute;
+        width: 299px;
+        height: 200px;
+        border-radius: 5px 5px 0 0;
+        right: 0px;
+        bottom: 150px;
+        margin-bottom: 20px;
+    }
+
+    .carousel {
+        text-align: center;
+        padding: 0px 0px;
+        width: 95%;
+        margin: auto;
+        left: 0px;
+        right: 30px;
+    }
+
+    .carousel-item {
+        padding-left: 735px;
+        /* right: 200px; */
+        right: 1000px;
+    }
+
+    .row {
+        /* padding-left: 150px; */
+        /* padding-right: 500px; */
+        width: 1400px;
+        left: 100px;
+        margin-top: 0px;
+        padding-left: 125px;
+    }
+
+    .col-sm-3 {
+        margin-left: 0px;
+    }
+
+    .card {
+        height: 370px;
+        width: 300px;
+        padding-right: 30px;
+    }
+
+    .menu {
+        position: absolute;
+        height: 200px;
+        width: 299px;
+        border-radius: 5px 5px 0 0;
+        right: 0px;
+        bottom: 150px;
+        margin-bottom: 20px;
+    }
+
+    .card-title {
+        position: relative;
+        padding-top: 190px;
+        font-size: medium;
+        font-weight: bold;
+        padding-left: 18px;
+    }
+
+    .link {
+        color: #149f65;
+        text-decoration: none;
+        padding-left: 19px;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    .card-text {
+        padding-left: 20px;
+    }
+
+    .seatlogo {
+        position: absolute;
+        height: 200px;
+        width: 299px;
+        border-radius: 5px 5px 0 0;
+        right: 0px;
+        bottom: 150px;
+        margin-bottom: 20px;
+    }
+}
