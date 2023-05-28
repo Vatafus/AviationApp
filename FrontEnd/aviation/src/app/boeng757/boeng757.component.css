@@ -176,4 +176,114 @@ h3 {
         margin-right: auto;
         display: block;
     }
+
+    .carousel {
+        text-align: center;
+        padding: 0px 0px;
+        width: 75%;
+        margin: auto;
+        left: 0px;
+        right: 30px;
+    }
+
+
+    .carousel-item {
+        padding-left: 865px;
+        /* right: 200px; */
+        right: 1000px;
+    }
+
+    .row {
+        /* padding-left: 150px; */
+        /* padding-right: 500px; */
+        width: 1450px;
+        left: 1200px;
+        margin-top: 50px;
+    }
+
+    .col-sm-3 {
+        margin-left: 60px;
+
+    }
+
+    .card {
+        height: 350px;
+        width: 376.5px;
+        padding-right: 30px;
+        border: none;
+    }
+
+    .seat-logo {
+        position: relative;
+        height: 170px;
+        width: 170px;
+        border-radius: 5px 5px 0 0;
+        right: 0px;
+        bottom: 20px;
+    }
+
+
+
+    .screen-logo {
+        position: relative;
+        height: 170px;
+        width: 190px;
+        border-radius: 5px 5px 0 0;
+        right: 0px;
+        bottom: 30px;
+
+    }
+
+    .usb-logo {
+        position: relative;
+        height: 170px;
+        width: 140px;
+        border-radius: 5px 5px 0 0;
+        bottom: 10px;
+        left: 0px;
+    }
+
+    .card-text {
+        /* position: relative; */
+        padding-bottom: 40px;
+    }
+
+    .card-title {
+        position: relative;
+        padding-top: 190px;
+        font-size: medium;
+        font-weight: bold;
+    }
+
+
+    .link {
+        color: #149f65;
+        text-decoration: none;
+    }
+
+    .link:hover {
+        text-decoration: underline;
+    }
+
+    .search-box {
+        background: whitesmoke;
+        margin-left: 300px;
+        width: 1000px;
+        height: 200px;
+    }
+
+    .btn {
+        margin-top: 20px;
+    }
+
+
+    .form-inline {
+
+        width: 200px;
+        height: 80px;
+        margin-top: 20px;
+        padding-top: 60px;
+        margin-left: 300px;
+    }
+
 }

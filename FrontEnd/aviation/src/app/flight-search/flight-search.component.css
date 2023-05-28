@@ -7,8 +7,14 @@
 } */
 
 #header {
-    padding-top: 20px;
+    margin-top: 40px;
     margin-left: 500px;
+}
+
+#header h1 {
+    font-size: xx-large;
+    font-weight: bold;
+    font-family: monospace;
 }
 
 .table {
@@ -121,4 +127,10 @@ tr {
 
 #btn2:hover {
     background-color: #C1DCF9;
+}
+
+.image-search {
+    position: absolute;
+    /* width: 500px; */
+    margin-left: 500px;
 }
