@@ -10,7 +10,7 @@
     }
 
     .economy {
-        width: 1200px;
+        width: 1300px;
         height: 700px;
         padding-top: 10px;
     }
@@ -22,12 +22,12 @@
 
     .internet {
         position: absolute;
-        width: 299px;
+        width: 399px;
         height: 200px;
         border-radius: 5px 5px 0 0;
         right: 0px;
         bottom: 150px;
-        margin-bottom: 20px;
+        margin-bottom: 70px;
     }
 
     .carousel {
@@ -51,27 +51,28 @@
         width: 1400px;
         left: 100px;
         margin-top: 0px;
-        padding-left: 125px;
+        padding-left: 60px;
     }
 
     .col-sm-3 {
-        margin-left: 0px;
+        margin-left: 110px;
     }
 
     .card {
-        height: 370px;
-        width: 300px;
+        height: 420px;
+        width: 400px;
         padding-right: 30px;
+        border: none;
     }
 
     .menu {
         position: absolute;
         height: 200px;
-        width: 299px;
+        width: 399px;
         border-radius: 5px 5px 0 0;
         right: 0px;
         bottom: 150px;
-        margin-bottom: 20px;
+        margin-bottom: 70px;
     }
 
     .card-title {
@@ -99,10 +100,10 @@
     .seatlogo {
         position: absolute;
         height: 200px;
-        width: 299px;
+        width: 399px;
         border-radius: 5px 5px 0 0;
         right: 0px;
         bottom: 150px;
-        margin-bottom: 20px;
+        margin-bottom: 70px;
     }
 }

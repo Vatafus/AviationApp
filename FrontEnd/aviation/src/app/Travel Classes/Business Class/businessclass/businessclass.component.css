@@ -51,17 +51,18 @@
         width: 1400px;
         left: 100px;
         margin-top: 0px;
-        padding-left: 125px;
+        padding-left: 80px;
     }
 
     .col-sm-3 {
-        margin-left: 0px;
+        margin-left: 110px;
     }
 
     .card {
         height: 370px;
         width: 300px;
         padding-right: 30px;
+        border: none;
     }
 
     .menu {
