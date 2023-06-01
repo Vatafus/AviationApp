@@ -31,7 +31,7 @@ public class FlightsDTO {
         this.leavingfrom = flights.getLeavingfrom();
         this.arrivingat = flights.getArrivingat();
         this.leavingdate = flights.getLeavingdate();
-        this.nrseats = flights.getNrseats();
+            this.nrseats = flights.getNrseats();
     }
 
 }
