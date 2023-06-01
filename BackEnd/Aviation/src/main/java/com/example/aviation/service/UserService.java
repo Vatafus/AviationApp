@@ -47,6 +47,10 @@ public class UserService {
 //        return user.mapUsertoUserDto();
 //    }
 
+    public User getUserbyId(Long id){
+        return userRepo.findById(id).get();
+    }
+
     public UserDTO createUser(RegisterRequest registerRequest)throws UserRegistrationException {
         if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
             throw new UserRegistrationException("Already Such email!");

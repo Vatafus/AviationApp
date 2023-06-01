@@ -132,5 +132,7 @@ tr {
 .image-search {
     position: absolute;
     /* width: 500px; */
-    margin-left: 500px;
+    height: 400px;
+    margin-left: 900px;
+    margin-bottom: 100px;
 }

@@ -32,8 +32,8 @@ public class FlightsController {
 
 
     @GetMapping("/find/{leavingfrom}/{arrivingat}/{leavingdate}")
-    public List<Flights> getFlights(@PathVariable String leavingfrom, @PathVariable String arrivingat, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date leavingdate) {
-        return flightsService.findeAllFlightsAfterLeaving(leavingfrom, arrivingat, leavingdate);
+    public List<Flights> getFlights(@PathVariable String leavingfrom, @PathVariable String arrivingat, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date leavingdate, Integer nrseats) {
+        return flightsService.findeAllFlightsAfterLeaving(leavingfrom, arrivingat, leavingdate,nrseats);
     }
 
     @GetMapping("/all-flights")

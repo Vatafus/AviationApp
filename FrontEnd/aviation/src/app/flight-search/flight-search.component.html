@@ -70,6 +70,7 @@
                 <div id="header">
                     <h1>Get Your Flight</h1>
                 </div>
+                <img class="image-search" src="/assets/icons/SearchFlight.png">
 
                 <div class="flight" id="flightbox">
 
@@ -78,7 +79,6 @@
 
                         <!-- FROM/TO -->
                         <div id="flight-depart">
-                            <img class="image-search" src="/assets/icons/SearchFlight.png">
                             <div class=" info-box ">
                                 <label for=" ">Leaving from</label>
                                 <select id="dep-from" required [(ngModel)]="form.leavingfrom" name="leavingfrom"
@@ -136,6 +136,7 @@
                 <th>Departure Location: </th>
                 <th>Arrival Location: </th>
                 <th>Date: </th>
+                <th>Number of seats left: </th>
             </tr>
         </thead>
         <tbody>
@@ -144,10 +145,15 @@
                 <td>{{ flight.leavingfrom }}</td>
                 <td>{{ flight.arrivingat }}</td>
                 <td>{{ flight.leavingdate }}</td>
+                <td>{{flight.nrseats}}</td>
                 <th>
-                    <button type="submit" class="bookNow" id="btn2" (click)="onClick(flight.id!,form.leavingdate!)"
-                        *ngIf="storageService.isUserLoggedIn()">Book Now</button>
+                    <button type="submit" class="bookNow" id="btn2" (click)="onClick(flight.id!,form.leavingdate!)">Book
+                        Now</button>
                 </th>
+                <!-- <th>
+                    <button type="submit" class="bookNow" id="btn2" (click)="onClick(flight.id!,form.leavingdate!)"
+                    *ngIf="storageService.isUserLoggedIn()">Book Now</button>
+                </th> -->
             </tr>
         </tbody>
     </table>

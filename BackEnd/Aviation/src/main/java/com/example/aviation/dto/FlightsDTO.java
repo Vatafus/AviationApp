@@ -2,6 +2,7 @@ package com.example.aviation.dto;
 
 
 import com.example.aviation.domain.Flights;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,10 +24,14 @@ public class FlightsDTO {
     @NotBlank(message = "Invalid date!")
     private Date leavingdate;
 
+    @NotBlank
+    private Integer nrseats;
+
     public FlightsDTO(Flights flights) {
         this.leavingfrom = flights.getLeavingfrom();
         this.arrivingat = flights.getArrivingat();
         this.leavingdate = flights.getLeavingdate();
+        this.nrseats = flights.getNrseats();
     }
 
 }

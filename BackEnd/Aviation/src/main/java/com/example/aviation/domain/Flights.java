@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -29,9 +30,16 @@ public class Flights {
     @Column(name="leavingdate")
     private Date leavingdate;
 
-    public Flights(String leavingfrom, String arrivingat, Date leavingdate) {
+    @Column(name = "NumberOfSeats")
+    private Integer nrseats;
+
+//    @OneToMany(mappedBy = "flightsMapat", fetch = FetchType.EAGER, orphanRemoval = true)
+//    private Set<Booking> bookings;
+
+    public Flights(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats) {
         this.leavingfrom = leavingfrom;
         this.arrivingat = arrivingat;
         this.leavingdate = leavingdate;
+        this.nrseats = nrseats;
     }
 }

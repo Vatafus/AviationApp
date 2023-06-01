@@ -31,7 +31,11 @@ public class FlightsService {
         return flightsRepo.findAll();
     }
 
-    public List<Flights> findeAllFlightsAfterLeaving(String leavingfrom, String arrivingat, Date leavingdate) {
+    public List<Flights> findeAllFlightsAfterLeaving(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats) {
         return flightsRepo.findByLeavingfromAndArrivingatAndLeavingdate(leavingfrom,arrivingat,leavingdate);
+    }
+
+    public Flights getFlights(Long id){
+        return flightsRepo.findById(id).get();
     }
 }
