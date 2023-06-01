@@ -47,7 +47,10 @@ public class UserService {
 //        return user.mapUsertoUserDto();
 //    }
 
-    public UserDTO createUser(RegisterRequest registerRequest) {
+    public UserDTO createUser(RegisterRequest registerRequest)throws UserRegistrationException {
+        if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
+            throw new UserRegistrationException("Already Such email!");
+        }
         User user = new User();
         user.setEmail(registerRequest.getEmail());
         user.setUserRole(UserRole.USER);

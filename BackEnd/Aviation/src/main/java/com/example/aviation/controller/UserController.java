@@ -68,7 +68,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<?> signupUser(@RequestBody RegisterRequest registerRequest) {
+    public ResponseEntity<?> signupUser(@RequestBody RegisterRequest registerRequest) throws UserRegistrationException  {
 
         if(userService.hasUserWithEmail(registerRequest.getEmail())){
             return new ResponseEntity<>("User already exist",HttpStatus.NOT_ACCEPTABLE);
