@@ -1,0 +1,22 @@
+.button2 {
+    margin-left: 800px;
+    margin-top: 20px;
+}
+
+#header {
+    padding-top: 20px;
+    margin-left: 570px;
+}
+
+#form-group {
+    padding-top: 20px;
+}
+
+input {
+    width: 300px;
+    margin-left: 510px;
+}
+
+label {
+    padding-left: 512px;
+}
