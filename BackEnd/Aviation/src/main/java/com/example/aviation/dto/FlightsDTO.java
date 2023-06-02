@@ -3,6 +3,8 @@ package com.example.aviation.dto;
 
 import com.example.aviation.domain.Flights;
 import jakarta.persistence.Column;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,11 +31,12 @@ public class FlightsDTO {
     @NotBlank
     private Integer nrseats;
 
+
     public FlightsDTO(Flights flights) {
         this.leavingfrom = flights.getLeavingfrom();
         this.arrivingat = flights.getArrivingat();
         this.leavingdate = flights.getLeavingdate();
-            this.nrseats = flights.getNrseats();
+        this.nrseats = flights.getNrseats();
     }
 
 }

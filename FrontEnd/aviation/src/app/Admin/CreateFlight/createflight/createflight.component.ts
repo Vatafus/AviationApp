@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { error } from 'console';
 import { FlightSearch } from 'src/app/class/flight-search';
+import { SearchFlightService } from 'src/app/services/search-flight.service';
 
 @Component({
   selector: 'app-createflight',
@@ -10,7 +12,7 @@ export class CreateflightComponent implements OnInit {
 
   flight: FlightSearch = new FlightSearch();
 
-  constructor() {
+  constructor(private flightService: SearchFlightService) {
 
   }
 
@@ -19,7 +21,14 @@ export class CreateflightComponent implements OnInit {
 
   }
 
-  onSubmit() {
+  saveFlight() {
+    this.flightService.createFlight(this.flight).subscribe(data => {
+      alert("Flight Created with Successs")
+    });
+  }
 
+  onSubmit() {
+    console.log(this.flight);
+    this.saveFlight();
   }
 }

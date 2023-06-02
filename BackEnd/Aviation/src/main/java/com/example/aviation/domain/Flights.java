@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,9 +33,8 @@ public class Flights {
     @Column(name="leavingdate")
     private Date leavingdate;
 
-    @Column(name="time")
-    @Temporal(TemporalType.TIME)
-    private Date hrs;
+    @Column(name="hrs")
+    private String hrs;
 
     @Column(name = "NumberOfSeats")
     private Integer nrseats;
@@ -42,10 +42,11 @@ public class Flights {
 //    @OneToMany(mappedBy = "flightsMapat", fetch = FetchType.EAGER, orphanRemoval = true)
 //    private Set<Booking> bookings;
 
-    public Flights(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats) {
+    public Flights(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats,String hrs) {
         this.leavingfrom = leavingfrom;
         this.arrivingat = arrivingat;
         this.leavingdate = leavingdate;
         this.nrseats = nrseats;
+        this.hrs = hrs;
     }
 }

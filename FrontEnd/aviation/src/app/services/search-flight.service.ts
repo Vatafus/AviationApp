@@ -13,10 +13,15 @@ export class SearchFlightService {
   constructor(private httpClient: HttpClient) { }
 
   FlightSearchApi = 'http://localhost:8080/flights/find/';
+  CreateFlightApi = 'http://localhost:8080/admin/create/flight'
+
 
   public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any): Observable<FlightSearch[]> {
     return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom + "/" + arrivingat + "/" + leavingdate);
+  }
 
+  createFlight(flight: FlightSearch): Observable<Object> {
+    return this.httpClient.post(this.CreateFlightApi, flight);
   }
 
   // public getAllFlights() {
