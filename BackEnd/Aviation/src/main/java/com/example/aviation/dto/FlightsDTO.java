@@ -6,6 +6,7 @@ import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class FlightsDTO {
     private String arrivingat;
 
     @NotBlank(message = "Invalid date!")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date leavingdate;
 
     @NotBlank

@@ -38,9 +38,8 @@ export class FlightSearchComponent implements OnInit {
   ngOnInit(): void {
     // this.getAllFlights();
     const datePipe = new DatePipe('en-Us');
-    this.now = datePipe.transform(new Date(), 'yyyy-MM-dd');
+    this.now = datePipe.transform(Date.now(), 'short');
   }
-
 
   onSubmit(): void {
     const { leavingfrom, arrivingat, leavingdate } = this.form;

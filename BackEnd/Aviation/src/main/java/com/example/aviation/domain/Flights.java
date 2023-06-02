@@ -5,7 +5,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
@@ -29,6 +31,10 @@ public class Flights {
 
     @Column(name="leavingdate")
     private Date leavingdate;
+
+    @Column(name="time")
+    @Temporal(TemporalType.TIME)
+    private Date hrs;
 
     @Column(name = "NumberOfSeats")
     private Integer nrseats;

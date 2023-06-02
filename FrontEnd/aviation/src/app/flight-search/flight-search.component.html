@@ -137,6 +137,7 @@
                 <th>Arrival Location: </th>
                 <th>Date: </th>
                 <th>Number of seats left: </th>
+                <th>Hour of departure: </th>
             </tr>
         </thead>
         <tbody>
@@ -146,6 +147,7 @@
                 <td>{{ flight.arrivingat }}</td>
                 <td>{{ flight.leavingdate }}</td>
                 <td>{{flight.nrseats}}</td>
+                <td>{{flight.hrs}}</td>
                 <th>
                     <button type="submit" class="bookNow" id="btn2" (click)="onClick(flight.id!,form.leavingdate!)">Book
                         Now</button>
