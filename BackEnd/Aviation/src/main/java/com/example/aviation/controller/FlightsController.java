@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class FlightsController {
 
 
     @GetMapping("/find/{leavingfrom}/{arrivingat}/{leavingdate}")
-    public List<Flights> getFlights(@PathVariable String leavingfrom, @PathVariable String arrivingat, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date leavingdate, Integer nrseats, Date hrs) {
+    public List<Flights> getFlights(@PathVariable String leavingfrom, @PathVariable String arrivingat, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date leavingdate, Integer nrseats, String hrs) {
         return flightsService.findeAllFlightsAfterLeaving(leavingfrom, arrivingat, leavingdate,nrseats,hrs);
     }
 
