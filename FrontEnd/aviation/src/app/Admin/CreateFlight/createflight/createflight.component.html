@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-navbar></app-navbar>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <title>FlyBird</title>
+</head>
+
+<body>
+    <section class="banner" id="top">
+        <div class="container">
+
+            <div id="header">
+                <h1>Add a new Flight</h1>
+            </div>
+
+            <div id="form-group">
+                <label>Leaving From</label>
+                <input type="text" class="form-control" id="leavingfrom" [(ngModel)]="flight.leavingfrom"
+                    name="leavingfrom">
+            </div>
+
+            <div id="form-group">
+                <label>Arriving At</label>
+                <input type="text" class="form-control" id="arrivingat" [(ngModel)]="flight.arrivingat"
+                    name="arrivingat">
+            </div>
+
+            <div id="form-group">
+                <label>Departure Date</label>
+                <input type="text" class="form-control" id="leavingdate" [(ngModel)]="flight.leavingdate"
+                    name="leavingdate">
+            </div>
+
+            <div id="form-group">
+                <label>Number Of Seats</label>
+                <input type="text" class="form-control" id="nrseats" [(ngModel)]="flight.nrseats" name="nrseats">
+            </div>
+
+            <div id="form-group">
+                <label>Departure Hour</label>
+                <input type="text" class="form-control" id="hrs" [(ngModel)]="flight.hrs" name="hrs">
+            </div>
+            <div>
+                <button class="btn btn-success" type="submit">Add a new Flight</button>
+            </div>
+        </div>
+    </section>
+</body>

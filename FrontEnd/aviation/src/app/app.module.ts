@@ -28,6 +28,7 @@ import { Airbus330Component } from './airbus330/airbus330.component';
 import { EconomyclassComponent } from './Travel Classes/Economy Class/economyclass/economyclass.component';
 import { BusinessclassComponent } from './Travel Classes/Business Class/businessclass/businessclass.component';
 import { PremiumclassComponent } from './Travel Classes/Premium Economy Class/premiumclass/premiumclass.component';
+import { CreateflightComponent } from './Admin/CreateFlight/createflight/createflight.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { PremiumclassComponent } from './Travel Classes/Premium Economy Class/pr
     Airbus330Component,
     EconomyclassComponent,
     BusinessclassComponent,
-    PremiumclassComponent
+    PremiumclassComponent,
+    CreateflightComponent
   ],
   imports: [
     BrowserModule,

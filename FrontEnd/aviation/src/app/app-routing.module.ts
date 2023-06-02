@@ -17,6 +17,7 @@ import { Airbus330Component } from './airbus330/airbus330.component';
 import { EconomyclassComponent } from './Travel Classes/Economy Class/economyclass/economyclass.component';
 import { BusinessclassComponent } from './Travel Classes/Business Class/businessclass/businessclass.component';
 import { PremiumclassComponent } from './Travel Classes/Premium Economy Class/premiumclass/premiumclass.component';
+import { CreateflightComponent } from './Admin/CreateFlight/createflight/createflight.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'airbus330', component: Airbus330Component },
   { path: 'economy', component: EconomyclassComponent },
   { path: 'business', component: BusinessclassComponent },
+  { path: 'addFlight', component: CreateflightComponent },
   { path: 'premium', component: PremiumclassComponent }
 
 
