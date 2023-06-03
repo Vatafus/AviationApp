@@ -10,8 +10,10 @@ import com.example.aviation.exception.InvalidPasswordException;
 import com.example.aviation.exception.NoEmailException;
 import com.example.aviation.exception.NotLoggedInException;
 import com.example.aviation.exception.UserException;
+import com.example.aviation.repo.FlightsRepo;
 import com.example.aviation.service.FlightsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,16 @@ public class FlightsController {
 
     @Autowired
     FlightsService flightsService;
+
+    @Autowired
+    FlightsRepo flightsRepo;
+
+
+    @GetMapping("/find/flight/{id}")
+    public ResponseEntity<Flights> getFlightbyId(@PathVariable Long id){
+        Flights flights = flightsRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Flight with id:" + id + "does not exist" ));
+        return ResponseEntity.ok(flights);
+    }
 
 
     @GetMapping("/find/{leavingfrom}/{arrivingat}/{leavingdate}")

@@ -9,6 +9,9 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("admin")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -35,5 +38,14 @@ public class AdminController {
 
         Flights updateFlight = flightsRepo.save(flights);
         return ResponseEntity.ok(updateFlight);
+    }
+
+    @DeleteMapping("/delete/flight/{id}")
+    public ResponseEntity<Map<String,Boolean>>deleteFlight(@PathVariable Long id){
+        Flights flights = flightsRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Flight not exist with id" + id));
+        flightsRepo.delete(flights);
+        Map<String,Boolean>response = new HashMap<>();
+        response.put("delete",Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 }

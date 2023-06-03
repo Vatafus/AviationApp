@@ -29,6 +29,8 @@ import { EconomyclassComponent } from './Travel Classes/Economy Class/economycla
 import { BusinessclassComponent } from './Travel Classes/Business Class/businessclass/businessclass.component';
 import { PremiumclassComponent } from './Travel Classes/Premium Economy Class/premiumclass/premiumclass.component';
 import { CreateflightComponent } from './Admin/CreateFlight/createflight/createflight.component';
+import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
+import { UpdateflightComponent } from './Admin/UpdateFlight/updateflight/updateflight.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { CreateflightComponent } from './Admin/CreateFlight/createflight/createf
     EconomyclassComponent,
     BusinessclassComponent,
     PremiumclassComponent,
-    CreateflightComponent
+    CreateflightComponent,
+    DashboardComponent,
+    UpdateflightComponent
   ],
   imports: [
     BrowserModule,

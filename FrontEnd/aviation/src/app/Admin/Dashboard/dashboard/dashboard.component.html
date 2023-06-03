@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h2>Flight List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Leaving From</th>
+                <th>Arriving At</th>
+                <th>Leaving Date</th>
+                <th>Number of Seats</th>
+                <th>Hour of Departure</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let flight of flights">
+                <td>{{flight.id}}</td>
+                <td>{{flight.leavingfrom}}</td>
+                <td>{{flight.arrivingat}}</td>
+                <td>{{flight.leavingdate}}</td>
+                <td>{{flight.nrseats}}</td>
+                <td>{{flight.hrs}}</td>
+                <td>
+                    <button (click)="updateFlight(flight.id)" class="btn btn-info">Update</button>
+                    <button (click)="deleteFlight(flight.id)" class="btn btn-danger"
+                        style="margin-left: 10px;">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -13,8 +13,15 @@ export class SearchFlightService {
   constructor(private httpClient: HttpClient) { }
 
   FlightSearchApi = 'http://localhost:8080/flights/find/';
-  CreateFlightApi = 'http://localhost:8080/admin/create/flight'
+  CreateFlightApi = 'http://localhost:8080/admin/create/flight';
+  GetAllFlights = 'http://localhost:8080/flights/all-flights';
+  private getflightid = 'http://localhost:8080/flights/find/flight';
+  private updateFlightURL = 'http://localhost:8080/admin/update/flight';
+  private deleteFlightURL = 'http://localhost:8080/admin/delete/flight';
 
+  getFlightsList(): Observable<FlightSearch[]> {
+    return this.httpClient.get<FlightSearch[]>(this.GetAllFlights);
+  }
 
   public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any): Observable<FlightSearch[]> {
     return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom + "/" + arrivingat + "/" + leavingdate);
@@ -22,6 +29,18 @@ export class SearchFlightService {
 
   createFlight(flight: FlightSearch): Observable<Object> {
     return this.httpClient.post(this.CreateFlightApi, flight);
+  }
+
+  getFlightId(id: number): Observable<FlightSearch> {
+    return this.httpClient.get<FlightSearch>(`${this.getflightid}/${id}`);
+  }
+
+  updateFlight(id: number, flight: FlightSearch): Observable<Object> {
+    return this.httpClient.put(`${this.updateFlightURL}/${id}`, flight);
+  }
+
+  deleteFlight(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.deleteFlightURL}/${id}`);
   }
 
   // public getAllFlights() {
