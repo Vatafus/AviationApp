@@ -30,6 +30,7 @@ export class DashboardComponent {
 
   deleteFlight(id: number) {
     this.searchflightservice.deleteFlight(id).subscribe(data => {
+      alert("Flight successfully deleted")
       this.getFlights();
     })
   }

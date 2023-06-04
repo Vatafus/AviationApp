@@ -29,7 +29,7 @@ public class AdminController {
 
     @PutMapping("/update/flight/{id}")
     public ResponseEntity<Flights> updateFlights(@PathVariable Long id, @RequestBody Flights flightsDetails){
-        Flights flights = flightsRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Flight not exist with id" + id));
+        Flights flights = flightsRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Flight does not exist with id" + id));
         flights.setLeavingfrom(flightsDetails.getLeavingfrom());
         flights.setArrivingat(flightsDetails.getArrivingat());
         flights.setNrseats(flightsDetails.getNrseats());
