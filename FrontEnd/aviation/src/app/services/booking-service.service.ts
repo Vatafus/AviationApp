@@ -21,6 +21,12 @@ export class BookingServiceService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
+  addBooking(bookings): Observable<Booking> {
+    bookings.email = sessionStorage.getItem('email');
+    console.log(bookings);
+    return this.httpClient.post<Booking>(this.apiUrl + '/bookings/add', JSON.stringify(bookings), this.httpOptions);
+  }
+
   getBookings(email) {
     return this.httpClient.get<Booking[]>(this.apiUrl + '/bookings/getByUser/' + email);
   }

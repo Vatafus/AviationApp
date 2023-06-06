@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sits } from '../class/sits';
+import { SitsServiceService } from '../services/sits-service.service';
 
 @Component({
   selector: 'app-slot',
@@ -7,25 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlotComponent implements OnInit {
 
-  locations$: Locations[];
-  vehicles$: Vehicle[];
+  sits$: Sits[];
   sessionValue: string = "";
   slotService: any;
 
   constructor(
-    private vehicleService: VehicleService,
-    private dashboardComponent: DashboardComponent) { }
+    private sitsService: SitsServiceService) { }
 
   ngOnInit() {
-    this.dashboardComponent.checkLogin();
-    this.loadLocations();
-    this.loadVehicle();
+    this.loadSits();
   }
 
 
-  loadVehicle() {
-    return this.vehicleService.getVehicles()
-      .subscribe(data => this.vehicles$ = data)
+  loadSits() {
+    return this.sitsService.getSits()
+      .subscribe(data => this.sits$ = data)
   }
 
 }
