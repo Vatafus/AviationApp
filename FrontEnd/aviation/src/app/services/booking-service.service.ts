@@ -11,6 +11,8 @@ const bookingURL = 'http://localhost:8080/bookign/booking';
 })
 export class BookingServiceService {
 
+  apiUrl = 'http://localhost:8080';
+
   httpOptions = {
     headers: new HttpHeaders({ responseType: 'text' as 'json', 'Access-Control-Allow-Origin': '*' })
   };
@@ -19,13 +21,11 @@ export class BookingServiceService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  addBooking(idFlight: number, nrScaun: number): Observable<Booking> {
-    const pozitieX = nrScaun % 7;
-    const pozitieY = Math.floor(nrScaun / 14) + 1;
+  getBookings(email) {
+    return this.httpClient.get<Booking[]>(this.apiUrl + '/bookings/getByUser/' + email);
+  }
 
-    return this.httpClient.post<Booking>(bookingURL, {
-      pozitieX, pozitieY,
-      nrScaun
-    }, this.httpOptions);
+  endBooking(bookingid) {
+    return this.httpClient.get<Boolean>(this.apiUrl + '/bookings/endBooking/' + bookingid);
   }
 }

@@ -31,6 +31,7 @@ import { PremiumclassComponent } from './Travel Classes/Premium Economy Class/pr
 import { CreateflightComponent } from './Admin/CreateFlight/createflight/createflight.component';
 import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
 import { UpdateflightComponent } from './Admin/UpdateFlight/updateflight/updateflight.component';
+import { SlotComponent } from './slot/slot.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { UpdateflightComponent } from './Admin/UpdateFlight/updateflight/updatef
     PremiumclassComponent,
     CreateflightComponent,
     DashboardComponent,
-    UpdateflightComponent
+    UpdateflightComponent,
+    SlotComponent
   ],
   imports: [
     BrowserModule,
