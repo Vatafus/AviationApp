@@ -43,7 +43,9 @@ const routes: Routes = [
   { path: 'addFlight', component: CreateflightComponent },
   { path: 'premium', component: PremiumclassComponent },
   { path: 'update-flight/:id', component: UpdateflightComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'admin', loadChildren: () => import("src/app/module/adming/adming.module").then(m => m.AdmingModule) },
+  { path: 'user', loadChildren: () => import("src/app/module/user/user.module").then(m => m.UserModule) },
 ];
 
 @NgModule({

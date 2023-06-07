@@ -32,6 +32,8 @@ import { CreateflightComponent } from './Admin/CreateFlight/createflight/createf
 import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.component';
 import { UpdateflightComponent } from './Admin/UpdateFlight/updateflight/updateflight.component';
 import { SlotComponent } from './slot/slot.component';
+import { AdmingModule } from './module/adming/adming.module';
+import { UserModule } from './module/user/user.module';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { SlotComponent } from './slot/slot.component';
     BrowserAnimationsModule,
     MatTableModule,
     MarkdownModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AdmingModule,
+    UserModule
   ],
   // providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true }],
   bootstrap: [AppComponent]

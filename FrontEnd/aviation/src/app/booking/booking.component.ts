@@ -12,86 +12,22 @@ import { SitsServiceService } from '../services/sits-service.service';
     templateUrl: './booking.component.html',
     styleUrls: ['./booking.component.css']
 })
-export class BookingComponent implements OnInit {
+export class BookingComponent {
 
-    load: boolean;
-    sits$: Sits[];
+    userId: number;
+    flightId: number;
 
-    @Input() bookingdetails = {
-        'email': '',
-        'locationid': '',
-        'sit_type': '',
-        'duration': 0,
-        'time': '',
-        'slotid': '',
-        'date': '',
-        'vehicle_no': '',
+    constructor(private bookingService: BookingServiceService) { }
+
+    bookFlight() {
+        this.bookingService.bookFlight(this.userId, this.flightId)
+            .subscribe(() => {
+                console.log('Booking successful');
+                // Puteți adăuga alte acțiuni după rezervare (ex. afișare mesaj de succes)
+            }, (error) => {
+                console.error('Booking error:', error);
+                // Puteți trata erorile aici (ex. afișare mesaj de eroare)
+            });
     }
-
-    constructor(private bookingService: BookingServiceService, private router: Router,
-        private actRoute: ActivatedRoute, private sitService: SitsServiceService) {
-    }
-
-    ngOnInit(): void {
-        this.load = false;
-        this.getSits();
-    }
-
-
-    getSits() {
-        return this.sitService.getSits()
-            .subscribe(data => this.sits$ = data)
-    }
-
-    addBooking() {
-        if (this.bookingdetails.sit_type == '' || this.bookingdetails.slotid == '' || this.bookingdetails.duration == 0) {
-            alert('Kindly fill all the data')
-            return
-        }
-        this.load = true;
-        this.bookingService.addBooking(this.bookingdetails)
-            .subscribe((data: {}) => {
-                alert('Show Booked');
-                this.router.navigate(['/dashboard/bookings'])
-            })
-    }
-
-
-    // ngOnInit() {
-    //     this.getBookingById();
-
-    // }
-
-    // getBookingById() {
-    //     return this.bookingService.getBookings(this.email$)
-    //         .subscribe(data => { this.bookings$ = data, this.checkBookingFn(); })
-    // }
-
-    // endBooking(bookingid) {
-    //     return this.bookingService.endBooking(bookingid)
-    //         .subscribe((data: {}) => {
-    //             alert('Booking Confirmed');
-    //             location.reload();
-    //             this.router.navigate(['dashboard/bookings'])
-    //         })
-    // }
-
-    // checkBookingFn() {
-    //     console.log()
-    //     if (this.bookings$.length == 0) {
-    //         this.show = true
-    //     }
-    //     else {
-    //         this.show = false
-    //     }
-    // }
-
-    // checkLogin() {
-    //     if (sessionStorage.length == 0) {
-    //         this.router.navigate(['login']);
-    //     }
-    // }
-
-
 
 }

@@ -9,25 +9,37 @@ import com.example.aviation.dto.UserDTO;
 import com.example.aviation.repo.BookingRepo;
 import com.example.aviation.repo.FlightsRepo;
 import com.example.aviation.repo.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BookingService {
 
-    private BookingRepo bookingRepo;
     private UserRepo userRepo;
     private FlightsRepo flightsRepo;
 
+    private BookingRepo bookingRepo;
 
-    public Long addBooking(BookingDTO bookingDTO){
-        User user = userRepo.findUserById(bookingDTO.getUserId());
-        Flights flight = flightsRepo.findFlightsById(bookingDTO.getFlightId());
-        Booking newBooking = new Booking(user,flight);
 
-        Long newBookingId = bookingRepo.save(newBooking).getId();
-
-        return newBookingId;
+    @Autowired
+    public BookingService(UserRepo userRepository, FlightsRepo flightRepository, BookingRepo bookingRepository) {
+        this.userRepo = userRepository;
+        this.flightsRepo = flightRepository;
+        this.bookingRepo = bookingRepository;
     }
+    public void bookFlight(Long userId, Long flightId) {
+        User user = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        Flights flight = flightsRepo.findById(flightId).orElseThrow(() -> new RuntimeException("Flight not found"));
 
+        Booking booking = new Booking();
+        booking.setUserid(user);
+        booking.setFlightsid(flight);
+
+        // Setează alte informații specifice rezervării
+
+        // ...
+
+        bookingRepo.save(booking);
+    }
 
 }

@@ -4,8 +4,10 @@ import javax.validation.constraints.Positive;
 
 public class CreateDTO extends ResponseDTO {
 
-    public CreateDTO(Integer statusCode, String message) {
+    private Long id;
+    public CreateDTO(Integer statusCode, String message,Long id) {
         super(statusCode, message);
+        this.id = id;
     }
 
 }

@@ -7,16 +7,15 @@ import { StorageServiceService } from './storage-service.service';
 @Injectable({
   providedIn: 'root'
 })
-export class RouteGuardService implements CanActivate {
+export class RouteGuardService {
 
-  constructor(private loginService: LoginService, private storageService: StorageServiceService) { }
+  //   constructor(private loginService: LoginService, private storageService: StorageServiceService) { }
 
   //Se foloseste conceptul de route-guard pentru autorizarea accesului in aplicatie.
   //Am folosit functia CanActivate pentru a restrictiona accesul utilizatorilor care nu sunt logati,
   //in diferite parti ale aplicatiei, verificand astfel daca userul este logat prin Injectarea Serviciului de logare.
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.storageService.isUserLoggedIn())
-      return true;
-    return false;
-  }
+  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  //   if (this.storageService.isUserLoggedIn())
+  //     return true;
+  //   return false;
 }

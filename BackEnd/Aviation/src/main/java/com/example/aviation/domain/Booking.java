@@ -30,9 +30,4 @@ public class Booking {
     @JoinColumn(name = "flights_id")
     private Flights flightsid;
 
-
-    public Booking(User user, Flights flights) {
-        this.userid = user;
-        this.flightsid = flights;
-    }
 }

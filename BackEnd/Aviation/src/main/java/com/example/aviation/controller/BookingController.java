@@ -5,11 +5,14 @@ import com.example.aviation.domain.Flights;
 import com.example.aviation.domain.User;
 import com.example.aviation.dto.BookingDTO;
 import com.example.aviation.dto.CreateDTO;
+import com.example.aviation.repo.BookingRepo;
+import com.example.aviation.repo.UserRepo;
 import com.example.aviation.service.BookingService;
 import com.example.aviation.service.FlightsService;
 import com.example.aviation.service.UserService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -25,12 +28,16 @@ import java.util.concurrent.ConcurrentHashMap;
 @RestController
 @CrossOrigin
 public class BookingController {
+private BookingService bookingService;
 
-    private BookingService bookingService;
-
-    @PostMapping("/addBooking")
-    public ResponseEntity<CreateDTO>addFlight(@RequestBody @Valid BookingDTO booking, HttpServletRequest request){
-        Long newBookingId = bookingService.addBooking(booking);
-        return  new ResponseEntity<CreateDTO>(new CreateDTO(HttpStatus.CREATED.value(),"Booking was added"),HttpStatus.CREATED);
+    @Autowired
+    public BookingController(BookingService bookingService) {
+        this.bookingService = bookingService;
     }
+
+@PostMapping("/{userId}/flights/{flightId}")
+public void bookFlight(@PathVariable Long userId, @PathVariable Long flightId) {
+    bookingService.bookFlight(userId, flightId);
+}
+
 }
