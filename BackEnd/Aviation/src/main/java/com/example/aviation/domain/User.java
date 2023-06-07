@@ -41,6 +41,8 @@ public class User {
     private UserRole userRole;
 
 
+
+
 //    @OneToMany(mappedBy = "userRezervare", orphanRemoval = true)
 //    private Set<Booking> bookings;
 

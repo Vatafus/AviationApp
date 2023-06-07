@@ -16,6 +16,7 @@ public interface FlightsRepo extends JpaRepository<Flights,Long> {
 
     public List<Flights> findByLeavingfromAndArrivingatAndLeavingdate(String leavingfrom, String arrivingat, Date leavingdate);
 
+    public Flights findFlightsById(long id);
     public List<Flights> findAll();
 
 }

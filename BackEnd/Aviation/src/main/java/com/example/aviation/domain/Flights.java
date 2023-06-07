@@ -39,9 +39,6 @@ public class Flights {
     @Column(name = "NumberOfSeats")
     private Integer nrseats;
 
-//    @OneToMany(mappedBy = "flightsMapat", fetch = FetchType.EAGER, orphanRemoval = true)
-//    private Set<Booking> bookings;
-
     public Flights(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats,String hrs) {
         this.leavingfrom = leavingfrom;
         this.arrivingat = arrivingat;
