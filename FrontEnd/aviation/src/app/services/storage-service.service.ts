@@ -11,23 +11,23 @@ export class StorageServiceService {
 
   constructor() { }
 
-  saveUserId(userId: any) {
+  public saveUserId(userId: any) {
     window.localStorage.removeItem(USERID);
     window.localStorage.setItem(USERID, userId);
   }
 
-  saveUserRole(role: any) {
+  public saveUserRole(role: any) {
     window.localStorage.removeItem(USERROLE);
     window.localStorage.setItem(USERROLE, role);
   }
 
 
-  saveToken(token: any) {
+  public saveToken(token: any) {
     window.localStorage.removeItem(TOKEN);
     window.localStorage.setItem(TOKEN, token);
   }
 
-  public hasToken(): boolean {
+  hasToken(): boolean {
     if (this.getToken() === null) {
       return false;
     }
@@ -39,7 +39,7 @@ export class StorageServiceService {
     return localStorage.getItem(TOKEN);
   }
 
-  signOut(): void {
+  public signOut(): void {
     window.localStorage.removeItem(TOKEN);
     window.localStorage.removeItem(USERID);
   }
@@ -49,15 +49,16 @@ export class StorageServiceService {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'USER';
+    return role == "USER";
   }
+
 
   public getUserRole(): string {
     const user = this.getUser();
     if (user == null) {
       return '';
     }
-    return user.role
+    return user.role;
   }
 
   public getUser() {
@@ -69,6 +70,6 @@ export class StorageServiceService {
       return false;
     }
     const role: string = this.getUserRole();
-    return role == 'ADMIN';
+    return role == "ADMIN";
   }
 }

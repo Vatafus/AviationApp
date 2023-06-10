@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FlightSearch } from '../class/flight-search';
 import { map } from 'rxjs/operators';
+import { StorageServiceService } from './storage-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { map } from 'rxjs/operators';
 export class SearchFlightService {
 
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, public storageService: StorageServiceService) { }
 
   FlightSearchApi = 'http://localhost:8080/flights/find/';
   CreateFlightApi = 'http://localhost:8080/admin/create/flight';
@@ -20,7 +21,7 @@ export class SearchFlightService {
   private deleteFlightURL = 'http://localhost:8080/admin/delete/flight';
 
   getFlightsList(): Observable<FlightSearch[]> {
-    return this.httpClient.get<FlightSearch[]>(this.GetAllFlights);
+    return this.httpClient.get<FlightSearch[]>(this.GetAllFlights, { headers: this.createdAuthorizationHeader() });
   }
 
   public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any): Observable<FlightSearch[]> {
@@ -28,7 +29,7 @@ export class SearchFlightService {
   }
 
   createFlight(flight: FlightSearch): Observable<Object> {
-    return this.httpClient.post(this.CreateFlightApi, flight);
+    return this.httpClient.post(this.CreateFlightApi, flight, { headers: this.createdAuthorizationHeader() });
   }
 
   getFlightId(id: number): Observable<FlightSearch> {
@@ -36,11 +37,19 @@ export class SearchFlightService {
   }
 
   updateFlight(id: number, flight: FlightSearch): Observable<Object> {
-    return this.httpClient.put(`${this.updateFlightURL}/${id}`, flight);
+    return this.httpClient.put(`${this.updateFlightURL}/${id}`, flight, { headers: this.createdAuthorizationHeader() });
   }
 
   deleteFlight(id: number): Observable<Object> {
-    return this.httpClient.delete(`${this.deleteFlightURL}/${id}`);
+    return this.httpClient.delete(`${this.deleteFlightURL}/${id}`, { headers: this.createdAuthorizationHeader() })
+  }
+
+  createdAuthorizationHeader(): HttpHeaders {
+    let authHeader: HttpHeaders = new HttpHeaders();
+    return authHeader.set(
+      "Authorization",
+      "Bearer " + this.storageService.getToken()
+    )
   }
 
   // public getAllFlights() {
