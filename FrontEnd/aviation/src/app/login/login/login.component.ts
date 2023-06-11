@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       } else if (this.storageService.isAdmingLoggedIn()) {
         this.router.navigateByUrl("/admin/dashboard");
       }
-      console.log(this.storageService.isAdmingLoggedIn());
+      console.log(this.storageService.getUserRole());
     })
   }
 

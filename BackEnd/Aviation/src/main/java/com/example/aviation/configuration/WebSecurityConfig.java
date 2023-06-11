@@ -23,15 +23,24 @@ public class WebSecurityConfig {
     @Autowired
     private JWTRequestFilter authFilter;
 
+    private static final String[] AUTH_PERMIT_ALL = {
+            "/booking/{userId}/flights/{flightId}",
+            "/admin/delete/flight/{id}",
+            "/flights/find/flight/{id}",
+            "/admin/create/flight",
+            "/admin/update/flight/{id}",
+            "/flights/find/{leavingfrom}/{arrivingat}/{leavingdate}",
+            "/user/login",
+            "/user/register"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable()
+        return http.cors().and().csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/booking/{userId}/flights/{flightId}","/admin/delete/flight/{id}","/flights/all-flights","/flights/find/flight/{id}","/admin/create/flight","/admin/update/flight/{id}","/flights/find/{leavingfrom}/{arrivingat}/{leavingdate}","/user/login", "/user/register").permitAll()
-//                .requestMatchers("/booking/{userId}/flights/{flightId}","/flights/find/flight/{id}","/flights/find/{leavingfrom}/{arrivingat}/{leavingdate}","/user/login", "/user/register").permitAll()
-                .and()
-                .authorizeHttpRequests().requestMatchers("/api/**")
-                .authenticated().and()
+                .requestMatchers(AUTH_PERMIT_ALL).permitAll()
+                .requestMatchers("/flights/all-flights").hasAuthority("ADMIN")
+                .anyRequest().authenticated().and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()

@@ -46,9 +46,11 @@ export class SearchFlightService {
 
   createdAuthorizationHeader(): HttpHeaders {
     let authHeader: HttpHeaders = new HttpHeaders();
+    console.log(this.storageService.getToken());
     return authHeader.set(
       "Authorization",
       "Bearer " + this.storageService.getToken()
+
     )
   }
 

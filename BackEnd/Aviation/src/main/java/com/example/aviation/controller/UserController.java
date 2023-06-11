@@ -1,5 +1,6 @@
 package com.example.aviation.controller;
 
+import com.example.aviation.domain.RoleMapper;
 import com.example.aviation.domain.User;
 import com.example.aviation.dto.*;
 import com.example.aviation.exception.*;
@@ -98,8 +99,11 @@ public class UserController {
             return;
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(loginDTO.getUsername());
+
         User user = userRepo.findUserByEmail(loginDTO.getUsername());
-        final String jwt = jwtUtil.generateToken(loginDTO.getUsername());
+        final var userRoleId = user.getUserRole().ordinal();
+        final var role = RoleMapper.GetRoleName(userRoleId);
+        final String jwt = jwtUtil.generateToken(loginDTO.getUsername(), role);
 //        return new LoginDTOResponse(jwt);
 
         response.getWriter().write(new JSONObject()
