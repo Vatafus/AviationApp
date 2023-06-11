@@ -58,7 +58,7 @@ export class StorageServiceService {
     if (user == null) {
       return '';
     }
-    return user.role;
+    return localStorage.getItem(USERROLE);
   }
 
   public getUser() {

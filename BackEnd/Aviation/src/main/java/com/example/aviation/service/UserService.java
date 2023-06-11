@@ -57,7 +57,7 @@ public class UserService {
         }
         User user = new User();
         user.setEmail(registerRequest.getEmail());
-        user.setUserRole(UserRole.ADMIN);
+        user.setUserRole(UserRole.USER);
         user.setPassword(new BCryptPasswordEncoder().encode(registerRequest.getPassword()));
         user.setCpassword(new BCryptPasswordEncoder().encode(registerRequest.getCpassword()));
         User createdUser = userRepo.save(user);

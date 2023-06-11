@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   // user: UserLogin = new UserLogin();
   validateForm !: FormGroup;
+  isSpinning = false;
 
   constructor(private route: Router,
     private loginService: LoginService,
@@ -32,12 +33,14 @@ export class LoginComponent implements OnInit {
 
   userLogin() {
     this.loginService.login(this.validateForm.get(['username'])!.value, this.validateForm.get(['password'])!.value).subscribe((res) => {
-      // console.log(res);
-      // if (this.storageService.isUserLoggedIn()) {
-      //   this.router.navigateByUrl('/welcome');
-      // }
-      console.log(this.storageService.getUser());
+      if (this.storageService.isUserLoggedIn()) {
+        this.router.navigateByUrl('/welcome');
+      } else if (this.storageService.isAdmingLoggedIn()) {
+        this.router.navigateByUrl("/admin/dashboard");
+      }
+      console.log(this.storageService.isAdmingLoggedIn());
     })
   }
+
 
 }

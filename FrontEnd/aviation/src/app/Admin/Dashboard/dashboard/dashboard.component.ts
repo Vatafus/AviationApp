@@ -1,7 +1,9 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlightSearch } from 'src/app/class/flight-search';
 import { SearchFlightService } from 'src/app/services/search-flight.service';
+import { StorageServiceService } from 'src/app/services/storage-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,7 +14,7 @@ export class DashboardComponent {
 
   flights: FlightSearch[];
 
-  constructor(private searchflightservice: SearchFlightService, private router: Router) { }
+  constructor(private searchflightservice: SearchFlightService, private router: Router, private storageService: StorageServiceService) { }
 
   ngOnInit(): void {
     this.getFlights();
@@ -34,5 +36,4 @@ export class DashboardComponent {
       this.getFlights();
     })
   }
-
 }
