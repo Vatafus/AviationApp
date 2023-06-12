@@ -18,18 +18,23 @@
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar1">
                             <li class="nav-itemL">
-                                <a *ngIf="!storageService.isUserLoggedIn()" class="login" routerLink="/login">Login</a>
+                                <a *ngIf="!(storageService.isUserLoggedIn() || storageService.isAdmingLoggedIn())"
+                                    class="login" routerLink="/login">Login</a>
                             </li>
                             <li class="nav-itemL">
-                                <a *ngIf="storageService.isUserLoggedIn()" class="logout" (click)="userLogout()"
-                                    routerLink="">Logout</a>
+                                <a *ngIf="(storageService.isUserLoggedIn() || storageService.isAdmingLoggedIn())"
+                                    class="logout" (click)="userLogout()" routerLink="">Logout</a>
                             </li>
                             <li class="nav-itemR">
-                                <a *ngIf="!storageService.isUserLoggedIn()" class="register"
-                                    routerLink="/register">Register</a>
+                                <a *ngIf="!(storageService.isUserLoggedIn() || storageService.isAdmingLoggedIn())"
+                                    class="register" routerLink="/register">Register</a>
                             </li>
                         </ul>
                         <ul class=" navbar-nav">
+                            <li class="nav-item">
+                                <a *ngIf="storageService.isAdmingLoggedIn()" class="nav-link" href="/addFlight">Add
+                                    Flight</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/search">BOOK</a>
                             </li>

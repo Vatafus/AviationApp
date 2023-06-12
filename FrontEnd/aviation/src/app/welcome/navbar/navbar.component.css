@@ -38,7 +38,7 @@
 }
 
 .nav-item {
-    padding-top: 36px;
+    padding-top: 38px;
     padding-left: 20px;
 }
 
@@ -181,7 +181,7 @@
     }
 
     .navbar-nav {
-        padding-left: 800px;
+        padding-left: 500px;
         height: 74px;
     }
 
@@ -194,8 +194,9 @@
     }
 
     .nav-item {
+        width: 145px;
         padding-top: 36px;
-        padding-left: 20px;
+        padding-left: 0px;
     }
 
     .navbar1 {

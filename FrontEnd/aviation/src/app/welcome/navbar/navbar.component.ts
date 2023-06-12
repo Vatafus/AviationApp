@@ -16,8 +16,10 @@ import { StorageServiceService } from 'src/app/services/storage-service.service'
 export class NavbarComponent implements OnInit {
   constructor(public loginService: LoginService, private router: Router, public storageService: StorageServiceService) { }
   isUserLoggedIn: boolean = false;
+  isAdminLoggedIn: boolean = false;
   ngOnInit() {
     this.isUserLoggedIn = this.storageService.isUserLoggedIn();
+    this.isAdminLoggedIn = this.storageService.isAdmingLoggedIn();
   }
 
   userLogout() {

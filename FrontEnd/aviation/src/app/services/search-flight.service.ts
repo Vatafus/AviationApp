@@ -25,7 +25,7 @@ export class SearchFlightService {
   }
 
   public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any): Observable<FlightSearch[]> {
-    return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom + "/" + arrivingat + "/" + leavingdate);
+    return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom + "/" + arrivingat + "/" + leavingdate, { headers: this.createdAuthorizationHeader() });
   }
 
   createFlight(flight: FlightSearch): Observable<Object> {
@@ -33,7 +33,7 @@ export class SearchFlightService {
   }
 
   getFlightId(id: number): Observable<FlightSearch> {
-    return this.httpClient.get<FlightSearch>(`${this.getflightid}/${id}`);
+    return this.httpClient.get<FlightSearch>(`${this.getflightid}/${id}`, { headers: this.createdAuthorizationHeader() });
   }
 
   updateFlight(id: number, flight: FlightSearch): Observable<Object> {

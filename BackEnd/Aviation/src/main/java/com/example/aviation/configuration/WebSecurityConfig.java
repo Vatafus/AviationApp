@@ -25,11 +25,6 @@ public class WebSecurityConfig {
 
     private static final String[] AUTH_PERMIT_ALL = {
             "/booking/{userId}/flights/{flightId}",
-            "/admin/delete/flight/{id}",
-            "/flights/find/flight/{id}",
-            "/admin/create/flight",
-            "/admin/update/flight/{id}",
-            "/flights/find/{leavingfrom}/{arrivingat}/{leavingdate}",
             "/user/login",
             "/user/register"
     };
@@ -39,7 +34,8 @@ public class WebSecurityConfig {
         return http.cors().and().csrf().disable()
                 .authorizeHttpRequests()
                 .requestMatchers(AUTH_PERMIT_ALL).permitAll()
-                .requestMatchers("/flights/all-flights").hasAuthority("ADMIN")
+                .requestMatchers("/flights/all-flights","/admin/delete/flight/{id}","/admin/create/flight","/admin/update/flight/{id}").hasAuthority("ADMIN")
+                .requestMatchers("/flights/find/flight/{id}","/flights/find/{leavingfrom}/{arrivingat}/{leavingdate}").hasAnyAuthority("ADMIN","USER")
                 .anyRequest().authenticated().and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
