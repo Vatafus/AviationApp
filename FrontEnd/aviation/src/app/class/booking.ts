@@ -1,12 +1,13 @@
+import { Boardingpass } from "./boardingpass";
+import { FlightSearch } from "./flight-search";
+import { User } from "./user";
+
 export class Booking {
     id: number;
-    pozitieX: number;
-    pozitieY: number;
-    nrScaun: number;
-
-    constructor(pozX, pozY, nr) {
-        this.pozitieX = pozX;
-        this.pozitieY = pozY;
-        this.nrScaun = nr;
-    }
+    user: User;
+    flight: FlightSearch;
+    boardingPasses: Boardingpass[];
+    leavingFrom: string;
+    arrivingAt: string;
+    leavingDate: Date;
 }

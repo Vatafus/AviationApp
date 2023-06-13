@@ -13,5 +13,4 @@ import lombok.NoArgsConstructor;
 public class BookingDTO {
     private Long userId;
     private Long flightId;
-
 }

@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -32,6 +34,10 @@ public class Booking {
     @JoinColumn(name = "flights_id")
     private Flights flightsid;
 
+    @OneToMany
+    @JoinColumn(name ="booking")
+    private List<BoardingPass> boardingPasses = new ArrayList<>();
+
     @Column(name="leavingfrom")
     private String leavingfrom;
 
@@ -40,5 +46,13 @@ public class Booking {
 
     @Column(name="leavingdate")
     private Date leavingdate;
+
+    public void addBoardingPass(BoardingPass boardingPass){
+        if(boardingPasses.size() >= 10){
+            throw  new RuntimeException("Nu se pot adauga mai mult de 3 boarding passuri");
+        }
+        boardingPasses.add(boardingPass);
+        boardingPass.setBooking(this);
+    }
 
 }

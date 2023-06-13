@@ -9,17 +9,22 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="passenger")
-public class Passenger {
+@Table(name="boardingpass")
+public class BoardingPass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    public Long id;
 
-    @Column(name="fullname")
+    @Column(name="name")
     public String name;
 
-    @Column(name="age")
-    public int age;
+    @Column(name="identifycard")
+    public Long identifycard;
+
+    @ManyToOne
+    @JoinColumn(name= "booking_id")
+    private Booking booking;
+
 
 }

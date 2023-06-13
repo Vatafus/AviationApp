@@ -26,6 +26,7 @@ public class WebSecurityConfig {
     private static final String[] AUTH_PERMIT_ALL = {
             "/booking/get-all-bookings/{userId}",
             "/booking/{userId}/flights/{flightId}",
+            "/booking/{bookingId}/boarding-passes",
             "/user/login",
             "/user/register"
     };
