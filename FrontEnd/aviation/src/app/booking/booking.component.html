@@ -22,12 +22,24 @@
         </div>
 
         <div id="form-group">
+            <label> Leaving From</label>
+            <input type="text" class="form-control" id="id" [(ngModel)]="flight.leavingfrom" name="leavingfrom">
+        </div>
+        <div id="form-group">
+            <label> Arriving At</label>
+            <input type="text" class="form-control" id="id" [(ngModel)]="flight.arrivingat" name="arrivingat">
+        </div>
+        <div id="form-group">
             <label> Flight Id</label>
             <input type="text" class="form-control" id="id" [(ngModel)]="flightId" name="id">
         </div>
         <div id="form-group">
             <label> User Id</label>
             <input type="text" class="form-control" id="id" [(ngModel)]="userId" name="userid">
+        </div>
+        <div id="form-group">
+            <label> Leaving Date</label>
+            <input type="text" class="form-control" id="id" [(ngModel)]="flight.leavingdate" name="leavingdate">
         </div>
     </div>
     <button type="submit" class="button2 btn btn-primary btn-block mb-4">Book</button>

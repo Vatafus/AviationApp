@@ -18,6 +18,8 @@ export class BookingComponent {
 
     userId: number;
     flightId: number;
+    arrivingat: string;
+    leavingfrom: string;
     flight: FlightSearch = new FlightSearch();
 
     constructor(private bookingService: BookingServiceService, private route: ActivatedRoute, private router: Router, private searchflightservice: SearchFlightService, private storageService: StorageServiceService) { }
@@ -25,6 +27,9 @@ export class BookingComponent {
     ngOnInit(): void {
         this.flightId = this.route.snapshot.params['id'];
         this.userId = this.storageService.getUser();
+        this.searchflightservice.getFlightId(this.flightId).subscribe(data => {
+            this.flight = data;
+        }, error => console.log(error));
     }
 
     onSubmit() {

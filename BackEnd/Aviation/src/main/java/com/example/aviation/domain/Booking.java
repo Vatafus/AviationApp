@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Date;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,5 +31,14 @@ public class Booking {
     @ManyToOne
     @JoinColumn(name = "flights_id")
     private Flights flightsid;
+
+    @Column(name="leavingfrom")
+    private String leavingfrom;
+
+    @Column(name="arrivingat")
+    private String arrivingat;
+
+    @Column(name="leavingdate")
+    private Date leavingdate;
 
 }

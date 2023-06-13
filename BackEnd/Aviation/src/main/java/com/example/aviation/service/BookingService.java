@@ -38,6 +38,9 @@ public class BookingService {
         Booking booking = new Booking();
         booking.setUserid(user);
         booking.setFlightsid(flight);
+        booking.setArrivingat(flight.getArrivingat());
+        booking.setLeavingfrom(flight.getLeavingfrom());
+        booking.setLeavingdate(flight.getLeavingdate());
 
 
         bookingRepo.save(booking);
