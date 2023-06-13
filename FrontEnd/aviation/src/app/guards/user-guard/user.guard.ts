@@ -18,12 +18,18 @@ export class UserGuard implements CanActivate {
       this.router.navigateByUrl("/admin/dashboard");
       return false;
     }
-    else if (!this.storageService.hasToken()) {
-      this.storageService.signOut;
-      this.router.navigateByUrl("/login");
+    // else if (!this.storageService.hasToken()) {
+    //   this.storageService.signOut;
+    //   this.router.navigateByUrl("/login");
+    //   return false;
+    // }
+    else if (this.storageService.isUserLoggedIn) {
+      alert('Nu ai acces aici!');
       return false;
     }
     return true;
-  }
-}
 
+  }
+
+
+}

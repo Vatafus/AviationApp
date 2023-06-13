@@ -27,7 +27,7 @@ export class DashboardComponent {
   }
 
   updateFlight(id: number) {
-    this.router.navigate(["update-flight", id]);
+    this.router.navigate(["/admin/update-flight", id]);
   }
 
   deleteFlight(id: number) {

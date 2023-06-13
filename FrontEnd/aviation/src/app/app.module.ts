@@ -34,6 +34,8 @@ import { UpdateflightComponent } from './Admin/UpdateFlight/updateflight/updatef
 import { SlotComponent } from './slot/slot.component';
 import { AdmingModule } from './module/adming/adming.module';
 import { UserModule } from './module/user/user.module';
+import { UserGuard } from './guards/user-guard/user.guard';
+import { AdminGuard } from './guards/admin-guard/admin.guard';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,7 @@ import { UserModule } from './module/user/user.module';
     AdmingModule,
     UserModule
   ],
-  // providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi: true }],
+  providers: [UserGuard, AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

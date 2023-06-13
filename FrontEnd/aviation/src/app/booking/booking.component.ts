@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BookingServiceService } from '../services/booking-service.service';
 import { Sits } from '../class/sits';
 import { SitsServiceService } from '../services/sits-service.service';
+import { SearchFlightService } from '../services/search-flight.service';
+import { StorageServiceService } from '../services/storage-service.service';
 
 @Component({
     selector: 'app-booking',
@@ -16,18 +18,24 @@ export class BookingComponent {
 
     userId: number;
     flightId: number;
+    flight: FlightSearch = new FlightSearch();
 
-    constructor(private bookingService: BookingServiceService) { }
+    constructor(private bookingService: BookingServiceService, private route: ActivatedRoute, private router: Router, private searchflightservice: SearchFlightService, private storageService: StorageServiceService) { }
 
-    bookFlight() {
-        this.bookingService.bookFlight(this.userId, this.flightId)
-            .subscribe(() => {
-                console.log('Booking successful');
-                // Puteți adăuga alte acțiuni după rezervare (ex. afișare mesaj de succes)
-            }, (error) => {
-                console.error('Booking error:', error);
-                // Puteți trata erorile aici (ex. afișare mesaj de eroare)
-            });
+    ngOnInit(): void {
+        this.flightId = this.route.snapshot.params['id'];
+        this.userId = this.storageService.getUser();
+    }
+
+    onSubmit() {
+        this.bookingService.bookFlight(this.userId, this.flightId).subscribe(data => {
+            this.goToFlightsList();
+            alert("You Booked this flight")
+        }, error => console.log(error));
+    }
+
+    goToFlightsList() {
+        this.router.navigate(['/welcome']);
     }
 
 }

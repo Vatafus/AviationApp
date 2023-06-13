@@ -24,6 +24,7 @@ public class WebSecurityConfig {
     private JWTRequestFilter authFilter;
 
     private static final String[] AUTH_PERMIT_ALL = {
+            "/booking/get-all-bookings/{userId}",
             "/booking/{userId}/flights/{flightId}",
             "/user/login",
             "/user/register"

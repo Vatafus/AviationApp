@@ -4,7 +4,7 @@ import { UserGuard } from 'src/app/guards/user-guard/user.guard';
 import { WelcomepageComponent } from 'src/app/welcomepage/welcomepage.component';
 
 const routes: Routes = [
-  { path: 'welcome', component: WelcomepageComponent, canActivate: [UserGuard] }
+  { path: 'welcome', component: WelcomepageComponent }
 ];
 
 @NgModule({

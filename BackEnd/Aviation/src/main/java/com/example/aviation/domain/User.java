@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -40,7 +41,6 @@ public class User {
 //    @Enumerated(EnumType.STRING)
     @Column(name="user_role")
     private UserRole userRole;
-
 
 
 
