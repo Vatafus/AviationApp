@@ -47,6 +47,9 @@ public class BookingService {
         boardingPassRepo.save(boardingPass);
 
         booking.addBoardingPass(boardingPass);
+        Flights flight = booking.getFlightsid();
+        int currentQuantity = flight.getNrseats();
+        flight.setNrseats(currentQuantity - 1 - booking.getBoardingPasses().size());
         bookingRepo.save(booking);
     }
 
@@ -55,7 +58,11 @@ public class BookingService {
         Flights flight = flightsRepo.findById(flightId).orElseThrow(() -> new RuntimeException("Flight not found"));
 
         int currentQuantity = flight.getNrseats();
-        flight.setNrseats(currentQuantity-1);
+        int occupiedSeats = bookingRepo.countBoardingPassesByFlightsid(flight);
+        int availableSeats = currentQuantity - occupiedSeats;
+        if (availableSeats <= 0) {
+            throw new RuntimeException("Nu mai sunt locuri disponibile pentru acest zbor.");
+        }
         Booking booking = new Booking();
         booking.setUserid(user);
         booking.setFlightsid(flight);
