@@ -51,13 +51,13 @@
                 <th>Identify Card</th>
                 <th></th>
             </tr>
-            <tr *ngFor="let boardingPass of boardingPasses; let i = index;">
+            <tr class="boarding" *ngFor="let boardingPass of boardingPasses; let i = index;">
                 <td><input type="text" [(ngModel)]="boardingPass.name" name="fullName_{{i}}"></td>
                 <td><input type="text" [(ngModel)]="boardingPass.identifycard" name="identifyCard_{{i}}"></td>
                 <td><button type="button" (click)="removeBoardingPass(i)">Remove</button></td>
             </tr>
         </table>
         <button type="button" (click)="addBoardingPass()">Add Boarding Pass</button>
+        <button type="submit" class="button2 btn btn-primary btn-block mb-4">Book</button>
     </div>
-    <button type="submit" class="button2 btn btn-primary btn-block mb-4">Book</button>
 </form>
