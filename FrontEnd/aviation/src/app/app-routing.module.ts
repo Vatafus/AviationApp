@@ -22,6 +22,7 @@ import { DashboardComponent } from './Admin/Dashboard/dashboard/dashboard.compon
 import { UpdateflightComponent } from './Admin/UpdateFlight/updateflight/updateflight.component';
 import { UserGuard } from './guards/user-guard/user.guard';
 import { AdminGuard } from './guards/admin-guard/admin.guard';
+import { PlanComponent } from './plan/plan.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,7 @@ const routes: Routes = [
   { path: 'travel', component: TravelComponent },
   { path: 'booking/:id/:date', component: BookingComponent },
   { path: 'airbus330', component: Airbus330Component },
+  { path: 'mybookings', component: PlanComponent },
   { path: 'economy', component: EconomyclassComponent },
   { path: 'business', component: BusinessclassComponent },
   // { path: 'addFlight', component: CreateflightComponent },

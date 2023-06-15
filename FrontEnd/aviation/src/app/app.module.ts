@@ -36,6 +36,7 @@ import { AdmingModule } from './module/adming/adming.module';
 import { UserModule } from './module/user/user.module';
 import { UserGuard } from './guards/user-guard/user.guard';
 import { AdminGuard } from './guards/admin-guard/admin.guard';
+import { PlanComponent } from './plan/plan.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { AdminGuard } from './guards/admin-guard/admin.guard';
     CreateflightComponent,
     DashboardComponent,
     UpdateflightComponent,
-    SlotComponent
+    SlotComponent,
+    PlanComponent
   ],
   imports: [
     BrowserModule,

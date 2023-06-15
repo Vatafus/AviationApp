@@ -3,6 +3,7 @@ package com.example.aviation.controller;
 import com.example.aviation.domain.BoardingPass;
 import com.example.aviation.domain.Booking;
 import com.example.aviation.domain.User;
+import com.example.aviation.dto.BookingDTO;
 import com.example.aviation.repo.BoardingPassRepo;
 import com.example.aviation.repo.BookingRepo;
 import com.example.aviation.service.BookingService;
@@ -35,12 +36,10 @@ public Booking bookFlight(@PathVariable Long userId, @PathVariable Long flightId
     return bookingService.bookFlight(userId, flightId);
 }
 
-@GetMapping("/get-all-bookings/{userId}")
-    public ResponseEntity<List<Booking>> getAllBookins(@PathVariable Long userId){
-        User user = new User();
-        user.setId(userId);
-        List<Booking> bookings = bookingService.getBookingsByUserId(user);
-        return ResponseEntity.ok(bookings);
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<BookingDTO> getUserBookings(@PathVariable Long userId) {
+        BookingDTO userBookingsDTO = bookingService.getUserBookings(userId);
+        return ResponseEntity.ok(userBookingsDTO);
     }
 
     @PostMapping("/{bookingId}/boarding-passes")

@@ -5,6 +5,7 @@ import com.example.aviation.domain.Booking;
 import com.example.aviation.domain.Flights;
 import com.example.aviation.domain.User;
 import com.example.aviation.dto.BookingDTO;
+import com.example.aviation.dto.BookingsBoardingPassDTO;
 import com.example.aviation.dto.FlightsDTO;
 import com.example.aviation.dto.UserDTO;
 import com.example.aviation.repo.BoardingPassRepo;
@@ -14,6 +15,7 @@ import com.example.aviation.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -75,8 +77,28 @@ public class BookingService {
         return savedBooking;
     }
 
-    public List<Booking> getBookingsByUserId(User user){
-        return bookingRepo.findByUserid(user);
+    public BookingDTO getUserBookings(Long userId){
+        User user = userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("Utilizatorul nu a fost găsit."));
+        List<Booking> bookings = bookingRepo.findByUserid(user);
+
+        List<BookingsBoardingPassDTO> bookingsWithBoardingPasses = new ArrayList<>();
+
+        for (Booking booking : bookings) {
+            List<BoardingPass> boardingPasses = boardingPassRepo.findByBooking(booking);
+
+            BookingsBoardingPassDTO bookingWithBoardingPassesDTO = new BookingsBoardingPassDTO();
+            bookingWithBoardingPassesDTO.setBookingId(booking.getId());
+            bookingWithBoardingPassesDTO.setBoardingPassList(boardingPasses);
+
+            bookingsWithBoardingPasses.add(bookingWithBoardingPassesDTO);
+        }
+
+        BookingDTO userBookingsDTO = new BookingDTO();
+        userBookingsDTO.setUserId(user.getId());
+        userBookingsDTO.setBookings(bookingsWithBoardingPasses);
+
+        return userBookingsDTO;
     }
 
 //    public void bookFlight(List<BookingDTO> bookings) {

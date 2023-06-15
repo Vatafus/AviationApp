@@ -1,10 +1,13 @@
 package com.example.aviation.dto;
 
+import com.example.aviation.domain.BoardingPass;
 import com.example.aviation.domain.Booking;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,5 +15,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class BookingDTO {
     private Long userId;
-    private Long flightId;
+    private List<BookingsBoardingPassDTO> bookings;
+    private List<BoardingPass> boardingPasses;
 }

@@ -1,0 +1,21 @@
+<div *ngIf="bookings">
+    <h3>Rezervările mele:</h3>
+    <ul>
+        <li *ngFor="let booking of bookings">
+            <p>Booking ID: {{ booking.id }}</p>
+            <p>Leaving From: {{ booking.leavingFrom }}</p>
+            <p>Arriving At: {{ booking.arrivingAt }}</p>
+            <p>Leaving Date: {{ booking.leavingDate }}</p>
+            <button (click)="getBoardingPasses(booking.id)">Details</button>
+            <div *ngIf="booking.id === selectedBookingId">
+                <h4>Boarding Passes:</h4>
+                <ul>
+                    <li *ngFor="let boardingPass of boardingPasses">
+                        <p>Full Name: {{ boardingPass.name }}</p>
+                        <p>Identify Card: {{ boardingPass.identifycard }}</p>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -32,4 +32,14 @@ export class BookingServiceService {
     );
   }
 
+  getUserBookings(userId: number): Observable<Booking[]> {
+    const url = `${bookingURL}/user/${userId}`;
+    return this.httpClient.get<Booking[]>(url);
+  }
+
+  getBoardingPasses(bookingId: number): Observable<Boardingpass[]> {
+    const url = `${this.apiUrl}/booking/${bookingId}/boarding-passes`;
+    return this.httpClient.get<Boardingpass[]>(url);
+  }
+
 }
