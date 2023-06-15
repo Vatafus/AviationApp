@@ -55,4 +55,8 @@ public class Booking {
         boardingPass.setBooking(this);
     }
 
+    public List<BoardingPass> getBoardingPasses() {
+        return boardingPasses;
+    }
+
 }

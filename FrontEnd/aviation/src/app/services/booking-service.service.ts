@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Booking } from '../class/booking';
 import { Boardingpass } from '../class/boardingpass';
+import { StorageServiceService } from './storage-service.service';
 
 const bookingURL = 'http://localhost:8080/booking';
 
@@ -15,7 +16,7 @@ export class BookingServiceService {
   apiUrl = 'http://localhost:8080/booking';
 
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router, public storageService: StorageServiceService) { }
 
   bookFlight(userId: number, flightId: number): Observable<any> {
     const url = `${bookingURL}/${userId}/flights/${flightId}`;
@@ -32,14 +33,13 @@ export class BookingServiceService {
     );
   }
 
-  getUserBookings(userId: number): Observable<Booking[]> {
-    const url = `${bookingURL}/user/${userId}`;
+
+  bookings(userId: number): Observable<Booking[]> {
+    const url = `${this.apiUrl}/user/${userId}/bookings`;
     return this.httpClient.get<Booking[]>(url);
   }
 
-  getBoardingPasses(bookingId: number): Observable<Boardingpass[]> {
-    const url = `${this.apiUrl}/booking/${bookingId}/boarding-passes`;
-    return this.httpClient.get<Boardingpass[]>(url);
-  }
+
+
 
 }

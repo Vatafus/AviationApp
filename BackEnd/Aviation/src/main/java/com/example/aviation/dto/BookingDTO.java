@@ -15,6 +15,5 @@ import java.util.List;
 @Builder
 public class BookingDTO {
     private Long userId;
-    private List<BookingsBoardingPassDTO> bookings;
     private List<BoardingPass> boardingPasses;
 }

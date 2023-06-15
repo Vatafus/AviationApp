@@ -28,6 +28,7 @@ public class WebSecurityConfig {
             "/booking/{userId}/flights/{flightId}",
             "/booking/{bookingId}/boarding-passes",
             "/booking/user/{userId}",
+            "/booking/user/{userId}/bookings",
             "/user/login",
             "/user/register"
     };

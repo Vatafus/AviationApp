@@ -6,6 +6,7 @@ import com.example.aviation.domain.User;
 import com.example.aviation.dto.BookingDTO;
 import com.example.aviation.repo.BoardingPassRepo;
 import com.example.aviation.repo.BookingRepo;
+import com.example.aviation.repo.UserRepo;
 import com.example.aviation.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,27 +21,25 @@ import java.util.List;
 public class BookingController {
 private BookingService bookingService;
 
+private UserRepo userRepo;
 private BoardingPassRepo boardingPassRepo;
 private BookingRepo bookingRepo;
 
     @Autowired
-    public BookingController(BookingService bookingService, BookingRepo bookingRepo, BoardingPassRepo boardingPassRepo) {
+    public BookingController(UserRepo userRepo, BookingService bookingService, BookingRepo bookingRepo, BoardingPassRepo boardingPassRepo) {
         this.bookingService = bookingService;
+        this.userRepo = userRepo;
         this.bookingRepo = bookingRepo;
         this.boardingPassRepo = boardingPassRepo;
     }
 
-@PostMapping("/{userId}/flights/{flightId}")
-@ResponseBody
-public Booking bookFlight(@PathVariable Long userId, @PathVariable Long flightId) {
-    return bookingService.bookFlight(userId, flightId);
-}
-
-    @GetMapping("/user/{userId}")
-    public ResponseEntity<BookingDTO> getUserBookings(@PathVariable Long userId) {
-        BookingDTO userBookingsDTO = bookingService.getUserBookings(userId);
-        return ResponseEntity.ok(userBookingsDTO);
+    @PostMapping("/{userId}/flights/{flightId}")
+    @ResponseBody
+    public Booking bookFlight(@PathVariable Long userId, @PathVariable Long flightId) {
+        return bookingService.bookFlight(userId, flightId);
     }
+
+
 
     @PostMapping("/{bookingId}/boarding-passes")
     public ResponseEntity<String> addBoardingPassToBooking(
@@ -54,4 +53,14 @@ public Booking bookFlight(@PathVariable Long userId, @PathVariable Long flightId
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
     }
+
+
+    @GetMapping("/user/{userId}/bookings")
+    public List<Booking> getUserBookings(@PathVariable Long userId) {
+        User user = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("Utilizatorul nu a fost găsit."));
+        return bookingRepo.findByUserid(user);
+    }
+
+
+
 }
