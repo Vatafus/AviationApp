@@ -34,11 +34,27 @@ export class BookingServiceService {
   }
 
 
-  bookings(userId: number): Observable<Booking[]> {
-    const url = `${this.apiUrl}/user/${userId}/bookings`;
-    return this.httpClient.get<Booking[]>(url);
+  getUserBookingsWithBoardingPasses(userId: number): Observable<any> {
+    const url = `${this.apiUrl}/user/${userId}/bookings-with-boarding-passes`;
+    const headers = this.createdAuthorizationHeader();
+    return this.httpClient.get<any>(url, { headers });
   }
 
+
+  // getUserBookings(userId: number): Observable<any> {
+  //   return this.httpClient.get<any>(`${this.apiUrl}/${userId}/bookings`, { headers: this.createdAuthorizationHeader() });
+  // }
+
+
+  createdAuthorizationHeader(): HttpHeaders {
+    let authHeader: HttpHeaders = new HttpHeaders();
+    console.log(this.storageService.getToken());
+    return authHeader.set(
+      "Authorization",
+      "Bearer " + this.storageService.getToken()
+
+    )
+  }
 
 
 

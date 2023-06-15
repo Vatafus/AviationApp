@@ -96,6 +96,7 @@ public class UserController {
             throw new BadCredentialsException("Incorrect username or password.");
         } catch (DisabledException disabledException) {
             response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "User is not activated");
+            response.getWriter().close();
             return;
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(loginDTO.getUsername());

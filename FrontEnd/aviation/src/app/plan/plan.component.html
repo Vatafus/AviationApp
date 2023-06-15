@@ -1,20 +1,19 @@
-<h1>Plan Component</h1>
+<app-navbar></app-navbar>
+<h1 class="title">My Bookings</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Booking ID</th>
-            <th>Leaving From</th>
-            <th>Arriving At</th>
-            <th>Leaving Date</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let booking of bookings">
-            <td>{{ booking.id }}</td>
-            <td>{{ booking.leavingFrom }}</td>
-            <td>{{ booking.arrivingAt }}</td>
-            <td>{{ booking.leavingDate | date }}</td>
-        </tr>
-    </tbody>
-</table>
+<div *ngIf="bookings" class="bookings-container">
+    <div *ngFor="let booking of bookings" class="booking-card">
+        <h2 class="booking-id">Booking id: #{{ booking.id }}</h2>
+        <p class="booking-info">From: {{ booking.leavingfrom }}</p>
+        <p class="booking-info">Arriving At: {{ booking.arrivingat }}</p>
+        <p class="booking-info">Leaving Date: {{ booking.leavingdate }}</p>
+
+        <div *ngIf="booking.boardingPasses && booking.boardingPasses.length > 0" class="boarding-passes">
+            <h3 class="boarding-passes-title">Boarding Pass:</h3>
+            <div *ngFor="let boardingPass of booking.boardingPasses" class="boarding-pass">
+                <p class="boarding-pass-info">Name: {{ boardingPass.name }}</p>
+                <p class="boarding-pass-info">Identify Card Id: {{ boardingPass.identifycard }}</p>
+            </div>
+        </div>
+    </div>
+</div>

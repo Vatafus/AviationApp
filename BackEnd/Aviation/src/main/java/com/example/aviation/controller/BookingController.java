@@ -55,10 +55,32 @@ private BookingRepo bookingRepo;
     }
 
 
+
     @GetMapping("/user/{userId}/bookings")
-    public List<Booking> getUserBookings(@PathVariable Long userId) {
-        User user = userRepo.findById(userId).orElseThrow(() -> new RuntimeException("Utilizatorul nu a fost găsit."));
-        return bookingRepo.findByUserid(user);
+    public ResponseEntity<List<Booking>> getBookingsByUserId(@PathVariable Long userId) {
+        User user = userRepo.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        List<Booking> bookings = bookingService.getBookingsByUserId(user);
+
+        if (bookings.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(bookings, HttpStatus.OK);
+        }
+    }
+
+
+
+    @GetMapping("/user/{userId}/bookings-with-boarding-passes")
+    public ResponseEntity<List<BookingDTO>> getBookingsWithBoardingPassesByUserId(@PathVariable Long userId) {
+        List<BookingDTO> bookings = bookingService.getBookingsWithBoardingPassesByUserId(userId);
+
+        if (bookings.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<>(bookings, HttpStatus.OK);
+        }
     }
 
 

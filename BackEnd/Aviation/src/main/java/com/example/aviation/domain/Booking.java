@@ -1,6 +1,7 @@
 package com.example.aviation.domain;
 
 import com.example.aviation.dto.BookingDTO;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -36,6 +37,7 @@ public class Booking {
 
     @OneToMany
     @JoinColumn(name ="booking")
+    @JsonBackReference
     private List<BoardingPass> boardingPasses = new ArrayList<>();
 
     @Column(name="leavingfrom")

@@ -11,23 +11,25 @@ import { Boardingpass } from '../class/boardingpass';
 })
 export class PlanComponent implements OnInit {
 
-  bookings: Booking[] = [];
+  bookings: any;
 
   constructor(private bookingService: BookingServiceService, private storageService: StorageServiceService) { }
 
   ngOnInit(): void {
-
     const userId = this.storageService.getUser();
-    this.bookingService.bookings(userId).subscribe(
-      (bookings: Booking[]) => {
-        this.bookings = bookings;
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+    this.getUserBookingsWithBoardingPasses(userId);
+  }
 
-
+  getUserBookingsWithBoardingPasses(userId: number): void {
+    this.bookingService.getUserBookingsWithBoardingPasses(userId)
+      .subscribe(
+        (data: any) => {
+          this.bookings = data;
+        },
+        (error: any) => {
+          console.error(error);
+        }
+      );
   }
 
 }
