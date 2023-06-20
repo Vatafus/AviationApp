@@ -55,6 +55,9 @@ public class UserService {
         if (this.isThereAlreadySuchEmail(registerRequest.getEmail())) {
             throw new UserRegistrationException("Already Such email!");
         }
+        if (!registerRequest.getPassword().equals(registerRequest.getCpassword())) {
+            throw new UserRegistrationException("Password and Confirm Password do not match!");
+        }
         User user = new User();
         user.setEmail(registerRequest.getEmail());
         user.setUserRole(UserRole.USER);
