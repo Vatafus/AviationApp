@@ -28,5 +28,14 @@ public class BoardingPass {
     @JsonBackReference
     private Booking booking;
 
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
+    public void removeBooking() {
+        this.booking = null;
+    }
+
+
 
 }

@@ -16,6 +16,8 @@ import java.util.Set;
 public interface BookingRepo extends JpaRepository<Booking,Long> {
     List<Booking> findByUserid(User userid);
 
+    List<Booking> findByFlightsid(Flights flights);
+
     @Query("SELECT COUNT(bp) FROM Booking b JOIN b.boardingPasses bp WHERE b.flightsid = :flight")
     int countBoardingPassesByFlightsid(@Param("flight") Flights flight);
 }

@@ -1,8 +1,12 @@
 package com.example.aviation.controller;
 
 
+import com.example.aviation.domain.BoardingPass;
+import com.example.aviation.domain.Booking;
 import com.example.aviation.domain.Flights;
 import com.example.aviation.dto.FlightsDTO;
+import com.example.aviation.repo.BoardingPassRepo;
+import com.example.aviation.repo.BookingRepo;
 import com.example.aviation.repo.FlightsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -10,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -20,6 +26,11 @@ public class AdminController {
     @Autowired
     FlightsRepo flightsRepo;
 
+    @Autowired
+    BookingRepo bookingRepo;
+
+    @Autowired
+    BoardingPassRepo boardingPassRepo;
 
     @PostMapping("/create/flight")
     public Flights createFlight(@RequestBody Flights flights){
@@ -43,6 +54,18 @@ public class AdminController {
     @DeleteMapping("/delete/flight/{id}")
     public ResponseEntity<Map<String,Boolean>>deleteFlight(@PathVariable Long id){
         Flights flights = flightsRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Flight not exist with id" + id));
+        List<Booking> bookings = bookingRepo.findByFlightsid(flights);
+        for(Booking booking : bookings) {
+            Iterator<BoardingPass> iterator = booking.getBoardingPasses().iterator();
+
+            while(iterator.hasNext()) {
+                BoardingPass boardingPass = iterator.next();
+                iterator.remove(); 
+                boardingPass.setBooking(null);
+                boardingPassRepo.delete(boardingPass);
+            }
+            bookingRepo.delete(booking);
+        }
         flightsRepo.delete(flights);
         Map<String,Boolean>response = new HashMap<>();
         response.put("delete",Boolean.TRUE);

@@ -61,4 +61,9 @@ public class Booking {
         return boardingPasses;
     }
 
+    public void removeBoardingPass(BoardingPass boardingPass){
+        boardingPasses.remove(boardingPass);
+        boardingPass.removeBooking();
+    }
+
 }
