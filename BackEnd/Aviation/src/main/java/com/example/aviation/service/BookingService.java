@@ -1,15 +1,9 @@
 package com.example.aviation.service;
 
-import com.example.aviation.domain.BoardingPass;
-import com.example.aviation.domain.Booking;
-import com.example.aviation.domain.Flights;
-import com.example.aviation.domain.User;
+import com.example.aviation.domain.*;
 import com.example.aviation.dto.BoardingPassDTO;
 import com.example.aviation.dto.BookingDTO;
-import com.example.aviation.repo.BoardingPassRepo;
-import com.example.aviation.repo.BookingRepo;
-import com.example.aviation.repo.FlightsRepo;
-import com.example.aviation.repo.UserRepo;
+import com.example.aviation.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,15 +18,17 @@ public class BookingService {
 
     private BookingRepo bookingRepo;
 
+    private ArchivedRepo archivedRepo;
     private BoardingPassRepo boardingPassRepo;
 
 
     @Autowired
-    public BookingService(UserRepo userRepository, FlightsRepo flightRepository, BookingRepo bookingRepo,BoardingPassRepo boardingPassRepo) {
+    public BookingService(ArchivedRepo archivedRepo,UserRepo userRepository, FlightsRepo flightRepository, BookingRepo bookingRepo,BoardingPassRepo boardingPassRepo) {
         this.userRepo = userRepository;
         this.flightsRepo = flightRepository;
         this.bookingRepo = bookingRepo;
         this.boardingPassRepo = boardingPassRepo;
+        this.archivedRepo = archivedRepo;
     }
 
 
@@ -75,6 +71,13 @@ public class BookingService {
 
 
         Booking savedBooking = bookingRepo.save(booking);
+        Archived archived = new Archived();
+        archived.setUserid(user);
+        archived.setId(savedBooking.getId());
+        archived.setLeavingfrom(savedBooking.getLeavingfrom());
+        archived.setArrivingat(savedBooking.getArrivingat());
+        archived.setLeavingdate(savedBooking.getLeavingdate());
+        archivedRepo.save(archived);
         return savedBooking;
     }
 
@@ -119,8 +122,25 @@ public class BookingService {
     }
 
 
+    public void markCanceledBookingsInArchived() {
+        List<Archived> archivedBookings = archivedRepo.findAll();
+        List<Booking> bookings = bookingRepo.findAll();
 
+        for (Archived archived : archivedBookings) {
+            boolean existsInBooking = false;
+            for (Booking booking : bookings) {
+                if (archived.getId().equals(booking.getId())) {
+                    existsInBooking = true;
+                    break;
+                }
+            }
+            if (!existsInBooking) {
+                archived.setCanceled(true);
+                archivedRepo.save(archived);
+            }
+        }
 
+    }
 
 
 }

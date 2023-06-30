@@ -20,4 +20,5 @@ public class BookingDTO {
     private String arrivingat;
     private Date leavingdate;
     private List<BoardingPassDTO> boardingPasses;
+    private boolean canceled;
 }

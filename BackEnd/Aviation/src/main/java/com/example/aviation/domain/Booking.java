@@ -49,6 +49,9 @@ public class Booking {
     @Column(name="leavingdate")
     private Date leavingdate;
 
+    @Column(name = "canceled") // Adăugăm proprietatea canceled
+    private boolean canceled;
+
     public void addBoardingPass(BoardingPass boardingPass){
         if(boardingPasses.size() >= 10){
             throw  new RuntimeException("Nu se pot adauga mai mult de 3 boarding passuri");

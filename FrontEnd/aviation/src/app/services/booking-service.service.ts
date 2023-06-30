@@ -56,6 +56,11 @@ export class BookingServiceService {
     )
   }
 
+  markCanceledBookingsInArchived(): Observable<any> {
+    const url = `http://localhost:4200/admin/mark-canceled-bookings`;
+    return this.httpClient.post(url, null);
+  }
+
 
 
 }

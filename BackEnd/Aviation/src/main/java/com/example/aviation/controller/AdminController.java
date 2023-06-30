@@ -5,6 +5,7 @@ import com.example.aviation.domain.BoardingPass;
 import com.example.aviation.domain.Booking;
 import com.example.aviation.domain.Flights;
 import com.example.aviation.dto.FlightsDTO;
+import com.example.aviation.repo.ArchivedRepo;
 import com.example.aviation.repo.BoardingPassRepo;
 import com.example.aviation.repo.BookingRepo;
 import com.example.aviation.repo.FlightsRepo;
@@ -28,6 +29,9 @@ public class AdminController {
 
     @Autowired
     BookingRepo bookingRepo;
+
+    @Autowired
+    ArchivedRepo archivedRepo;
 
     @Autowired
     BoardingPassRepo boardingPassRepo;
@@ -60,15 +64,22 @@ public class AdminController {
 
             while(iterator.hasNext()) {
                 BoardingPass boardingPass = iterator.next();
-                iterator.remove(); 
+                iterator.remove();
                 boardingPass.setBooking(null);
                 boardingPassRepo.delete(boardingPass);
             }
+            booking.setCanceled(true); // Setați proprietatea canceled pe true
+            bookingRepo.save(booking);
             bookingRepo.delete(booking);
         }
         flightsRepo.delete(flights);
         Map<String,Boolean>response = new HashMap<>();
         response.put("delete",Boolean.TRUE);
         return ResponseEntity.ok(response);
+    }
+
+    @PostMapping("/mark-canceled-bookings")
+    public void markCanceledBookingsInArchived() {
+        archivedRepo.markCanceledBookings();
     }
 }
