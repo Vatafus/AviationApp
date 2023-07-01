@@ -3,6 +3,7 @@ import { BookingServiceService } from '../services/booking-service.service';
 import { StorageServiceService } from '../services/storage-service.service';
 import { Booking } from '../class/booking';
 import { Boardingpass } from '../class/boardingpass';
+import { FlightSearch } from '../class/flight-search';
 
 @Component({
   selector: 'app-plan',
@@ -25,6 +26,7 @@ export class PlanComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.bookings = data;
+          console.log(data);
         },
         (error: any) => {
           console.error(error);

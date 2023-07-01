@@ -43,7 +43,7 @@ export class FlightSearchComponent implements OnInit {
 
   onSubmit(): void {
     const { leavingfrom, arrivingat, leavingdate } = this.form;
-    this.search.GetFlights(leavingfrom, arrivingat, leavingdate).subscribe(data => {
+    this.search.GetFlights(leavingfrom, arrivingat, leavingdate, true).subscribe(data => {
       console.log(data);
       this.result = data;
       // console.log(this.result);

@@ -7,10 +7,8 @@
         <p class="booking-info">From: {{ booking.leavingfrom }}</p>
         <p class="booking-info">Arriving At: {{ booking.arrivingat }}</p>
         <p class="booking-info">Leaving Date: {{ booking.leavingdate }}</p>
+        <p class="booking-info">Status: {{ booking.canceled ? 'Activ' : 'Inactiv' }}</p>
 
-        <div *ngIf="booking.canceled" class="canceled-message">
-            This booking has been canceled due to the deletion of the associated flight.
-        </div>
 
         <div *ngIf="booking.boardingPasses && booking.boardingPasses.length > 0" class="boarding-passes">
             <h3 class="boarding-passes-title">Boarding Pass:</h3>
@@ -19,5 +17,9 @@
                 <p class="boarding-pass-info">Identify Card Id: {{ boardingPass.identifycard }}</p>
             </div>
         </div>
+
+
+
     </div>
+
 </div>

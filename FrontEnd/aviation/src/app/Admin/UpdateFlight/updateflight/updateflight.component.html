@@ -52,6 +52,14 @@
             <label>Departure Hour</label>
             <input type="text" class="form-control" id="hrs" [(ngModel)]="flight.hrs" name="hrs">
         </div>
+
+        <div id="form-group">
+            <label>Status</label>
+            <select class="form-control" id="isActive" [(ngModel)]="flight.isActive" name="isActive">
+                <option value="true">Active</option>
+                <option value="false">Canceled</option>
+            </select>
+        </div>
     </div>
     <button type="submit" class="button2 btn btn-primary btn-block mb-4">Update</button>
 </form>

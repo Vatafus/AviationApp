@@ -6,3 +6,21 @@
 button {
     width: 10px;
 } */
+
+
+.bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+.active {
+    background-color: green;
+}
+
+.canceled {
+    background-color: red;
+}

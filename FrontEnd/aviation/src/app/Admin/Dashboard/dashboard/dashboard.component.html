@@ -10,6 +10,7 @@
                 <th>Leaving Date</th>
                 <th>Number of Seats</th>
                 <th>Hour of Departure</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -21,6 +22,8 @@
                 <td>{{flight.leavingdate}}</td>
                 <td>{{flight.nrseats}}</td>
                 <td>{{flight.hrs}}</td>
+                <td><span class="bullet" [ngClass]="{'active': flight.isActive, 'canceled': !flight.isActive}"></span>
+                </td>
                 <td>
                     <button (click)="updateFlight(flight.id)" class="btn btn-info">Update</button>
                     <button (click)="deleteFlight(flight.id)" class="btn btn-danger"

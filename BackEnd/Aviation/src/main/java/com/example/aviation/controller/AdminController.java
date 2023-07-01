@@ -38,6 +38,7 @@ public class AdminController {
 
     @PostMapping("/create/flight")
     public Flights createFlight(@RequestBody Flights flights){
+        flights.setIsActive(true);
         return flightsRepo.save(flights);
     }
 
@@ -50,6 +51,7 @@ public class AdminController {
         flights.setNrseats(flightsDetails.getNrseats());
         flights.setLeavingdate(flightsDetails.getLeavingdate());
         flights.setHrs(flightsDetails.getHrs());
+        flights.setIsActive(flightsDetails.getIsActive());
 
         Flights updateFlight = flightsRepo.save(flights);
         return ResponseEntity.ok(updateFlight);

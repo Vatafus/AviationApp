@@ -39,11 +39,16 @@ public class Flights {
     @Column(name = "NumberOfSeats")
     private Integer nrseats;
 
-    public Flights(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats,String hrs) {
+    @Column(name = "is_active")
+    private Boolean isActive;
+
+    public Flights(String leavingfrom, String arrivingat, Date leavingdate, Integer nrseats,String hrs,Boolean isActive) {
         this.leavingfrom = leavingfrom;
         this.arrivingat = arrivingat;
         this.leavingdate = leavingdate;
         this.nrseats = nrseats;
         this.hrs = hrs;
+        this.isActive = isActive;
     }
+
 }

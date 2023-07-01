@@ -24,7 +24,7 @@ export class SearchFlightService {
     return this.httpClient.get<FlightSearch[]>(this.GetAllFlights, { headers: this.createdAuthorizationHeader() });
   }
 
-  public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any): Observable<FlightSearch[]> {
+  public GetFlights(leavingfrom: any, arrivingat: any, leavingdate: any, isActive: boolean): Observable<FlightSearch[]> {
     return this.httpClient.get<FlightSearch[]>(this.FlightSearchApi + leavingfrom + "/" + arrivingat + "/" + leavingdate, { headers: this.createdAuthorizationHeader() });
   }
 

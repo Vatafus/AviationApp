@@ -47,7 +47,8 @@ public class FlightsController {
 
     @GetMapping("/find/{leavingfrom}/{arrivingat}/{leavingdate}")
     public List<Flights> getFlights(@PathVariable String leavingfrom, @PathVariable String arrivingat, @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date leavingdate, Integer nrseats, String hrs) {
-        return flightsService.findeAllFlightsAfterLeaving(leavingfrom, arrivingat, leavingdate,nrseats,hrs);
+        Boolean isActive = true;
+        return flightsService.findeAllFlightsAfterLeaving(leavingfrom, arrivingat, leavingdate,nrseats,hrs,isActive);
     }
 
     @GetMapping("/all-flights")

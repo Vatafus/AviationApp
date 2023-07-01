@@ -5,5 +5,7 @@ export class FlightSearch {
     leavingdate!: string;
     nrseats!: number;
     hrs!: string;
+    isActive!: boolean;
+
     // flight?:Array<{leavingfrom:String ,arrivingat:String,leavingdate:string}>;
 }

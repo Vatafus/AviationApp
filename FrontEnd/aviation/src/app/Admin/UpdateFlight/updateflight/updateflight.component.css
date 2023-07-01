@@ -20,3 +20,8 @@ input {
 label {
     padding-left: 512px;
 }
+
+select {
+    width: 300px;
+    margin-left: 510px;
+}

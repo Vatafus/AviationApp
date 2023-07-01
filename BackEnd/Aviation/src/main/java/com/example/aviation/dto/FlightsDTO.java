@@ -32,11 +32,15 @@ public class FlightsDTO {
     private Integer nrseats;
 
 
+    private Boolean isActive;
+
+
     public FlightsDTO(Flights flights) {
         this.leavingfrom = flights.getLeavingfrom();
         this.arrivingat = flights.getArrivingat();
         this.leavingdate = flights.getLeavingdate();
         this.nrseats = flights.getNrseats();
+        this.isActive = flights.getIsActive();
     }
 
 }

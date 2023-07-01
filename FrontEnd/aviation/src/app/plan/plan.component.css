@@ -57,3 +57,19 @@
     font-size: 14px;
     margin-bottom: 2px;
 }
+
+.active {
+    color: green;
+}
+
+.canceled {
+    color: red;
+}
+
+.booking-info.active {
+    color: green;
+}
+
+.booking-info.inactive {
+    color: red;
+}

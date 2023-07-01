@@ -10,5 +10,4 @@ export class Booking {
     leavingFrom: string;
     arrivingAt: string;
     leavingDate: Date;
-    canceled: boolean;
 }

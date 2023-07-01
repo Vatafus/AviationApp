@@ -14,9 +14,11 @@ import java.util.List;
 @Repository
 public interface FlightsRepo extends JpaRepository<Flights,Long> {
 
-    public List<Flights> findByLeavingfromAndArrivingatAndLeavingdate(String leavingfrom, String arrivingat, Date leavingdate);
+    public List<Flights> findByLeavingfromAndArrivingatAndLeavingdateAndIsActive(String leavingfrom, String arrivingat, Date leavingdate,Boolean isActive);
 
     public Flights findFlightsById(long id);
     public List<Flights> findAll();
+
+    public List<Flights> findAllByIsActive(Boolean isActive);
 
 }

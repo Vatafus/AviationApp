@@ -69,6 +69,14 @@ public class BookingService {
         booking.setLeavingfrom(flight.getLeavingfrom());
         booking.setLeavingdate(flight.getLeavingdate());
 
+        Flights flightSearch = new Flights();
+        flightSearch.setId(flight.getId());
+        flightSearch.setLeavingfrom(flight.getLeavingfrom());
+        flightSearch.setArrivingat(flight.getArrivingat());
+        flightSearch.setLeavingdate(flight.getLeavingdate());
+        flightSearch.setIsActive(flight.getIsActive());
+        booking.setFlightsid(flightSearch);
+
 
         Booking savedBooking = bookingRepo.save(booking);
         Archived archived = new Archived();
@@ -113,6 +121,7 @@ public class BookingService {
             bookingDTO.setLeavingfrom(booking.getLeavingfrom());
             bookingDTO.setArrivingat(booking.getArrivingat());
             bookingDTO.setLeavingdate(booking.getLeavingdate());
+            bookingDTO.setCanceled(booking.getFlightsid().getIsActive());
             bookingDTO.setBoardingPasses(boardingPassDTOs);
 
             bookingDTOs.add(bookingDTO);
